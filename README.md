@@ -11,12 +11,18 @@ bower install
 
 ## Gulp tasks:
 
-For updating new images:
-```
-gulp resize_images
-```
-
 For dev preview:
 ```
 gulp
+```
+## Deploy
+
+For pushing to staging for dev preview:
+```
+git push staging master
+```
+
+For promoting to production:
+```
+heroku pipelines:promote -r staging
 ```
