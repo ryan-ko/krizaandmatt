@@ -28,7 +28,6 @@ var mailchimpInstance   = 'us14',
     mailchimpApiKey     = '620cd4e6f4a44d5265f0d6489bda3412-us14';
 
 app.post('/rsvped', function (req, res) {
-	console.log('req.body');
 	request
 	  .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
 	  .set('Content-Type', 'application/json;charset=utf-8')
@@ -37,15 +36,15 @@ app.post('/rsvped', function (req, res) {
 	    'email_address': req.body.email,
 	    'status': 'subscribed',
 	    'merge_fields': {
-	      'FNAME': req.body.firstName,
-	      'LNAME': req.body.lastName
+	      'FNAME': req.body.firstname,
+	      'LNAME': 'NA'
 	    }
 	  })
     .end(function(err, response) {
       if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
-        res.sendFile(__dirname + '/public/rsvped.html');
+        res.send('Signed Up!');
       } else {
-      	console.log('signup failed');
+      	res.send('Sign Up Failed');
       }
   });
 
