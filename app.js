@@ -36,8 +36,9 @@ app.post('/rsvped', function (req, res) {
 	    'email_address': req.body.email,
 	    'status': 'subscribed',
 	    'merge_fields': {
-	      'FNAME': req.body.firstname,
-	      'LNAME': 'NA'
+	      'NAME': req.body.firstname,
+	      'PO': req.body.plusone,
+	      'PONAME': req.body.plusonename
 	    }
 	  })
     .end(function(err, response) {
