@@ -24,30 +24,30 @@ app.get('/', function(req, res) {
 });
 
 var mailchimpInstance   = 'us14',
-    listUniqueId        = '5a39f7dd65',
-    mailchimpApiKey     = '620cd4e6f4a44d5265f0d6489bda3412-us14';
+		listUniqueId        = '5a39f7dd65',
+		mailchimpApiKey     = '620cd4e6f4a44d5265f0d6489bda3412-us14';
 
 app.post('/rsvped', function (req, res) {
 	request
-	  .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
-	  .set('Content-Type', 'application/json;charset=utf-8')
-	  .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey ).toString('base64'))
-	  .send({
-	    'email_address': req.body.email,
-	    'status': 'subscribed',
-	    'merge_fields': {
-	      'NAME': req.body.firstname,
-	      'PO': req.body.plusone,
-	      'PONAME': req.body.plusonename
-	    }
-	  })
-    .end(function(err, response) {
-      if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
-        res.send('Signed Up!');
-      } else {
-      	res.send('Sign Up Failed');
-      }
-  });
+		.post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
+		.set('Content-Type', 'application/json;charset=utf-8')
+		.set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey ).toString('base64'))
+		.send({
+			'email_address': req.body.email,
+			'status': 'subscribed',
+			'merge_fields': {
+				'NAME': req.body.firstname,
+				'PO': req.body.plusone,
+				'PONAME': req.body.plusonename
+			}
+		})
+		.end(function(err, response) {
+			if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
+				res.send('Signed Up!');
+			} else {
+				res.send('Sign Up Failed');
+			}
+	});
 
 });
 
