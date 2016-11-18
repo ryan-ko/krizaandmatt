@@ -4,6 +4,7 @@
 @import 'shared/resets';
 @import 'shared/standards';
 @import 'shared/util';
+@import 'shared/swiper';
 @import 'core/login';
 
 #main {
@@ -17,3 +18,58 @@
 		pointer-events: auto;
 	}
 }
+
+#rsvp-form {
+	display: none;
+}
+
+.swiper-container {
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	&:nth-child(1) {
+		background: #f2f2f2;
+	}
+	&:nth-child(3) {
+		background: #f2f2f2;
+	}
+	&:nth-child(5) {
+		background: #f2f2f2;
+	}
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets {
+	left: 20px;
+	bottom: -74px;
+	top: auto;
+}
+
+.swiper-pagination-bullet {
+	width: 12px;
+	height: 12px;
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: 12px;
+}
+
+.swiper-pagination-bullet {
+	background: transparent;
+	border: 1px solid #444;
+	opacity: 0.8;
+}
+.swiper-pagination-bullet-active {
+	background: #444444;
+	opacity: 1;
+}
+
+
+
+
