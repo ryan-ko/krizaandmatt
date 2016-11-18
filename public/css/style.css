@@ -761,8 +761,8 @@ button.swiper-pagination-bullet {
 
 #auth .bg {
   width: 1718px;
-  -webkit-transform: perspective(400px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
-          transform: perspective(400px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
+  -webkit-transform: perspective(1000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
+          transform: perspective(1000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
   z-index: 0;
   height: 1029px;
   opacity: 1;
@@ -777,8 +777,8 @@ button.swiper-pagination-bullet {
 }
 
 .passwordMode #auth .bg {
-  -webkit-transform: perspective(600px) scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -100px) !important;
-          transform: perspective(600px) scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -100px) !important;
+  -webkit-transform: perspective(1000px) scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -200px) !important;
+          transform: perspective(1000px) scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -200px) !important;
   opacity: 1;
 }
 

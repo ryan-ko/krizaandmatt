@@ -55,7 +55,7 @@
 	}
 	.bg {
 		width: 1718px;
-		transform: perspective(400px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
+		transform: perspective(1000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
 		z-index: 0;
 		height: 1029px;
 		opacity: 1;
@@ -64,7 +64,7 @@
 		backface-visibility: hidden;
 
 		.passwordMode & {
-			transform: perspective(600px) scale3d(1.1, 1.1, 1.1) translate3d(0,0, -100px) !important;
+			transform: perspective(1000px) scale3d(1.1, 1.1, 1.1) translate3d(0,0, -200px) !important;
 			opacity: 1;
 		}
 	}
