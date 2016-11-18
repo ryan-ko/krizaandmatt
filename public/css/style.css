@@ -954,8 +954,8 @@ button.swiper-pagination-bullet {
 
 #landing .bg {
   width: 1718px;
-  -webkit-transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
-          transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
+  -webkit-transform: translate3d(0, 0, -200px) scale3d(1, 1, 1);
+          transform: translate3d(0, 0, -200px) scale3d(1, 1, 1);
   z-index: -1;
   height: 1029px;
   opacity: 1;
@@ -967,12 +967,6 @@ button.swiper-pagination-bullet {
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-}
-
-.passwordMode #landing .bg {
-  -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -1000px) !important;
-          transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -1000px) !important;
-  opacity: 1;
 }
 
 #landing .content-container {
