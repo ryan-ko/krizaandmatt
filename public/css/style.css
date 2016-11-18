@@ -167,8 +167,8 @@ img.full-bleed {
 
 #auth .bg {
   width: 1718px;
-  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-          transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  -webkit-transform: perspective(3000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
+          transform: perspective(3000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
   z-index: -1;
   height: 1029px;
   opacity: 1;
@@ -176,6 +176,10 @@ img.full-bleed {
   transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 .passwordMode #auth .bg {
@@ -200,11 +204,11 @@ img.full-bleed {
   display: block;
   margin: 0 auto;
   pointer-events: none;
+  opacity: 1;
+  -webkit-transform: perspective(600px) translate3d(0, 0, 0);
+          transform: perspective(600px) translate3d(0, 0, 0);
   -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
