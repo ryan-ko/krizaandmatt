@@ -11,14 +11,14 @@ var request = require('superagent');
 // var basicAuth = require('basic-auth-connect');
 var fs = require('fs');
 
-// var basic = auth.basic({
-// 	realm: " ",
-// 	file: "./htpasswd",
-// 	authType: "basic"
-// });
+var basic = auth.basic({
+	realm: " ",
+	file: "./htpasswd",
+	authType: "basic"
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(auth.connect(basic));
+app.use(auth.connect(basic));
 app.use(express.static('public'));
 
 // Synchronous
