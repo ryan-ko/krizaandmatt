@@ -34,6 +34,21 @@ RKO.APP = (function(window) {
 		$('#secretword-input').keydown(function(e) {
 			$('#login-error-msg').removeClass('show');
 		});
+		$(document).keydown(function(e) {
+			if ($('body').hasClass('introMode')) {
+				$('body').removeClass('introMode').addClass('passwordMode');
+				$('#secretword-input').focus();
+				console.log('Into password mode, leaving introMode');
+			}
+
+			if ($('body').hasClass('passwordMode')) {
+				if (e.keyCode === 27) {
+					$('body').addClass('introMode').removeClass('passwordMode');
+					$('#secretword-input').val('');
+					console.log('Into introMode, leaving passwordMode');
+				}
+			}
+		});
 		$('#login-form').submit(function(e) {
 			var url = $(this).attr('action');
 			$.ajax({

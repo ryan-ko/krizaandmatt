@@ -117,6 +117,17 @@ img.full-bleed {
   display: block;
   overflow: hidden;
   width: 100%;
+  -webkit-transform: translate3d(0, -40px, 0);
+          transform: translate3d(0, -40px, 0);
+  -webkit-transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  opacity: 0;
+}
+
+.passwordMode #auth .form-label {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 #auth input {
@@ -129,6 +140,17 @@ img.full-bleed {
   padding-bottom: 168px;
   overflow: hidden;
   width: 100%;
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+  -webkit-transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  opacity: 0;
+}
+
+.passwordMode #auth input {
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+  opacity: 1;
 }
 
 #auth input:focus {
@@ -137,10 +159,19 @@ img.full-bleed {
 
 #auth .bg {
   width: 1718px;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+          transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   z-index: -1;
   height: 1029px;
+  opacity: 1;
+  -webkit-transition: all 0.8s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.8s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.passwordMode #auth .bg {
+  -webkit-transform: scale3d(1.05, 1.05, 1.05);
+          transform: scale3d(1.05, 1.05, 1.05);
+  opacity: 1;
 }
 
 #auth .lock-panel {
@@ -159,6 +190,17 @@ img.full-bleed {
   display: block;
   margin: 0 auto;
   pointer-events: none;
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+  opacity: 1;
+}
+
+.passwordMode #auth .lock-icon {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
 }
 
 #auth .logo {
@@ -167,6 +209,17 @@ img.full-bleed {
   display: block;
   padding-top: 20px;
   pointer-events: none;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  opacity: 1;
+}
+
+.passwordMode #auth .logo {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 20px, 0);
+          transform: translate3d(0, 20px, 0);
 }
 
 #auth .password-panel {
@@ -176,6 +229,13 @@ img.full-bleed {
   padding: 70px 46px;
   opacity: 0;
   pointer-events: none;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.passwordMode #auth .password-panel {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 #auth #login-error-msg {
