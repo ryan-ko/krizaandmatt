@@ -99,4 +99,29 @@ img.full-bleed {
   width: 1718px;
   -webkit-transform: translate3d(-40px, 40px, 0);
           transform: translate3d(-40px, 40px, 0);
+  z-index: -1;
+}
+
+#auth .lock-panel {
+  position: absolute;
+  width: 500px;
+  margin: 0 auto;
+  top: 48%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+
+#auth .lock-icon {
+  z-index: 2;
+  width: 28px;
+  display: block;
+  margin: 0 auto;
+}
+
+#auth .logo {
+  width: 174px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 20px;
 }
