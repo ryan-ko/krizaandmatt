@@ -33,6 +33,7 @@
 	text-align: center;
 	font-size: 18px;
 	background: #fff;
+	overflow: hidden;
 
 	&:nth-child(1) {
 		background: #f2f2f2;
@@ -69,6 +70,80 @@
 	background: #444444;
 	opacity: 1;
 }
+
+#landing {
+	.bg {
+		width: 1718px;
+		transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
+		z-index: -1;
+		height: 1029px;
+		opacity: 1;
+		transition: transform 0.8s cubic-bezier(.215, .61, .355, 1);
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+
+		.passwordMode & {
+			transform: scale3d(1.1, 1.1, 1.1) translate3d(0,0,-1000px) !important;
+			opacity: 1;
+		}
+	}
+	.content-container {
+		top: 50%;
+		transform: translate3d(0, -50%, 0);
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.km-logo {
+		width: 72px;
+		display: block;
+		transform: perspective(600px) translate3d(0, 0, 0);
+		transition: all 0.4s cubic-bezier(.215, .61, .355, 1);
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+	}
+
+	.logo {
+		width: 266px;
+		display: block;
+		padding-top: 18px;
+		transform: perspective(600px) translate3d(0, 0, 0);
+		transition: all 0.4s cubic-bezier(.215, .61, .355, 1);
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+	}
+
+	ul {
+		overflow: hidden;
+		padding: 4px 0;
+		text-align: center;
+		margin: 0 auto;
+		left: 64px;
+		position: relative;
+
+		li {
+			font-family: 'proxima-nova', sans-serif;
+			display: inline-block;
+			width: 19.3%;
+			text-align: left;
+			position: relative;
+			padding: 0 20px;
+			box-sizing: border-box;
+			color: #444444;
+
+			span {
+				position: relative;
+				left: 0;
+				font-size: 15px;
+			}
+
+			&:first-child {
+				width: 29%;
+			}
+		}
+	}
+}
+
 
 
 

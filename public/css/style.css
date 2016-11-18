@@ -911,6 +911,7 @@ button.swiper-pagination-bullet {
   text-align: center;
   font-size: 18px;
   background: #fff;
+  overflow: hidden;
 }
 
 .swiper-slide:nth-child(1) {
@@ -949,4 +950,93 @@ button.swiper-pagination-bullet {
 .swiper-pagination-bullet-active {
   background: #444444;
   opacity: 1;
+}
+
+#landing .bg {
+  width: 1718px;
+  -webkit-transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
+          transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
+  z-index: -1;
+  height: 1029px;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.passwordMode #landing .bg {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -1000px) !important;
+          transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, -1000px) !important;
+  opacity: 1;
+}
+
+#landing .content-container {
+  top: 50%;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#landing .km-logo {
+  width: 72px;
+  display: block;
+  -webkit-transform: perspective(600px) translate3d(0, 0, 0);
+          transform: perspective(600px) translate3d(0, 0, 0);
+  -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#landing .logo {
+  width: 266px;
+  display: block;
+  padding-top: 18px;
+  -webkit-transform: perspective(600px) translate3d(0, 0, 0);
+          transform: perspective(600px) translate3d(0, 0, 0);
+  -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#landing ul {
+  overflow: hidden;
+  padding: 4px 0;
+  text-align: center;
+  margin: 0 auto;
+  left: 64px;
+  position: relative;
+}
+
+#landing ul li {
+  font-family: 'proxima-nova', sans-serif;
+  display: inline-block;
+  width: 19.3%;
+  text-align: left;
+  position: relative;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: #444444;
+}
+
+#landing ul li span {
+  position: relative;
+  left: 0;
+  font-size: 15px;
+}
+
+#landing ul li:first-child {
+  width: 29%;
 }
