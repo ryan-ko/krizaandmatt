@@ -183,8 +183,8 @@ img.full-bleed {
 }
 
 .passwordMode #auth .bg {
-  -webkit-transform: scale3d(1.08, 1.08, 1.08) translate3d(0, 0, 0) !important;
-          transform: scale3d(1.08, 1.08, 1.08) translate3d(0, 0, 0) !important;
+  -webkit-transform: scale3d(1.08, 1.08, 1.08) translate3d(0, 0, -1000px) !important;
+          transform: scale3d(1.08, 1.08, 1.08) translate3d(0, 0, -1000px) !important;
   opacity: 1;
 }
 
