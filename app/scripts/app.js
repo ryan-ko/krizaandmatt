@@ -69,8 +69,8 @@ RKO.APP = (function(window) {
 			var halfH = ( this.clientHeight / 2 );
 			var coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
 			var coorY = ( halfH - ( event.pageY - this.offsetTop ) );
-			var degX  = ( ( coorY / halfH ) * 12 ) + 'deg';
-			var degY  = ( ( coorX / halfW ) * -12 ) + 'deg';
+			var degX  = ( ( coorY / halfH ) * 13 ) + 'deg';
+			var degY  = ( ( coorX / halfW ) * -13 ) + 'deg';
 			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
 			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
