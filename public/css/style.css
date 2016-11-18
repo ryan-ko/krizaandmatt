@@ -276,3 +276,21 @@ img.full-bleed {
   line-height: 18px;
   letter-spacing: 0.01em;
 }
+
+#main {
+  -webkit-transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+  -webkit-transform: translate3d(0, 40px, 0);
+          transform: translate3d(0, 40px, 0);
+}
+
+.invitationMode #main {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}

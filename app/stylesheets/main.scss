@@ -5,3 +5,17 @@
 @import 'shared/standards';
 @import 'shared/util';
 @import 'core/login';
+
+#main {
+	transition: all 1s cubic-bezier(.55,0,.1,1);
+	opacity: 0;
+	pointer-events: none;
+	transition-delay: 0.4s;
+	transform: translate3d(0, 40px, 0);
+
+	.invitationMode & {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translate3d(0, 0, 0);
+	}
+}
