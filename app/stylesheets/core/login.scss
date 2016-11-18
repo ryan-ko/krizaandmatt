@@ -1,7 +1,7 @@
 #auth {
 	.bg {
 		width: 1718px;
-		transform: translate3d(-40px, 40px, 0);
+		transform: translate3d(0, 0, 0);
 		z-index: -1;
 	}
 	.lock-panel {
@@ -10,7 +10,7 @@
 		margin: 0 auto;
 		top: 48%;
 		left: 50%;
-		transform: translate3d(0, 0, 0);
+		transform: translate3d(-50%, -50%, 0);
 	}
 	.lock-icon {
 		z-index: 2;

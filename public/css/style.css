@@ -97,8 +97,8 @@ img.full-bleed {
 
 #auth .bg {
   width: 1718px;
-  -webkit-transform: translate3d(-40px, 40px, 0);
-          transform: translate3d(-40px, 40px, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
   z-index: -1;
 }
 
@@ -108,8 +108,8 @@ img.full-bleed {
   margin: 0 auto;
   top: 48%;
   left: 50%;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
 }
 
 #auth .lock-icon {
