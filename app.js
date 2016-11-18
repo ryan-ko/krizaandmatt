@@ -8,16 +8,21 @@ var http = require('http');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var request = require('superagent');
+// var basicAuth = require('basic-auth-connect');
+var fs = require('fs');
 
-var basic = auth.basic({
-	realm: " ",
-	file: "./htpasswd",
-	authType: "basic"
-});
+// var basic = auth.basic({
+// 	realm: " ",
+// 	file: "./htpasswd",
+// 	authType: "basic"
+// });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(auth.connect(basic));
+// app.use(auth.connect(basic));
 app.use(express.static('public'));
+
+// Synchronous
+// var auth = basicAuth('ryanko', '144');
 
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/public/index.html');
@@ -42,13 +47,25 @@ app.post('/rsvped', function (req, res) {
 			}
 		})
 		.end(function(err, response) {
-			if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
-				res.send('Signed Up!');
+			if (response.status < 300) {
+				res.send(JSON.stringify({ result: 'success' }));
+			} else if (response.status === 400 && response.body.title === 'Member Exists') {
+				res.send(JSON.stringify({ result: 'rsvp_existed' }));
 			} else {
-				res.send('Sign Up Failed');
+				res.send(JSON.stringify({ result: 'error' }));
 			}
-	});
+		}
+	);
+});
 
+app.post('/login', function (req, res) {
+	var secretWord = req.body.secretword;
+	if (secretWord.toString() === '12345') {
+		var markup = fs.readFileSync(__dirname + '/private/views/core.html', 'utf8');
+		res.send(JSON.stringify({ result: 'success', html: markup }));
+	} else {
+		res.send(JSON.stringify({ result: 'failed' }));
+	}
 });
 
 var server = http.createServer(app);

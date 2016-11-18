@@ -16,8 +16,10 @@
     "url": "www.krizaandmatt.com"
   },
   "dependencies": {
+    "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.15.2",
     "express": "^4.8.2",
+    "fs": "0.0.1-security",
     "http-auth": "^2.2.5",
     "superagent": "^2.3.0"
   },

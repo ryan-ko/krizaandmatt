@@ -15,10 +15,42 @@ RKO.APP = (function(window) {
 				$('#plusone-input').hide();
 			}
 		});
+
+		$('#rsvp-form').submit(function(e) {
+			var url = $(this).attr('action');
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: $(this).serialize(),
+				success: function(data) {
+					console.log('RSVP result:', data);
+				}
+			});
+			e.preventDefault();
+		});
 	};
 
 	app.init = function() {
-		app.bind();
+		$('#login-form').submit(function(e) {
+			var url = $(this).attr('action');
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: $(this).serialize(),
+				success: function(data) {
+					var data = $.parseJSON(data);
+					console.log('Login result:', data);
+					console.log('Login result(html):', data.html);
+					if (data.result === 'success') {
+						$('#main').html(data.html);
+						app.bind();
+					} else {
+						alert('Login failed');
+					}
+				}
+			});
+			e.preventDefault();
+		});
 	};
 
 	return app;
