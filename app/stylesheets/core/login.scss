@@ -3,6 +3,8 @@
 	height: 100%;
 	transition: opacity 1s cubic-bezier(.55,0,.1,1);
 	position: absolute;
+	background-color: #d79074;
+
 	.invitationMode & {
 		opacity: 0;
 		pointer-events: none;
@@ -54,7 +56,7 @@
 	.bg {
 		width: 1718px;
 		transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
-		z-index: -1;
+		z-index: 0;
 		height: 1029px;
 		opacity: 1;
 		transition: transform 0.8s cubic-bezier(.215, .61, .355, 1);
@@ -73,6 +75,7 @@
 		top: 48%;
 		left: 50%;
 		transform: translate3d(-50%, -50%, 0);
+		z-index: 10;
 	}
 	.lock-icon {
 		z-index: 2;
@@ -115,6 +118,8 @@
 		opacity: 0;
 		pointer-events: none;
 		transition: opacity 0.3s ease;
+		position: absolute;
+		z-index: 30;
 
 		.passwordMode & {
 			opacity: 1;

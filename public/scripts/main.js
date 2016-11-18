@@ -48,6 +48,8 @@ RKO.APP = (function(window) {
 			coorY,
 			degX,
 			degY,
+			degXL,
+			degYL,
 			amountMovedX,
 			amountMovedY;
 
@@ -56,14 +58,17 @@ RKO.APP = (function(window) {
 			halfH = ( this.clientHeight / 2 );
 			coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
 			coorY = ( halfH - ( event.pageY - this.offsetTop ) );
-			degX  = ( ( coorY / halfH ) * 10 ) + 'deg';
-			degY  = ( ( coorX / halfW ) * -10 ) + 'deg';
+			degXL  = ( ( coorY / halfH ) * 20 ) + 'deg';
+			degYL  = ( ( coorX / halfW ) * -20 ) + 'deg';
+
+			degX  = ( ( coorY / halfH ) * 15 ) + 'deg';
+			degY  = ( ( coorX / halfW ) * -15 ) + 'deg';
+
 			amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
 			amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
-			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px) rotateX(' + degX + ') rotateY(' + degY + ')');
-			$('#landing .km-logo').css('transform', 'translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
-			$('#landing .logo').css('transform', 'translate3d(' + -amountMovedX/6 + 'px, ' + -amountMovedY/6 + 'px, 0) rotateX(' + degX + ') rotateY(' + degY + ')');
+			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/3 + 'px, ' + amountMovedY/3 + 'px, -200px)');
+			$('#landing .km-logo').css('transform', 'translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0) rotateX(' + degXL +') rotateY('+ degYL +')');
 		});
 	};
 

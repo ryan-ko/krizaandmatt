@@ -701,6 +701,7 @@ button.swiper-pagination-bullet {
   -webkit-transition: opacity 1s cubic-bezier(0.55, 0, 0.1, 1);
   transition: opacity 1s cubic-bezier(0.55, 0, 0.1, 1);
   position: absolute;
+  background-color: #d79074;
 }
 
 .invitationMode #auth {
@@ -762,7 +763,7 @@ button.swiper-pagination-bullet {
   width: 1718px;
   -webkit-transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
           transform: translate3d(0, 0, -20px) scale3d(1, 1, 1);
-  z-index: -1;
+  z-index: 0;
   height: 1029px;
   opacity: 1;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -789,6 +790,7 @@ button.swiper-pagination-bullet {
   left: 50%;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
+  z-index: 10;
 }
 
 #auth .lock-icon {
@@ -846,6 +848,8 @@ button.swiper-pagination-bullet {
   pointer-events: none;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
+  position: absolute;
+  z-index: 30;
 }
 
 .passwordMode #auth .password-panel {
@@ -950,6 +954,10 @@ button.swiper-pagination-bullet {
 .swiper-pagination-bullet-active {
   background: #444444;
   opacity: 1;
+}
+
+#landing {
+  background-color: #efefef;
 }
 
 #landing .bg {
