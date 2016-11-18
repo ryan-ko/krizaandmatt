@@ -6,13 +6,16 @@ RKO.APP = (function(window) {
 	};
 
 	app.bind = function() {
+		var $plusOneCheckbox = $('#plusone-checkbox-result'),
+			$plusOneInput = $('#plusone-input');
+
 		$(document).on('click', '#plusone-checkbox', function(e) {
 			if ($(e.target).is(':checked')) {
-				$('#plusone-checkbox-result').val('Yes')
-				$('#plusone-input').show();
+				$plusOneCheckbox.val('Yes');
+				$plusOneInput.removeClass('hidden');
 			} else {
-				$('#plusone-checkbox-result').val('No');
-				$('#plusone-input').hide();
+				$plusOneCheckbox.val('No');
+				$plusOneInput.addClass('hidden');
 			}
 		});
 
@@ -30,7 +33,7 @@ RKO.APP = (function(window) {
 		});
 	};
 
-	app.isCharacterKeyPress = function(evt) {
+	app.isCharacterKeyPress = function (evt) {
 		if (typeof evt.which == "undefined") {
 			return true;
 		} else if (typeof evt.which == "number" && evt.which > 0) {
@@ -43,6 +46,7 @@ RKO.APP = (function(window) {
 		$('#secretword-input').keydown(function(e) {
 			$('#login-error-msg').removeClass('show');
 		});
+
 		$(document).keydown(function(e) {
 			console.log('doc keydown event');
 			if ($('body').hasClass('introMode') && app.isCharacterKeyPress(e) && e.keyCode !== 27) {
@@ -60,19 +64,28 @@ RKO.APP = (function(window) {
 			}
 		});
 
-		$('#auth').mousemove(function(e) {
-			var halfW = ( this.clientWidth / 2 );
-			var halfH = ( this.clientHeight / 2 );
-			var coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
-			var coorY = ( halfH - ( event.pageY - this.offsetTop ) );
-			var degX  = ( ( coorY / halfH ) * 10 ) + 'deg';
-			var degY  = ( ( coorX / halfW ) * -10 ) + 'deg';
-			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
-			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
+		var halfW,
+			halfH,
+			coorX,
+			coorY,
+			degX,
+			degY,
+			amountMovedX,
+			amountMovedY;
 
-			$('#parallax-auth').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -20px) rotateX('+ degX +') rotateY('+ degY +')');
-			$('.lock-icon').css('transform', 'translate3d(' + -amountMovedX/6 + 'px, ' + -amountMovedY/6 + 'px, 0) rotateX('+ degX +') rotateY('+ degY +')');
-			$('.logo').css('transform', 'translate3d(' + -amountMovedX/10 + 'px, ' + -amountMovedY/10 + 'px, 0) rotateX('+ degX +') rotateY('+ degY +')');
+		$('#auth').mousemove(function(e) {
+			halfW = ( this.clientWidth / 2 );
+			halfH = ( this.clientHeight / 2 );
+			coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
+			coorY = ( halfH - ( event.pageY - this.offsetTop ) );
+			degX  = ( ( coorY / halfH ) * 10 ) + 'deg';
+			degY  = ( ( coorX / halfW ) * -10 ) + 'deg';
+			amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
+			amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
+
+			$('#parallax-auth').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -20px) rotateX(' + degX + ') rotateY(' + degY + ')');
+			$('.lock-icon').css('transform', 'translate3d(' + -amountMovedX/6 + 'px, ' + -amountMovedY/6 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
+			$('.logo').css('transform', 'translate3d(' + -amountMovedX/10 + 'px, ' + -amountMovedY/10 + 'px, 0) rotateX(' + degX + ') rotateY(' + degY + ')');
 		});
 
 		$('#login-form').submit(function(e) {
