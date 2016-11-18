@@ -79,7 +79,6 @@
 		pointer-events: none;
 
 		transition: all 0.5s cubic-bezier(.215, .61, .355, 1);
-		transition-delay: 0.1s;
 		opacity: 1;
 
 		.passwordMode & {
@@ -96,6 +95,7 @@
 		transform: translate3d(0, 0, 0);
 		transition: all 0.5s cubic-bezier(.215, .61, .355, 1);
 		opacity: 1;
+		perspective: 800px;
 
 		.passwordMode & {
 			opacity: 0;

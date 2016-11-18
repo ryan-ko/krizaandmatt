@@ -67,17 +67,16 @@ RKO.APP = (function(window) {
 		$('#auth').mousemove(function(e) {
 			var halfW = ( this.clientWidth / 2 );
 			var halfH = ( this.clientHeight / 2 );
-
+			var coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
+			var coorY = ( halfH - ( event.pageY - this.offsetTop ) );
+			var degX  = ( ( coorY / halfH ) * 12 ) + 'deg';
+			var degY  = ( ( coorX / halfW ) * -12 ) + 'deg';
 			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
 			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
-			console.log('halfW', halfW);
-			console.log('halfH', halfH);
-
-			console.log('amountMovedX', amountMovedX);
-			console.log('amountMovedY', amountMovedY);
-
 			$('#parallax-auth').css('transform', 'translate3d(' + amountMovedX + 'px, ' + amountMovedY + 'px, 0)');
+			$('.lock-icon').css('transform', 'perspective( 600px ) translate3d(' + -amountMovedX/6 + 'px, ' + -amountMovedY/6 + 'px, 0) rotateX('+ degX +') rotateY('+ degY +')');
+			$('.logo').css('transform', 'perspective( 600px ) translate3d(' + -amountMovedX/10 + 'px, ' + -amountMovedY/10 + 'px, 0) rotateX('+ degX +') rotateY('+ degY +')');
 		});
 
 		$('#login-form').submit(function(e) {

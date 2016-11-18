@@ -202,8 +202,6 @@ img.full-bleed {
   pointer-events: none;
   -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
   opacity: 1;
 }
 
@@ -224,6 +222,8 @@ img.full-bleed {
   -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   opacity: 1;
+  -webkit-perspective: 800px;
+          perspective: 800px;
 }
 
 .passwordMode #auth .logo {
