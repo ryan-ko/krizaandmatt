@@ -1,4 +1,31 @@
 #auth {
+	width: 100%;
+	height: 100%;
+	.form-label {
+		font-family: 'proxima-nova', sans-serif;
+		font-weight: 400;
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 0.112em;
+		display: block;
+		overflow: hidden;
+		width: 100%;
+	}
+	input {
+		-webkit-appearance: none;
+		border: 0;
+		background: none;
+		font-size: 180px;
+		font-family: 'Lora', serif;
+		padding-top: 90px;
+		padding-bottom: 168px;
+		overflow: hidden;
+		width: 100%;
+
+		&:focus {
+			outline: none;
+		}
+	}
 	.bg {
 		width: 1718px;
 		transform: translate3d(0, 0, 0);
@@ -18,11 +45,45 @@
 		width: 28px;
 		display: block;
 		margin: 0 auto;
+		pointer-events: none;
 	}
 	.logo {
 		width: 174px;
 		margin: 0 auto;
 		display: block;
 		padding-top: 20px;
+		pointer-events: none;
+	}
+	.password-panel {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.3);
+		padding: 70px 46px;
+	}
+
+	#login-error-msg {
+		width: 100%;
+		max-width: 210px;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+
+		&.show {
+			opacity: 1;
+		}
+		span {
+			font-family: 'proxima-nova', sans-serif;
+			font-size: 12px;
+			font-weight: 400;
+			letter-spacing: 0.112em;
+			text-transform: uppercase;
+			color: #ff0000;
+			padding-bottom: 15px;
+			display: block;
+		}
+		p {
+			font-size: 17px;
+			line-height: 18px;
+			letter-spacing: 0.01em;
+		}
 	}
 }

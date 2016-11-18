@@ -7,21 +7,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/style.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Lora|Montserrat" rel="stylesheet">
+		<script src="https://use.typekit.net/sib1rem.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 	</head>
 	<body>
 		<main>
 			<section id="auth">
-				<form id="login-form" action="/login" method="POST">
-					<div class="form-group">
-						<label class="form-label" for="secretword">enter password</label>
-						<input class="form-input" type="text" name="secretword" id="secretword"/>
+				<!-- -->
+				<div class="password-panel">
+					<form id="login-form" action="/login" method="POST">
+						<div class="form-group">
+							<label class="form-label" for="secretword">enter password</label>
+							<input class="form-input" type="text" autocomplete="off" name="secretword" id="secretword-input"/>
+						</div>
+						<!-- <input type="submit" class="hidden" value="Submit"/> -->
+					</form>
+					<div id="login-error-msg">
+						<span>incorrect</span>
+						<p>Please enter the correct password provided in your e-mail</p>
 					</div>
-					<input type="submit" value="Submit"/>
-				</form>
+				</div>
+
+				<!-- Lock Panel containing logo and lock icon -->
 				<div class="lock-panel">
 					<img class="lock-icon" src="./assets/img/login/lock-icon.png" />
 					<img class="logo" src="./assets/img/login/logo.svg" />
 				</div>
+
+				<!-- Parallax-able BG -->
 				<img class="full-bleed bg" src="./assets/img/login/bg.jpg" />
 			</section>
 			<section id="main"></section>

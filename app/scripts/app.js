@@ -31,6 +31,9 @@ RKO.APP = (function(window) {
 	};
 
 	app.init = function() {
+		$('#secretword-input').keydown(function(e) {
+			$('#login-error-msg').removeClass('show');
+		});
 		$('#login-form').submit(function(e) {
 			var url = $(this).attr('action');
 			$.ajax({
@@ -45,7 +48,7 @@ RKO.APP = (function(window) {
 						$('#main').html(data.html);
 						app.bind();
 					} else {
-						alert('Login failed');
+						$('#login-error-msg').addClass('show');
 					}
 				}
 			});
