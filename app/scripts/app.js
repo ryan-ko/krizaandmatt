@@ -54,8 +54,8 @@ RKO.APP = (function(window) {
 			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
 			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
-			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/3 + 'px, ' + amountMovedY/3 + 'px, -200px) rotateX(' + degX +') rotateY('+ degY +')');
-			$('#landing .km-logo').css('transform', 'translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
+			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
+			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
 		});
 	};
 
@@ -95,12 +95,12 @@ RKO.APP = (function(window) {
 			var halfH = ( this.clientHeight / 2 );
 			var coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
 			var coorY = ( halfH - ( event.pageY - this.offsetTop ) );
-			var degX  = ( ( coorY / halfH ) * 10 ) + 'deg';
-			var degY  = ( ( coorX / halfW ) * -10 ) + 'deg';
+			var degX  = ( ( coorY / halfH ) * 5 ) + 'deg';
+			var degY  = ( ( coorX / halfW ) * -5 ) + 'deg';
 			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
 			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
-			$('#parallax-auth').css('transform', 'perspective(600px) translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -20px) rotateX(' + degX + ') rotateY(' + degY + ')');
+			$('#parallax-auth').css('transform', 'perspective(400px) translate3d(' + amountMovedX/15 + 'px, ' + amountMovedY/15 + 'px, -20px) rotateX(' + degX + ') rotateY(' + degY + ')');
 			$('.lock-icon').css('transform', 'translate3d(' + -amountMovedX/6 + 'px, ' + -amountMovedY/6 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
 			$('.logo').css('transform', 'translate3d(' + -amountMovedX/10 + 'px, ' + -amountMovedY/10 + 'px, 0) rotateX(' + degX + ') rotateY(' + degY + ')');
 		});

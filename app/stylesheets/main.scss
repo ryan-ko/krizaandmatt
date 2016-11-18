@@ -93,7 +93,7 @@
 	.km-logo {
 		width: 72px;
 		display: block;
-		transform: perspective(600px) translate3d(0, 0, 0);
+		transform: perspective(200px) translate3d(0, 0, 0);
 		transition: all 0.4s cubic-bezier(.215, .61, .355, 1);
 		transform-style: preserve-3d;
 		backface-visibility: hidden;

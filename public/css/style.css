@@ -761,8 +761,8 @@ button.swiper-pagination-bullet {
 
 #auth .bg {
   width: 1718px;
-  -webkit-transform: perspective(600px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
-          transform: perspective(600px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
+  -webkit-transform: perspective(400px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
+          transform: perspective(400px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
   z-index: 0;
   height: 1029px;
   opacity: 1;
@@ -989,8 +989,8 @@ button.swiper-pagination-bullet {
 #landing .km-logo {
   width: 72px;
   display: block;
-  -webkit-transform: perspective(600px) translate3d(0, 0, 0);
-          transform: perspective(600px) translate3d(0, 0, 0);
+  -webkit-transform: perspective(200px) translate3d(0, 0, 0);
+          transform: perspective(200px) translate3d(0, 0, 0);
   -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   -webkit-transform-style: preserve-3d;
