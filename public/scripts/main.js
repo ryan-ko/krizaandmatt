@@ -30,12 +30,25 @@ RKO.APP = (function(window) {
 		});
 	};
 
+	app.isCharacterKeyPress = function(evt) {
+			if (typeof evt.which == "undefined") {
+					// This is IE, which only fires keypress events for printable keys
+					return true;
+			} else if (typeof evt.which == "number" && evt.which > 0) {
+					// In other browsers except old versions of WebKit, evt.which is
+					// only greater than zero if the keypress is a printable key.
+					// We need to filter out backspace and ctrl/alt/meta key combinations
+					return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
+			}
+			return false;
+	}
+
 	app.init = function() {
 		$('#secretword-input').keydown(function(e) {
 			$('#login-error-msg').removeClass('show');
 		});
 		$(document).keydown(function(e) {
-			if ($('body').hasClass('introMode')) {
+			if ($('body').hasClass('introMode') && app.isCharacterKeyPress(e)) {
 				$('body').removeClass('introMode').addClass('passwordMode');
 				$('#secretword-input').focus();
 				console.log('Into password mode, leaving introMode');
