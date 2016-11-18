@@ -48,20 +48,38 @@ RKO.APP = (function(window) {
 			$('#login-error-msg').removeClass('show');
 		});
 		$(document).keydown(function(e) {
-			if ($('body').hasClass('introMode') && app.isCharacterKeyPress(e)) {
-				$('body').removeClass('introMode').addClass('passwordMode');
+			console.log('doc keydown event');
+			if ($('body').hasClass('introMode') && app.isCharacterKeyPress(e) && e.keyCode !== 27) {
+				$('body').removeClass().addClass('passwordMode');
 				$('#secretword-input').focus();
 				console.log('Into password mode, leaving introMode');
 			}
 
 			if ($('body').hasClass('passwordMode')) {
 				if (e.keyCode === 27) {
-					$('body').addClass('introMode').removeClass('passwordMode');
+					$('body').removeClass().addClass('introMode');
 					$('#secretword-input').val('');
 					console.log('Into introMode, leaving passwordMode');
 				}
 			}
 		});
+
+		$('#auth').mousemove(function(e) {
+			var halfW = ( this.clientWidth / 2 );
+			var halfH = ( this.clientHeight / 2 );
+
+			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
+			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
+
+			console.log('halfW', halfW);
+			console.log('halfH', halfH);
+
+			console.log('amountMovedX', amountMovedX);
+			console.log('amountMovedY', amountMovedY);
+
+			$('#parallax-auth').css('transform', 'translate3d(' + amountMovedX + 'px, ' + amountMovedY + 'px, 0)');
+		});
+
 		$('#login-form').submit(function(e) {
 			var url = $(this).attr('action');
 			$.ajax({
@@ -70,11 +88,11 @@ RKO.APP = (function(window) {
 				data: $(this).serialize(),
 				success: function(data) {
 					var data = $.parseJSON(data);
-					console.log('Login result:', data);
-					console.log('Login result(html):', data.html);
 					if (data.result === 'success') {
 						$('#main').html(data.html);
 						app.bind();
+						$('body').removeClass().addClass('invitationMode');
+						$(document).unbind('keydown');
 					} else {
 						$('#login-error-msg').addClass('show');
 					}
