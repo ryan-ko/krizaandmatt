@@ -934,6 +934,7 @@ button.swiper-pagination-bullet {
   left: 20px;
   bottom: -74px;
   top: auto;
+  width: 35px;
 }
 
 .swiper-pagination-bullet {
@@ -1031,6 +1032,7 @@ button.swiper-pagination-bullet {
   padding: 0 20px;
   box-sizing: border-box;
   color: #444444;
+  font-weight: 400;
 }
 
 #landing ul li span {
@@ -1041,4 +1043,66 @@ button.swiper-pagination-bullet {
 
 #landing ul li:first-child {
   width: 29%;
+}
+
+#invitation {
+  background-color: #d69074;
+  color: #fff;
+}
+
+#invitation .content-container {
+  max-width: 252px;
+  width: 100%;
+  text-align: left;
+  top: 50%;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+  position: relative;
+  padding: 0 11.8%;
+}
+
+.swiper-slide h2 {
+  font-size: 12px;
+  font-family: 'proxima-nova', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-bottom: 10px;
+}
+
+.swiper-slide h1 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 28px;
+  padding-bottom: 28px;
+}
+
+.swiper-slide p {
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0.05em;
+  padding-bottom: 10px;
+}
+
+.swiper-slide button {
+  -webkit-appearance: none;
+  border: 1px solid #fff;
+  font-family: 'Lora', serif;
+  background: transparent;
+  color: #fff;
+  width: 100%;
+  display: block;
+  padding: 7px 4px;
+  margin-top: 32px;
+  font-size: 13px;
+  letter-spacing: 0.37em;
+  cursor: pointer;
+}
+
+.swiper-slide button:hover {
+  background: #fff;
+  color: #d69074;
+  -webkit-transform: translate3d(0, 2px, 0);
+          transform: translate3d(0, 2px, 0);
 }
