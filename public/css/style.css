@@ -72,6 +72,31 @@ body {
   font-family: 'Lora', serif;
 }
 
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .sub {
   font-family: 'Montserrat', sans-serif;
+}
+
+img.full-bleed {
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: -100%;
+  bottom: -100%;
+  left: -100%;
+  right: -100%;
+  margin: auto;
+}
+
+#auth .bg {
+  width: 1718px;
+  -webkit-transform: translate3d(-40px, 40px, 0);
+          transform: translate3d(-40px, 40px, 0);
 }
