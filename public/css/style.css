@@ -1138,7 +1138,7 @@ button.swiper-pagination-bullet {
 
 #invitation .countdown-container {
   width: 50%;
-  max-width: 642px;
+  min-width: 580px;
   height: 100%;
   background: #f4f4f4;
   position: absolute;
@@ -1303,6 +1303,4 @@ button.swiper-pagination-bullet {
 .swiper-slide button:hover {
   background: #fff;
   color: #d69074;
-  -webkit-transform: translate3d(0, 2px, 0);
-          transform: translate3d(0, 2px, 0);
 }

@@ -244,7 +244,7 @@
 	// }
 	.countdown-container {
 		width: 50%;
-		max-width: 642px;
+		min-width: 580px;
 		height: 100%;
 		background: #f4f4f4;
 		position: absolute;
@@ -399,7 +399,6 @@
 		&:hover {
 			background: #fff;
 			color: #d69074;
-			transform: translate3d(0, 2px, 0);
 		}
 	}
 }
