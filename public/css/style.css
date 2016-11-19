@@ -280,7 +280,8 @@ img.full-bleed {
 }
 
 /* Pagination Styles */
-.swiper-pagination {
+.swiper-pagination,
+.swiper-pagination-gallery {
   position: absolute;
   text-align: center;
   -webkit-transition: 300ms;
@@ -290,7 +291,8 @@ img.full-bleed {
   z-index: 10;
 }
 
-.swiper-pagination.swiper-pagination-hidden {
+.swiper-pagination.swiper-pagination-hidden,
+.swiper-pagination-gallery.swiper-pagination-hidden {
   opacity: 0;
 }
 
@@ -904,7 +906,7 @@ button.swiper-pagination-bullet {
   display: none;
 }
 
-.swiper-container {
+.swiper-container, .swiper-container-gallery {
   width: 100%;
   height: 100%;
   margin-left: auto;
@@ -912,7 +914,6 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-slide {
-  text-align: center;
   font-size: 18px;
   background: #fff;
   overflow: hidden;
@@ -930,6 +931,14 @@ button.swiper-pagination-bullet {
   background: #f2f2f2;
 }
 
+.swiper-container-gallery .swiper-slide {
+  background-color: #f600ff;
+}
+
+.swiper-container-gallery .swiper-slide:nth-child(1), .swiper-container-gallery .swiper-slide:nth-child(3), .swiper-container-gallery .swiper-slide:nth-child(5), .swiper-container-gallery .swiper-slide:nth-child(7), .swiper-container-gallery .swiper-slide:nth-child(9) {
+  background: #333;
+}
+
 .swiper-container-vertical > .swiper-pagination-bullets {
   left: 20px;
   bottom: -15px;
@@ -937,7 +946,14 @@ button.swiper-pagination-bullet {
   width: 35px;
 }
 
-.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  position: absolute;
+  z-index: 100;
+  bottom: 60px;
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 10px;
 }
 
@@ -955,12 +971,20 @@ button.swiper-pagination-bullet {
   background: #444;
 }
 
-.light-mode .swiper-pagination-bullet {
+.light-mode .swiper-pagination-bullet, .swiper-container-gallery .swiper-pagination-bullet {
   border: 1px solid #f4f4f4;
 }
 
-.light-mode .swiper-pagination-bullet:hover {
+.light-mode .swiper-pagination-bullet:hover, .swiper-container-gallery .swiper-pagination-bullet:hover {
   background: #f4f4f4;
+}
+
+.transparent-mode .swiper-pagination-bullet {
+  opacity: 0;
+}
+
+.transparent-mode .swiper-pagination-bullet:hover {
+  opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
@@ -970,7 +994,7 @@ button.swiper-pagination-bullet {
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
-.light-mode .swiper-pagination-bullet-active {
+.light-mode .swiper-pagination-bullet-active, .swiper-container-gallery .swiper-pagination-bullet-active {
   background: #f4f4f4;
 }
 

@@ -3,6 +3,8 @@
 RKO.APP = (function(window) {
 
 	var app = {
+		swiper: undefined,
+		swiperGallery: undefined
 	};
 
 	app.bind = function() {
@@ -32,7 +34,11 @@ RKO.APP = (function(window) {
 			e.preventDefault();
 		});
 
-		var swiper = new Swiper('.swiper-container', {
+		$('#main').keydown(function(e) {
+			console.log(e);
+		});
+
+		app.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
 			slidesPerView: 1,
@@ -40,6 +46,10 @@ RKO.APP = (function(window) {
 			spaceBetween: 30,
 			mousewheelControl: true,
 			keyboardControl: true,
+			simulateTouch: true,
+			mousewheelForceToAxis: true,
+			mousewheelInvert: true,
+			longSwipesRatio: 0.7,
 			onSlideChangeStart: function(swiper) {
 				console.log(swiper.activeIndex);
 				if (swiper.activeIndex === 1) {
@@ -47,6 +57,36 @@ RKO.APP = (function(window) {
 				} else {
 					if ($('.swiper-pagination').hasClass('light-mode')) {
 						$('.swiper-pagination').removeClass('light-mode');
+					}
+				}
+
+				if (swiper.activeIndex === 2) {
+					// swiper.lockSwipeToNext();
+					// swiper.lockSwipeToPrev();
+				}
+			},
+			onSlideChangeEnd: function(swiper) {
+				if (swiper.activeIndex === 2) {
+					if (typeof app.swiperGallery === 'undefined') {
+						app.swiperGallery = new Swiper('.swiper-container-gallery', {
+							pagination: '.swiper-pagination-gallery',
+							direction: 'horizontal',
+							slidesPerView: 1,
+							effect: 'fade',
+							paginationClickable: true,
+							spaceBetween: 0,
+							simulateTouch: false,
+							keyboardControl: true,
+							mousewheelControl: true,
+							mousewheelForceToAxis: true,
+							mousewheelInvert: true
+						});
+					}
+
+					$('.swiper-pagination').addClass('transparent-mode');
+				} else {
+					if ($('.swiper-pagination').hasClass('transparent-mode')) {
+						$('.swiper-pagination').removeClass('transparent-mode');
 					}
 				}
 			}
