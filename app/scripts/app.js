@@ -100,7 +100,7 @@ RKO.APP = (function(window) {
 			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
 			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
-			$('#parallax-auth').css('transform', 'perspective(1000px) translate3d(' + amountMovedX/15 + 'px, ' + amountMovedY/15 + 'px, -20px) rotateX(' + degX + ') rotateY(' + degY + ')');
+			$('#parallax-auth').css('transform', 'perspective(1000px) translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -20px)');
 			$('.lock-icon').css('transform', 'perspective(40px) translate3d(' + -amountMovedX/4 + 'px, ' + -amountMovedY/4 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
 			$('.logo').css('transform', 'perspective(500px) translate3d(' + -amountMovedX/8 + 'px, ' + -amountMovedY/8 + 'px, 0) rotateX(' + degX + ') rotateY(' + degY + ')');
 		});
