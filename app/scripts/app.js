@@ -4,10 +4,12 @@ RKO.APP = (function(window) {
 
 	var app = {
 		swiper: undefined,
-		swiperGallery: undefined
+		swiperGallery: undefined,
+		krizaTimeline: undefined
 	};
 
 	app.bind = function() {
+
 		var $plusOneCheckbox = $('#plusone-checkbox-result'),
 			$plusOneInput = $('#plusone-input');
 
@@ -38,6 +40,42 @@ RKO.APP = (function(window) {
 			console.log(e);
 		});
 
+		$('.gallery-movingUp-area').hover(function () {
+			app.krizaTimeline.reverse();
+			app.krizaTimeline.timeScale(14);
+		}, function () {
+			app.krizaTimeline.stop();
+			app.krizaTimeline.timeScale(1);
+		});
+
+		$('.gallery-movingDown-area').hover(function () {
+			app.krizaTimeline.play();
+			app.krizaTimeline.timeScale(14);
+		}, function () {
+			app.krizaTimeline.stop();
+			app.krizaTimeline.timeScale(1);
+		});
+
+		$('.gallery-movingUp-area').mousedown(function () {
+			app.krizaTimeline.timeScale(60);
+			console.log('hit');
+		});
+
+		$('.gallery-movingUp-area').mouseup(function () {
+			app.krizaTimeline.timeScale(14);
+			console.log('hit');
+		});
+
+		$('.gallery-movingDown-area').mousedown(function () {
+			app.krizaTimeline.timeScale(60);
+			console.log('hit');
+		});
+
+		$('.gallery-movingDown-area').mouseup(function () {
+			app.krizaTimeline.timeScale(14);
+			console.log('hit');
+		});
+
 		app.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
@@ -49,7 +87,7 @@ RKO.APP = (function(window) {
 			simulateTouch: true,
 			mousewheelForceToAxis: true,
 			mousewheelInvert: true,
-			longSwipesRatio: 1.4,
+			mousewheelSensitivity: 0.01,
 			onSlideChangeStart: function(swiper) {
 				if (swiper.activeIndex === 1) {
 					$('.swiper-pagination').addClass('light-mode');
@@ -59,9 +97,21 @@ RKO.APP = (function(window) {
 					}
 				}
 
-				if (swiper.activeIndex === 2) {
-					// swiper.lockSwipeToNext();
-					// swiper.lockSwipeToPrev();
+				if (swiper.activeIndex === 3) {
+					if (typeof app.krizaTimeline === 'undefined') {
+						app.krizaTimeline = new TimelineLite();
+						app.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
+						app.krizaTimeline.stop();
+					} else {
+						app.krizaTimeline.restart();
+						app.krizaTimeline.stop();
+					}
+				} else {
+					$('.kriza-gallery-container .gallery-scroller').removeAttr('style');
+					if (typeof app.krizaTimeline !== 'undefined') {
+						app.krizaTimeline.stop();
+						app.krizaTimeline.restart();
+					}
 				}
 			},
 			onSlideChangeEnd: function(swiper) {
@@ -89,6 +139,9 @@ RKO.APP = (function(window) {
 					}
 				}
 			}
+		});
+
+		$('.gallery-movingDown-area').on('click', function() {
 		});
 
 		$('#landing').mousemove(function(e) {

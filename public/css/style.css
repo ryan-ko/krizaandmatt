@@ -183,6 +183,7 @@ img.full-bleed {
   width: 100%;
   height: 100%;
   position: relative;
+  background-color: #f4f4f4;
 }
 
 /* Auto Height */
@@ -1259,6 +1260,46 @@ button.swiper-pagination-bullet {
   font-size: 14px;
 }
 
+.personal-gallery {
+  position: relative;
+  padding: 0 100px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.personal-gallery .gallery-movingUp-area,
+.personal-gallery .gallery-movingDown-area {
+  width: 60%;
+  height: 50%;
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  opacity: 0;
+  left: 0;
+}
+
+.personal-gallery .gallery-movingUp-area {
+  background: red;
+  top: 0;
+}
+
+.personal-gallery .gallery-movingDown-area {
+  background: green;
+  bottom: 0;
+}
+
+.personal-gallery ul {
+  width: 60%;
+}
+
+.personal-gallery ul li {
+  padding: 25px 0;
+}
+
+.personal-gallery img {
+  width: 100%;
+}
+
 .swiper-slide h2 {
   font-size: 12px;
   font-family: 'proxima-nova', sans-serif;
@@ -1303,4 +1344,34 @@ button.swiper-pagination-bullet {
 .swiper-slide button:hover {
   background: #fff;
   color: #d69074;
+}
+
+.gallery-intro {
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+}
+
+.gallery-intro .gallery-intro-rows {
+  padding-bottom: 28px;
+}
+
+.gallery-intro span {
+  text-transform: uppercase;
+  font-family: 'proxima-nova', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #d69074;
+  font-weight: 300;
+  padding-bottom: 2px;
+  display: block;
+}
+
+.gallery-intro p {
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  padding-top: 5px;
+  padding-bottom: 1px;
 }
