@@ -129,13 +129,22 @@ RKO.APP = (function(window) {
 		var minutes = Math.floor( (t/1000/60) % 60 );
 		var hours = Math.floor( (t/(1000*60*60)) % 24 );
 		var days = Math.floor( t/(1000*60*60*24) );
+
 		return {
 			'total': t,
-			'days': days,
-			'hours': hours,
-			'minutes': minutes,
-			'seconds': seconds
+			'days': app.convertToTwoDigits(days),
+			'hours': app.convertToTwoDigits(hours),
+			'minutes': app.convertToTwoDigits(minutes),
+			'seconds': app.convertToTwoDigits(seconds)
 		};
+	};
+
+	app.convertToTwoDigits = function(value) {
+		if (value < 10) {
+			return '0' + value;
+		} else {
+			return value;
+		}
 	};
 
 	app.isCharacterKeyPress = function (evt) {
