@@ -39,7 +39,17 @@ RKO.APP = (function(window) {
 			paginationClickable: true,
 			spaceBetween: 30,
 			mousewheelControl: true,
-			keyboardControl: true
+			keyboardControl: true,
+			onSlideChangeStart: function(swiper) {
+				console.log(swiper.activeIndex);
+				if (swiper.activeIndex === 1) {
+					$('.swiper-pagination').addClass('light-mode');
+				} else {
+					if ($('.swiper-pagination').hasClass('light-mode')) {
+						$('.swiper-pagination').removeClass('light-mode');
+					}
+				}
+			}
 		});
 
 		$('#landing').mousemove(function(e) {
@@ -57,6 +67,36 @@ RKO.APP = (function(window) {
 			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
 		});
+
+		app.initCountdownClock('2017-06-23');
+	};
+
+	app.initCountdownClock = function(endtime) {
+		var timeinterval = setInterval(function(){
+			var t = app.getTimeRemaining(endtime);
+			$('#invitation .days').html(t.days);
+			$('#invitation .hours').html(t.hours);
+			$('#invitation .mins').html(t.minutes);
+			$('#invitation .secs').html(t.seconds);
+			if (t.total <= 0) {
+				clearInterval(timeinterval);
+			}
+		}, 1000);
+	};
+
+	app.getTimeRemaining = function(endtime) {
+		var t = Date.parse(endtime) - Date.parse(new Date());
+		var seconds = Math.floor( (t/1000) % 60 );
+		var minutes = Math.floor( (t/1000/60) % 60 );
+		var hours = Math.floor( (t/(1000*60*60)) % 24 );
+		var days = Math.floor( t/(1000*60*60*24) );
+		return {
+			'total': t,
+			'days': days,
+			'hours': hours,
+			'minutes': minutes,
+			'seconds': seconds
+		};
 	};
 
 	app.isCharacterKeyPress = function (evt) {

@@ -950,11 +950,23 @@ button.swiper-pagination-bullet {
   background: transparent;
   border: 1px solid #444;
   opacity: 0.8;
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.light-mode .swiper-pagination-bullet {
+  border: 1px solid #f4f4f4;
 }
 
 .swiper-pagination-bullet-active {
   background: #444444;
   opacity: 1;
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.light-mode .swiper-pagination-bullet-active {
+  background: #f4f4f4;
 }
 
 #landing {
@@ -1072,6 +1084,16 @@ button.swiper-pagination-bullet {
 }
 
 #invitation .countdown-container .thedate {
+  width: 490px;
+  margin: 0 auto;
+}
+
+#invitation .countdown-container .countdown {
+  width: 490px;
+  margin: 0 auto;
+}
+
+#invitation .countdown-container .thedate {
   color: #d69074;
   font-family: 'Lora', sans-serif;
   font-size: 80px;
@@ -1079,6 +1101,87 @@ button.swiper-pagination-bullet {
   font-weight: normal;
   padding-top: 224px;
   display: block;
+}
+
+#invitation .countdown-container .thedate span {
+  padding: 0 2px;
+  letter-spacing: 0.06em;
+}
+
+#invitation .countdown-container .countdown {
+  color: #444;
+  text-align: left;
+  padding-top: 227px;
+  padding-left: 16px;
+}
+
+#invitation .countdown-container .countdown .days, #invitation .countdown-container .countdown .hours, #invitation .countdown-container .countdown .mins, #invitation .countdown-container .countdown .secs {
+  position: relative;
+  font-family: 'proxima-nova', sans-serif;
+  padding-bottom: 21px;
+  padding-right: 34px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+#invitation .countdown-container .countdown .days:before, #invitation .countdown-container .countdown .hours:before, #invitation .countdown-container .countdown .mins:before, #invitation .countdown-container .countdown .secs:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  color: #444;
+  font-size: 20px;
+  font-family: 'Lora', sans-serif;
+}
+
+#invitation .countdown-container .countdown .days:before {
+  content: 'Days';
+}
+
+#invitation .countdown-container .countdown .hours {
+  padding-right: 62px;
+}
+
+#invitation .countdown-container .countdown .hours:before {
+  content: 'Hour';
+}
+
+#invitation .countdown-container .countdown .hours:after {
+  content: ':';
+  position: absolute;
+  display: block;
+  top: 13px;
+  font-size: 30px;
+  font-weight: 400;
+  right: 24px;
+}
+
+#invitation .countdown-container .countdown .mins {
+  padding-right: 62px;
+}
+
+#invitation .countdown-container .countdown .mins:before {
+  content: 'Min.';
+}
+
+#invitation .countdown-container .countdown .mins:after {
+  content: ':';
+  position: absolute;
+  display: block;
+  top: 13px;
+  font-size: 30px;
+  font-weight: 400;
+  right: 24px;
+}
+
+#invitation .countdown-container .countdown .secs:before {
+  content: 'Sec.';
+}
+
+#invitation .countdown-container .countdown .countdown-label {
+  display: block;
+  padding-top: 52px;
+  letter-spacing: 0.05em;
 }
 
 .swiper-slide h2 {
