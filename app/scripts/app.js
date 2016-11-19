@@ -43,15 +43,14 @@ RKO.APP = (function(window) {
 			direction: 'vertical',
 			slidesPerView: 1,
 			paginationClickable: true,
-			spaceBetween: 30,
+			spaceBetween: 0,
 			mousewheelControl: true,
 			keyboardControl: true,
 			simulateTouch: true,
 			mousewheelForceToAxis: true,
 			mousewheelInvert: true,
-			longSwipesRatio: 0.7,
+			longSwipesRatio: 1.4,
 			onSlideChangeStart: function(swiper) {
-				console.log(swiper.activeIndex);
 				if (swiper.activeIndex === 1) {
 					$('.swiper-pagination').addClass('light-mode');
 				} else {
