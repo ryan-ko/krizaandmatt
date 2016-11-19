@@ -1187,6 +1187,7 @@ button.swiper-pagination-bullet {
 #invitation .countdown-container .countdown {
   width: 490px;
   margin: 0 auto;
+  color: #444444;
 }
 
 #invitation .countdown-container .thedate {
