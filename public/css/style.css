@@ -1278,6 +1278,16 @@ button.swiper-pagination-bullet {
   left: 0;
 }
 
+.personal-gallery.matt-gallery-container .gallery-movingUp-area,
+.personal-gallery.matt-gallery-container .gallery-movingDown-area {
+  right: 0;
+  left: auto;
+}
+
+.personal-gallery.matt-gallery-container .gallery-scroller {
+  float: right;
+}
+
 .personal-gallery .gallery-movingUp-area {
   background: red;
   top: 0;
@@ -1374,4 +1384,9 @@ button.swiper-pagination-bullet {
   letter-spacing: -0.01em;
   padding-top: 5px;
   padding-bottom: 1px;
+}
+
+.matt-gallery-container + .gallery-intro {
+  left: auto;
+  right: 70%;
 }

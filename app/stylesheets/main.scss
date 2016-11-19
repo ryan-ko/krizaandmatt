@@ -375,6 +375,17 @@
 		opacity: 0;
 		left: 0;
 	}
+
+	&.matt-gallery-container {
+		.gallery-movingUp-area,
+		.gallery-movingDown-area {
+			right: 0;
+			left: auto;
+		}
+		.gallery-scroller {
+			float: right;
+		}
+	}
 	.gallery-movingUp-area {
 		background: red;
 		top: 0;
@@ -465,6 +476,11 @@
 		padding-top: 5px;
 		padding-bottom: 1px;
 	}
+}
+
+.matt-gallery-container + .gallery-intro {
+	left: auto;
+	right: 70%;
 }
 
 
