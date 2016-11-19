@@ -244,6 +244,7 @@ RKO.APP = (function(window) {
 			$('#parallax-auth').css('transform', 'perspective(1000px) translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -20px)');
 			$('.lock-icon').css('transform', 'perspective(40px) translate3d(' + -amountMovedX/4 + 'px, ' + -amountMovedY/4 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
 			$('.logo').css('transform', 'perspective(500px) translate3d(' + -amountMovedX/8 + 'px, ' + -amountMovedY/8 + 'px, 0) rotateX(' + degX + ') rotateY(' + degY + ')');
+			// $('.password-hint').css('transform', 'perspective(1000px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0) rotateX(' + degX + ') rotateY(' + degY + ')');
 		});
 
 		$('#login-form').submit(function(e) {
