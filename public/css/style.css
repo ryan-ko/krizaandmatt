@@ -764,7 +764,7 @@ button.swiper-pagination-bullet {
   -webkit-transform: perspective(1000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
           transform: perspective(1000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
   z-index: 0;
-  height: 1029px;
+  height: 928.5px;
   opacity: 1;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -966,7 +966,7 @@ button.swiper-pagination-bullet {
   -webkit-transform: translate3d(0, 0, -200px) scale3d(1, 1, 1);
           transform: translate3d(0, 0, -200px) scale3d(1, 1, 1);
   z-index: -1;
-  height: 1029px;
+  height: 928.5px;
   opacity: 1;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
