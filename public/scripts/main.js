@@ -55,7 +55,7 @@ RKO.APP = (function(window) {
 			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
 			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
-			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0) rotateX(' + degX +') rotateY('+ degY +')');
+			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
 		});
 	};
 
