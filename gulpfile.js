@@ -36,7 +36,14 @@ gulp.task('browser-sync', ['nodemon'], function() {
 
 // Scripts
 gulp.task('scripts', function() {
-	return gulp.src('./app/scripts/*.js')
+	return gulp.src([
+			'./app/scripts/utils.js',
+			'./app/scripts/parallaxFactory.js',
+			'./app/scripts/countdown.js',
+			'./app/scripts/core.js',
+			'./app/scripts/lock.js',
+			'./app/scripts/app.js'
+		])
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('public/scripts'))
 		.pipe(rename({ suffix: '.min' }))
