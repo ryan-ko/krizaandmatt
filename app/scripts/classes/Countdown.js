@@ -1,7 +1,7 @@
 RKO.COUNTDOWN = (function(window) {
 	var countdown = {
 	},
-	utils = RKO.UTILS;
+	utils = new Utils();
 
 	countdown.initCountdownClock = function(endtime) {
 		var timeinterval = setInterval(function(){

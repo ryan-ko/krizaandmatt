@@ -1,26 +1,22 @@
-RKO.UTILS = (function(window) {
-	var utils = {
-	};
+function Utils() {}
 
-	utils.convertToTwoDigits = function(value) {
+Utils.prototype = {
+	convertToTwoDigits: function(value) {
 		if (value < 10) {
 			return '0' + value;
 		} else {
 			return value;
 		}
-	};
-
-	utils.isCharacterKeyPress = function (evt) {
+	},
+	isCharacterKeyPress: function (evt) {
 		if (typeof evt.which == "undefined") {
 			return true;
 		} else if (typeof evt.which == "number" && evt.which > 0) {
 			return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
 		}
 		return false;
-	};
-
-	return utils;
-}(window));
+	}
+};
 RKO.PARALLAX_FACTORY = (function(window) {
 	var parallax = {
 		amountMovedX: undefined,
@@ -45,7 +41,7 @@ RKO.PARALLAX_FACTORY = (function(window) {
 RKO.COUNTDOWN = (function(window) {
 	var countdown = {
 	},
-	utils = RKO.UTILS;
+	utils = new Utils();
 
 	countdown.initCountdownClock = function(endtime) {
 		var timeinterval = setInterval(function(){
@@ -85,8 +81,7 @@ RKO.CORE = (function(window) {
 		swiperGallery: undefined,
 		krizaTimeline: undefined,
 		swiperLock: undefined
-	},
-	countdown = RKO.COUNTDOWN;
+	};
 
 	core.bind = function() {
 
@@ -240,7 +235,7 @@ RKO.CORE = (function(window) {
 			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
 		});
-
+		countdown = RKO.COUNTDOWN;
 		countdown.initCountdownClock('2017-06-23');
 	};
 
@@ -250,7 +245,7 @@ RKO.CORE = (function(window) {
 RKO.LOCK = (function(window) {
 	var lock = {
 	},
-	utils = RKO.UTILS,
+	utils = new Utils(),
 	core = RKO.CORE;
 
 	lock.bind = function() {

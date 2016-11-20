@@ -1,7 +1,7 @@
 RKO.LOCK = (function(window) {
 	var lock = {
 	},
-	utils = RKO.UTILS,
+	utils = new Utils(),
 	core = RKO.CORE;
 
 	lock.bind = function() {

@@ -4,8 +4,7 @@ RKO.CORE = (function(window) {
 		swiperGallery: undefined,
 		krizaTimeline: undefined,
 		swiperLock: undefined
-	},
-	countdown = RKO.COUNTDOWN;
+	};
 
 	core.bind = function() {
 
@@ -159,7 +158,7 @@ RKO.CORE = (function(window) {
 			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
 		});
-
+		countdown = RKO.COUNTDOWN;
 		countdown.initCountdownClock('2017-06-23');
 	};
 
