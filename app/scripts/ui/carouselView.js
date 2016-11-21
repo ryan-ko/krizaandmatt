@@ -163,6 +163,12 @@ rko.carouselView = (function(window) {
 		countdown.initCountdownClock();
 	};
 
+	view.init = function(html) {
+		$('#main').html(html);
+		this.bind();
+		$('body').removeClass().addClass('carouselMode');
+	};
+
 	return view;
 
 }(window));

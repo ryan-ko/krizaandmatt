@@ -1,4 +1,8 @@
-function Utils() {}
+function Utils() {
+	this.keysmap = {
+		escape: 27
+	}
+}
 
 Utils.prototype = {
 	convertToTwoDigits: function(value) {

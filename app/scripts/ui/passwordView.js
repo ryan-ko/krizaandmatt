@@ -1,45 +1,59 @@
 rko.passwordView = (function(window) {
+
 	var view = {
+		previousModeLabel: undefined,
+		modeLabel: 'passwordMode',
+		bindables: {
+			$passwordInput: $('#password-input'),
+			$passwordForm: $('#password-form'),
+			$doc: $(document)
+		},
+		$body: $('body'),
+		$passwordErrorMsg: $('#login-error-msg')
 	},
 	utils = new Utils(),
 	carouselView = rko.carouselView;
 
 	view.bind = function() {
-		$('#secretword-input').keydown(function(e) {
-			$('#login-error-msg').removeClass('show');
+		var that = this,
+			pressedKey;
+
+		that.bindables.$passwordInput.keydown(function(e) {
+			that.hidePasswordErrorMessage();
 		});
 
-		$(document).keydown(function(e) {
-			if ($('body').hasClass('introMode') && utils.isCharacterKeyPress(e) && e.keyCode !== 27) {
-				$('body').removeClass().addClass('passwordMode');
-				$('#secretword-input').focus();
-				console.log('Into password mode, leaving introMode');
+		that.bindables.$doc.keydown(function(e) {
+			pressedKey = e.keyCode;
+			if (that.$body.hasClass(that.previousModeLabel) &&
+					utils.isCharacterKeyPress(e) &&
+					pressedKey !== utils.keysmap.escape) {
+				that.$body.removeClass().addClass(that.modeLabel);
+				that.bindables.$passwordInput.focus();
 			}
 
-			if ($('body').hasClass('passwordMode')) {
-				if (e.keyCode === 27) {
-					$('body').removeClass().addClass('introMode');
-					$('#secretword-input').val('');
-					console.log('Into introMode, leaving passwordMode');
+			if (that.$body.hasClass(that.modeLabel)) {
+				if (pressedKey === utils.keysmap.escape) {
+					that.$body.removeClass().addClass(that.previousModeLabel);
+					that.bindables.$passwordInput.val('');
 				}
 			}
 		});
 
-		$('#login-form').submit(function(e) {
-			var url = $(this).attr('action');
+		that.bindables.$passwordForm.submit(function(e) {
+			var url = $(this).attr('action'),
+				data;
+
 			$.ajax({
 				type: 'POST',
 				url: url,
 				data: $(this).serialize(),
 				success: function(data) {
-					var data = $.parseJSON(data);
+					data = $.parseJSON(data);
 					if (data.result === 'success') {
-						$('#main').html(data.html);
-						carouselView.bind();
-						$('body').removeClass().addClass('invitationMode');
-						$(document).unbind('keydown');
+						that.unbind();
+						carouselView.init(data.html);
 					} else {
-						$('#login-error-msg').addClass('show');
+						that.showPasswordErrorMessage();
 					}
 				}
 			});
@@ -47,9 +61,26 @@ rko.passwordView = (function(window) {
 		});
 	};
 
-	view.init = function() {
-		view.bind();
+	view.unbind = function() {
+		var bindables = this.bindables;
+		for (var key in bindables) {
+			if (bindables.hasOwnProperty(key)) {
+				bindables[key].off();
+			}
+		}
+	};
+
+	view.showPasswordErrorMessage = function() {
+		this.$passwordErrorMsg.addClass('show');
+	};
+	view.hidePasswordErrorMessage = function() {
+		this.$passwordErrorMsg.removeClass('show');
+	};
+	view.init = function(previousModeLabel) {
+		this.previousModeLabel = previousModeLabel;
+		this.bind();
 	};
 
 	return view;
+
 }(window));

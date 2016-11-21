@@ -707,7 +707,7 @@ button.swiper-pagination-bullet {
   background-color: #d79074;
 }
 
-.invitationMode #auth {
+.carouselMode #auth {
   opacity: 0;
   pointer-events: none;
 }
@@ -918,7 +918,7 @@ button.swiper-pagination-bullet {
           transition-delay: 0.4s;
 }
 
-.invitationMode #main {
+.carouselMode #main {
   opacity: 1;
   pointer-events: auto;
 }

@@ -13,7 +13,7 @@
 	pointer-events: none;
 	transition-delay: 0.4s;
 
-	.invitationMode & {
+	.carouselMode & {
 		opacity: 1;
 		pointer-events: auto;
 	}
