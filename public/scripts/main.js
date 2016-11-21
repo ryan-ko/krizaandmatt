@@ -275,7 +275,7 @@ rko.carouselView = (function(window) {
 
 		$('#matt .gallery-movingUp-area').hover(function () {
 			view.mattPhotoTimeline.reverse();
-			view.mattPhotoTimeline.timeScale(44);
+			view.mattPhotoTimeline.timeScale(25);
 		}, function () {
 			view.mattPhotoTimeline.stop();
 			view.mattPhotoTimeline.timeScale(1);
@@ -283,7 +283,7 @@ rko.carouselView = (function(window) {
 
 		$('#kriza .gallery-movingUp-area').hover(function () {
 			view.krizaPhotoTimeline.reverse();
-			view.krizaPhotoTimeline.timeScale(44);
+			view.krizaPhotoTimeline.timeScale(25);
 		}, function () {
 			view.krizaPhotoTimeline.stop();
 			view.krizaPhotoTimeline.timeScale(1);
@@ -291,7 +291,7 @@ rko.carouselView = (function(window) {
 
 		$('#matt .gallery-movingDown-area').hover(function () {
 			view.mattPhotoTimeline.play();
-			view.mattPhotoTimeline.timeScale(44);
+			view.mattPhotoTimeline.timeScale(25);
 		}, function () {
 			view.mattPhotoTimeline.stop();
 			view.mattPhotoTimeline.timeScale(1);
@@ -299,7 +299,7 @@ rko.carouselView = (function(window) {
 
 		$('#kriza .gallery-movingDown-area').hover(function () {
 			view.krizaPhotoTimeline.play();
-			view.krizaPhotoTimeline.timeScale(44);
+			view.krizaPhotoTimeline.timeScale(25);
 		}, function () {
 			view.krizaPhotoTimeline.stop();
 			view.krizaPhotoTimeline.timeScale(1);
