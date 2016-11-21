@@ -414,11 +414,11 @@
 
 		&:hover {
 			.up-icon {
-				transform: translate3d(0, 30px, 0) scale3d(1.3, 1.3, 1.3);
+				transform: translate3d(0, 20px, 0) scale3d(1.3, 1.3, 1.3);
 			}
 
 			.down-icon {
-				transform: translate3d(0, -30px, 0) scale3d(1.3, 1.3, 1.3);
+				transform: translate3d(0, -20px, 0) scale3d(1.3, 1.3, 1.3);
 			}
 		}
 	}
