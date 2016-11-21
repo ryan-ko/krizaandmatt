@@ -1499,6 +1499,10 @@ button.swiper-pagination-bullet {
   right: 70%;
 }
 
+#quote {
+  background: #d69074;
+}
+
 #quote blockquote {
   z-index: 10;
   position: absolute;
@@ -1551,6 +1555,10 @@ button.swiper-pagination-bullet {
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+}
+
+#location {
+  background: #d69074;
 }
 
 #location .location-shot {
