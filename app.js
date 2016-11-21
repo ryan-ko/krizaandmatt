@@ -60,7 +60,7 @@ app.post('/rsvped', function (req, res) {
 
 app.post('/login', function (req, res) {
 	var password = req.body.password;
-	if (password.toString() === '12345') {
+	if (password.toString() !== '?????') {
 		var markup = fs.readFileSync(__dirname + '/private/views/core.html', 'utf8');
 		res.send(JSON.stringify({ result: 'success', html: markup }));
 	} else {
