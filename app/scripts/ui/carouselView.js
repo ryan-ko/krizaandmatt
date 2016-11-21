@@ -101,8 +101,7 @@ rko.carouselView = (function(window) {
 					simulateTouch: false,
 					keyboardControl: true,
 					mousewheelControl: true,
-					mousewheelForceToAxis: true,
-					mousewheelInvert: true
+					mousewheelForceToAxis: true
 				});
 			}
 		}
@@ -125,7 +124,6 @@ rko.carouselView = (function(window) {
 			keyboardControl: true,
 			simulateTouch: false,
 			mousewheelForceToAxis: true,
-			mousewheelInvert: true,
 			mousewheelSensitivity: 0.5,
 			onSlideChangeStart: function(swiper) {
 				that.handleCarouselSlideChangeStart(swiper);
