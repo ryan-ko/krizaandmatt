@@ -77,6 +77,12 @@ rko.carouselView = (function(window) {
 		$currentSlide.hasClass('light-mode') ? $carouselPagination.addClass('light-mode') : $carouselPagination.removeClass('light-mode');
 		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
 
+		if (view.currentSlideId === 'invitation') {
+			view.weddingCountdown.initCountdownClock();
+		} else {
+			view.weddingCountdown.destroy();
+		}
+
 		swiper.disableMousewheelControl();
 	};
 
@@ -149,7 +155,6 @@ rko.carouselView = (function(window) {
 		this.setupCarousel();
 		this.setupParallaxEffects();
 		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
-		this.weddingCountdown.initCountdownClock();
 
 		$('#matt .gallery-movingUp-area').hover(function () {
 			view.mattPhotoTimeline.reverse();

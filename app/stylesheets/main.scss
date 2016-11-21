@@ -274,6 +274,14 @@
 			width: 490px;
 			margin: 0 auto;
 			color: #444444;
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+			transition: all 0.5s cubic-bezier(.215, .61, .355, 1);
+
+			&.hidden {
+				opacity: 0;
+				transform: translate3d(0, -40px, 0);
+			}
 		}
 		.thedate {
 			color: #d69074;

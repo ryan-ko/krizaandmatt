@@ -68,7 +68,7 @@ Countdown.prototype = {
 	initCountdownClock: function() {
 		var that = this;
 		console.log('that.$target', that.$target.children());
-		that.timeinterval = setInterval(function(){
+		that.timeinterval = setInterval(function() {
 			var t = that.getTimeRemaining(that.endtime);
 			that.$target.children('.days').html(t.days);
 			that.$target.children('.hours').html(t.hours);
@@ -76,13 +76,18 @@ Countdown.prototype = {
 			that.$target.children('.secs').html(t.seconds);
 			if (t.total <= 0) {
 				clearInterval(that.timeinterval);
-				this.$target.hide();
+				that.$target.hide();
 			}
 		}, 1000);
+
+		setTimeout(function() {
+			that.$target.removeClass('hidden');
+		}, 1000);
 	},
-	destory: function() {
+	destroy: function() {
 		var that = this;
 		clearInterval(that.timeinterval);
+		this.$target.addClass('hidden');
 	}
 };
 
@@ -166,6 +171,12 @@ rko.carouselView = (function(window) {
 		$currentSlide.hasClass('light-mode') ? $carouselPagination.addClass('light-mode') : $carouselPagination.removeClass('light-mode');
 		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
 
+		if (view.currentSlideId === 'invitation') {
+			view.weddingCountdown.initCountdownClock();
+		} else {
+			view.weddingCountdown.destroy();
+		}
+
 		swiper.disableMousewheelControl();
 	};
 
@@ -238,7 +249,6 @@ rko.carouselView = (function(window) {
 		this.setupCarousel();
 		this.setupParallaxEffects();
 		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
-		this.weddingCountdown.initCountdownClock();
 
 		$('#matt .gallery-movingUp-area').hover(function () {
 			view.mattPhotoTimeline.reverse();

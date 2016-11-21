@@ -103,11 +103,6 @@ img.full-bleed {
   margin: auto;
 }
 
-.hidden {
-  display: none;
-  visibility: hidden;
-}
-
 /**
  * Swiper 3.4.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -1192,6 +1187,17 @@ button.swiper-pagination-bullet {
   width: 490px;
   margin: 0 auto;
   color: #444444;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#invitation .countdown-container .countdown.hidden {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -40px, 0);
+          transform: translate3d(0, -40px, 0);
 }
 
 #invitation .countdown-container .thedate {
