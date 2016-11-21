@@ -199,7 +199,9 @@ rko.carouselView = (function(window) {
 					simulateTouch: false,
 					keyboardControl: true,
 					mousewheelControl: true,
-					mousewheelForceToAxis: true
+					mousewheelForceToAxis: true,
+					nextButton: '.swiper-button-next',
+					prevButton: '.swiper-button-prev'
 				});
 			}
 		}
