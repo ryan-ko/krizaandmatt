@@ -97,31 +97,22 @@ rko.carouselView = (function(window) {
 			$plusOneCheckbox: $('#plusone-checkbox'),
 			$rsvpForm: $('#rsvp-form')
 		},
-		mainCarouselConfig: {
-			pagination: '.swiper-pagination',
-			direction: 'vertical',
-			slidesPerView: 1,
-			paginationClickable: true,
-			spaceBetween: 0,
-			mousewheelControl: true,
-			keyboardControl: true,
-			simulateTouch: false,
-			mousewheelForceToAxis: true,
-			mousewheelInvert: true,
-			mousewheelSensitivity: 0.5,
-			onSlideChangeStart: function(swiper) {
-				that.handleCarouselSlideChangeStart(swiper);
-			},
-			onSlideChangeEnd: function(swiper) {
-				that.handleCarouselSlideChangeEnd(swiper);
-			}
-		},
-		weddingCountdown: undefined
+		weddingCountdown: undefined,
+		krizaPhotoTimeline: undefined,
+		mattPhotoTimeline: undefined,
+		currentSlideId: undefined
 	};
 
 	view.init = function(html) {
 		$('#main').html(html);
 		$('body').removeClass().addClass('carouselMode');
+
+		this.krizaPhotoTimeline = new TimelineLite({paused: true});
+		this.krizaPhotoTimeline.to($('#kriza .gallery-scroller'), 300, { y: '-100%' });
+
+		this.mattPhotoTimeline = new TimelineLite({paused: true});
+		this.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: '-100%' });
+
 		this.bind();
 	};
 
@@ -159,34 +150,35 @@ rko.carouselView = (function(window) {
 	};
 
 	view.handleCarouselSlideChangeStart = function(swiper) {
-		if (swiper.activeIndex === 1) {
-			$('.swiper-pagination').addClass('light-mode');
-		} else {
-			if ($('.swiper-pagination').hasClass('light-mode')) {
-				$('.swiper-pagination').removeClass('light-mode');
-			}
-		}
+		var $currentSlide = $('.carousel-slide-active'),
+			$carouselPagination = $('.swiper-pagination');
 
-		if (swiper.activeIndex === 3) {
-			if (typeof view.krizaTimeline === 'undefined') {
-				view.krizaTimeline = new TimelineLite();
-				view.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
-				view.krizaTimeline.stop();
-			} else {
-				view.krizaTimeline.restart();
-				view.krizaTimeline.stop();
-			}
-		} else {
-			$('.kriza-gallery-container .gallery-scroller').removeAttr('style');
-			if (typeof view.krizaTimeline !== 'undefined') {
-				view.krizaTimeline.stop();
-				view.krizaTimeline.restart();
-			}
-		}
+		view.currentSlideId = $currentSlide[0].id;
+
+		$currentSlide.hasClass('light-mode') ? $carouselPagination.addClass('light-mode') : $carouselPagination.removeClass('light-mode');
+
+		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
+
 		swiper.disableMousewheelControl();
 	};
 
 	view.handleCarouselSlideChangeEnd = function(swiper) {
+		// var $currentSlide = $('.carousel-slide-active'),
+		// 	$carouselPagination = $('.swiper-pagination'),
+		// 	currentSlideId = $currentSlide[0].id;
+
+		// if (currentSlideId === 'kriza') {
+		// 	$('.gallery-scroller').removeAttr('style');
+		// 	view.mattPhotoTimeline.restart();
+		// 	view.mattPhotoTimeline.stop();
+		// }
+
+		// if (currentSlideId === 'matt') {
+		// 	$('.gallery-scroller').removeAttr('style');
+		// 	view.krizaPhotoTimeline.restart();
+		// 	view.krizaPhotoTimeline.stop();
+		// }
+
 		if (swiper.activeIndex === 2) {
 			if (typeof view.swiperGallery === 'undefined') {
 				view.swiperGallery = new Swiper('.swiper-container-gallery', {
@@ -195,6 +187,7 @@ rko.carouselView = (function(window) {
 					slidesPerView: 1,
 					effect: 'fade',
 					paginationClickable: true,
+					slideActiveClass: 'gallery-slide-active',
 					spaceBetween: 0,
 					simulateTouch: false,
 					keyboardControl: true,
@@ -203,17 +196,11 @@ rko.carouselView = (function(window) {
 					mousewheelInvert: true
 				});
 			}
-
-			$('.swiper-pagination').addClass('transparent-mode');
-		} else {
-			if ($('.swiper-pagination').hasClass('transparent-mode')) {
-				$('.swiper-pagination').removeClass('transparent-mode');
-			}
 		}
 
 		view.swiperLock = setTimeout(function() {
 			swiper.enableMousewheelControl();
-		}, 400);
+		}, 600);
 	};
 
 	view.setupCarousel = function() {
@@ -222,6 +209,7 @@ rko.carouselView = (function(window) {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
 			slidesPerView: 1,
+			slideActiveClass: 'carousel-slide-active',
 			paginationClickable: true,
 			spaceBetween: 0,
 			mousewheelControl: true,
@@ -261,42 +249,39 @@ rko.carouselView = (function(window) {
 		this.weddingCountdown.initCountdownClock();
 
 		$('.gallery-movingUp-area').hover(function () {
-			view.krizaTimeline.reverse();
-			view.krizaTimeline.timeScale(14);
+			if (view.currentSlideId === 'kriza') {
+				view.krizaPhotoTimeline.reverse();
+				view.krizaPhotoTimeline.timeScale(14);
+			} else if (view.currentSlideId === 'matt') {
+				view.mattPhotoTimeline.reverse();
+				view.mattPhotoTimeline.timeScale(14);
+			}
 		}, function () {
-			view.krizaTimeline.stop();
-			view.krizaTimeline.timeScale(1);
+			if (view.currentSlideId === 'kriza') {
+				view.krizaPhotoTimeline.stop();
+				view.krizaPhotoTimeline.timeScale(1);
+			} else if (view.currentSlideId === 'matt') {
+				view.mattPhotoTimeline.stop();
+				view.mattPhotoTimeline.timeScale(1);
+			}
 		});
 
 		$('.gallery-movingDown-area').hover(function () {
-			view.krizaTimeline.play();
-			view.krizaTimeline.timeScale(14);
+			if (view.currentSlideId === 'kriza') {
+				view.krizaPhotoTimeline.play();
+				view.krizaPhotoTimeline.timeScale(14);
+			} else if (view.currentSlideId === 'matt') {
+				view.mattPhotoTimeline.play();
+				view.mattPhotoTimeline.timeScale(14);
+			}
 		}, function () {
-			view.krizaTimeline.stop();
-			view.krizaTimeline.timeScale(1);
-		});
-
-		$('.gallery-movingUp-area').mousedown(function () {
-			view.krizaTimeline.timeScale(60);
-			console.log('hit');
-		});
-
-		$('.gallery-movingUp-area').mouseup(function () {
-			view.krizaTimeline.timeScale(14);
-			console.log('hit');
-		});
-
-		$('.gallery-movingDown-area').mousedown(function () {
-			view.krizaTimeline.timeScale(60);
-			console.log('hit');
-		});
-
-		$('.gallery-movingDown-area').mouseup(function () {
-			view.krizaTimeline.timeScale(14);
-			console.log('hit');
-		});
-
-		$('.gallery-movingDown-area').on('click', function() {
+			if (view.currentSlideId === 'kriza') {
+				view.krizaPhotoTimeline.stop();
+				view.krizaPhotoTimeline.timeScale(1);
+			} else if (view.currentSlideId === 'matt') {
+				view.mattPhotoTimeline.stop();
+				view.mattPhotoTimeline.timeScale(1);
+			}
 		});
 	};
 
