@@ -3,15 +3,44 @@ rko.carouselView = (function(window) {
 		swiper: undefined,
 		swiperGallery: undefined,
 		krizaTimeline: undefined,
-		swiperLock: undefined
+		swiperLock: undefined,
+		bindables: {
+			$plusOneCheckbox: $('#plusone-checkbox'),
+			$rsvpForm: $('#rsvp-form')
+		},
+		mainCarouselConfig: {
+			pagination: '.swiper-pagination',
+			direction: 'vertical',
+			slidesPerView: 1,
+			paginationClickable: true,
+			spaceBetween: 0,
+			mousewheelControl: true,
+			keyboardControl: true,
+			simulateTouch: false,
+			mousewheelForceToAxis: true,
+			mousewheelInvert: true,
+			mousewheelSensitivity: 0.5,
+			onSlideChangeStart: function(swiper) {
+				that.handleCarouselSlideChangeStart(swiper);
+			},
+			onSlideChangeEnd: function(swiper) {
+				that.handleCarouselSlideChangeEnd(swiper);
+			}
+		},
+		weddingCountdown: undefined
 	};
 
-	view.bind = function() {
+	view.init = function(html) {
+		$('#main').html(html);
+		$('body').removeClass().addClass('carouselMode');
+		this.bind();
+	};
 
+	view.setupRSVPForm = function() {
 		var $plusOneCheckbox = $('#plusone-checkbox-result'),
 			$plusOneInput = $('#plusone-input');
 
-		$(document).on('click', '#plusone-checkbox', function(e) {
+		this.bindables.$plusOneCheckbox.on('click', function(e) {
 			if ($(e.target).is(':checked')) {
 				$plusOneCheckbox.val('Yes');
 				$plusOneInput.removeClass('hidden');
@@ -21,7 +50,7 @@ rko.carouselView = (function(window) {
 			}
 		});
 
-		$('#rsvp-form').submit(function(e) {
+		this.bindables.$rsvpForm.submit(function(e) {
 			var url = $(this).attr('action');
 			$.ajax({
 				type: 'POST',
@@ -33,6 +62,114 @@ rko.carouselView = (function(window) {
 			});
 			e.preventDefault();
 		});
+	};
+
+	view.unbindRSVPForm = function() {
+		this.bindables.$plusOneCheckbox.off();
+		this.bindables.$rsvpForm.off();
+	};
+
+	view.handleCarouselSlideChangeStart = function(swiper) {
+		if (swiper.activeIndex === 1) {
+			$('.swiper-pagination').addClass('light-mode');
+		} else {
+			if ($('.swiper-pagination').hasClass('light-mode')) {
+				$('.swiper-pagination').removeClass('light-mode');
+			}
+		}
+
+		if (swiper.activeIndex === 3) {
+			if (typeof view.krizaTimeline === 'undefined') {
+				view.krizaTimeline = new TimelineLite();
+				view.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
+				view.krizaTimeline.stop();
+			} else {
+				view.krizaTimeline.restart();
+				view.krizaTimeline.stop();
+			}
+		} else {
+			$('.kriza-gallery-container .gallery-scroller').removeAttr('style');
+			if (typeof view.krizaTimeline !== 'undefined') {
+				view.krizaTimeline.stop();
+				view.krizaTimeline.restart();
+			}
+		}
+		swiper.disableMousewheelControl();
+	};
+
+	view.handleCarouselSlideChangeEnd = function(swiper) {
+		if (swiper.activeIndex === 2) {
+			if (typeof view.swiperGallery === 'undefined') {
+				view.swiperGallery = new Swiper('.swiper-container-gallery', {
+					pagination: '.swiper-pagination-gallery',
+					direction: 'horizontal',
+					slidesPerView: 1,
+					effect: 'fade',
+					paginationClickable: true,
+					spaceBetween: 0,
+					simulateTouch: false,
+					keyboardControl: true,
+					mousewheelControl: true,
+					mousewheelForceToAxis: true,
+					mousewheelInvert: true
+				});
+			}
+
+			$('.swiper-pagination').addClass('transparent-mode');
+		} else {
+			if ($('.swiper-pagination').hasClass('transparent-mode')) {
+				$('.swiper-pagination').removeClass('transparent-mode');
+			}
+		}
+
+		view.swiperLock = setTimeout(function() {
+			swiper.enableMousewheelControl();
+		}, 400);
+	};
+
+	view.setupCarousel = function() {
+		var that = this;
+		view.swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			direction: 'vertical',
+			slidesPerView: 1,
+			paginationClickable: true,
+			spaceBetween: 0,
+			mousewheelControl: true,
+			keyboardControl: true,
+			simulateTouch: false,
+			mousewheelForceToAxis: true,
+			mousewheelInvert: true,
+			mousewheelSensitivity: 0.5,
+			onSlideChangeStart: function(swiper) {
+				that.handleCarouselSlideChangeStart(swiper);
+			},
+			onSlideChangeEnd: function(swiper) {
+				that.handleCarouselSlideChangeEnd(swiper);
+			}
+		});
+	};
+
+	view.setupParallaxEffects = function() {
+		var parallaxFactory = new ParallaxFactory(5),
+			movementMatrix,
+			that = this;
+
+		$('#landing').mousemove(function(e) {
+			movementMatrix = parallaxFactory.getMatrix(this, e);
+
+			$('#parallax-landing').css('transform', 'translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -200px)');
+			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -movementMatrix.X/12 + 'px, ' + -movementMatrix.Y/12 + 'px, 0)');
+		});
+	};
+
+	view.bind = function() {
+		var that = this;
+		this.setupRSVPForm();
+		this.setupCarousel();
+		this.setupParallaxEffects();
+		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
+		this.weddingCountdown.initCountdownClock();
 
 		$('.gallery-movingUp-area').hover(function () {
 			view.krizaTimeline.reverse();
@@ -70,103 +207,8 @@ rko.carouselView = (function(window) {
 			console.log('hit');
 		});
 
-		view.swiper = new Swiper('.swiper-container', {
-			pagination: '.swiper-pagination',
-			direction: 'vertical',
-			slidesPerView: 1,
-			paginationClickable: true,
-			spaceBetween: 0,
-			mousewheelControl: true,
-			keyboardControl: true,
-			simulateTouch: false,
-			mousewheelForceToAxis: true,
-			mousewheelInvert: true,
-			mousewheelSensitivity: 0.5,
-			onSlideChangeStart: function(swiper) {
-				if (swiper.activeIndex === 1) {
-					$('.swiper-pagination').addClass('light-mode');
-				} else {
-					if ($('.swiper-pagination').hasClass('light-mode')) {
-						$('.swiper-pagination').removeClass('light-mode');
-					}
-				}
-
-				if (swiper.activeIndex === 3) {
-					if (typeof view.krizaTimeline === 'undefined') {
-						view.krizaTimeline = new TimelineLite();
-						view.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
-						view.krizaTimeline.stop();
-					} else {
-						view.krizaTimeline.restart();
-						view.krizaTimeline.stop();
-					}
-				} else {
-					$('.kriza-gallery-container .gallery-scroller').removeAttr('style');
-					if (typeof view.krizaTimeline !== 'undefined') {
-						view.krizaTimeline.stop();
-						view.krizaTimeline.restart();
-					}
-				}
-				swiper.disableMousewheelControl();
-			},
-			onSlideChangeEnd: function(swiper) {
-				if (swiper.activeIndex === 2) {
-					if (typeof view.swiperGallery === 'undefined') {
-						view.swiperGallery = new Swiper('.swiper-container-gallery', {
-							pagination: '.swiper-pagination-gallery',
-							direction: 'horizontal',
-							slidesPerView: 1,
-							effect: 'fade',
-							paginationClickable: true,
-							spaceBetween: 0,
-							simulateTouch: false,
-							keyboardControl: true,
-							mousewheelControl: true,
-							mousewheelForceToAxis: true,
-							mousewheelInvert: true
-						});
-					}
-
-					$('.swiper-pagination').addClass('transparent-mode');
-				} else {
-					if ($('.swiper-pagination').hasClass('transparent-mode')) {
-						$('.swiper-pagination').removeClass('transparent-mode');
-					}
-				}
-
-				view.swiperLock = setTimeout(function() {
-					swiper.enableMousewheelControl();
-				}, 400);
-			}
-		});
-
 		$('.gallery-movingDown-area').on('click', function() {
 		});
-
-		$('#landing').mousemove(function(e) {
-			var halfW = ( this.clientWidth / 2 );
-			var halfH = ( this.clientHeight / 2 );
-			var coorX = ( halfW - ( event.pageX - this.offsetLeft ) );
-			var coorY = ( halfH - ( event.pageY - this.offsetTop ) );
-
-			var degX  = ( ( coorY / halfH ) * 15 ) + 'deg';
-			var degY  = ( ( coorX / halfW ) * -15 ) + 'deg';
-
-			var amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
-			var amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
-
-			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
-			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
-		});
-
-		var countdown = new Countdown('2017-06-23', $('#invitation .countdown'));
-		countdown.initCountdownClock();
-	};
-
-	view.init = function(html) {
-		$('#main').html(html);
-		this.bind();
-		$('body').removeClass().addClass('carouselMode');
 	};
 
 	return view;

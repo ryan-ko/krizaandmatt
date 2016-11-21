@@ -2,6 +2,7 @@ function Countdown(endtime, $target) {
 	this.endtime = endtime;
 	this.utils = new Utils();
 	this.$target = $target;
+	this.timeinterval = undefined;
 }
 
 Countdown.prototype = {
@@ -23,16 +24,21 @@ Countdown.prototype = {
 	initCountdownClock: function() {
 		var that = this;
 		console.log('that.$target', that.$target.children());
-		var timeinterval = setInterval(function(){
+		that.timeinterval = setInterval(function(){
 			var t = that.getTimeRemaining(that.endtime);
 			that.$target.children('.days').html(t.days);
 			that.$target.children('.hours').html(t.hours);
 			that.$target.children('.mins').html(t.minutes);
 			that.$target.children('.secs').html(t.seconds);
 			if (t.total <= 0) {
-				clearInterval(timeinterval);
+				clearInterval(that.timeinterval);
+				this.$target.hide();
 			}
 		}, 1000);
+	},
+	destory: function() {
+		var that = this;
+		clearInterval(that.timeinterval);
 	}
 };
 

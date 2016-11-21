@@ -5,19 +5,22 @@ rko.app = (function(window) {
 		modeLabel: 'introMode',
 		$lockIcon: $('.lock-icon'),
 		$logo: $('.logo'),
-		$background: $('#parallax-auth')
+		$background: $('#parallax-auth'),
+		$viewContainer: $('#auth')
 	},
 	passwordView = rko.passwordView;
 
 	app.init = function() {
+		passwordView.init(this.modeLabel);
+		this.setupParallaxEffects();
+	};
 
+	app.setupParallaxEffects = function() {
 		var parallaxFactory = new ParallaxFactory(5),
 			movementMatrix,
 			that = this;
 
-		passwordView.init(this.modeLabel);
-
-		$('#auth').mousemove(function(e) {
+		this.$viewContainer.mousemove(function(e) {
 			movementMatrix = parallaxFactory.getMatrix(this, e);
 			that.$lockIcon.css('transform', 'perspective(40px) translate3d(' + -movementMatrix.X/4 + 'px, ' + -movementMatrix.Y/4 + 'px, 0) rotateX(' + movementMatrix.degX +') rotateY('+ movementMatrix.degY +')');
 			that.$logo.css('transform', 'perspective(500px) translate3d(' + -movementMatrix.X/8 + 'px, ' + -movementMatrix.Y/8 + 'px, 0) rotateX(' + movementMatrix.degX + ') rotateY(' + movementMatrix.degY + ')');
