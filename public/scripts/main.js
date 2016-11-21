@@ -65,24 +65,28 @@ Countdown.prototype = {
 			'seconds': this.utils.convertToTwoDigits(seconds)
 		};
 	},
+	render: function() {
+		var t = this.getTimeRemaining(this.endtime);
+		this.$target.children('.days').html(t.days);
+		this.$target.children('.hours').html(t.hours);
+		this.$target.children('.mins').html(t.minutes);
+		this.$target.children('.secs').html(t.seconds);
+		if (t.total <= 0) {
+			clearInterval(this.timeinterval);
+			this.$target.hide();
+		}
+	},
 	initCountdownClock: function() {
 		var that = this;
 		console.log('that.$target', that.$target.children());
+		that.render();
 		that.timeinterval = setInterval(function() {
-			var t = that.getTimeRemaining(that.endtime);
-			that.$target.children('.days').html(t.days);
-			that.$target.children('.hours').html(t.hours);
-			that.$target.children('.mins').html(t.minutes);
-			that.$target.children('.secs').html(t.seconds);
-			if (t.total <= 0) {
-				clearInterval(that.timeinterval);
-				that.$target.hide();
-			}
+			that.render();
 		}, 1000);
 
 		setTimeout(function() {
 			that.$target.removeClass('hidden');
-		}, 1000);
+		}, 500);
 	},
 	destroy: function() {
 		var that = this;
@@ -240,6 +244,13 @@ rko.carouselView = (function(window) {
 
 			$('#parallax-landing').css('transform', 'translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -movementMatrix.X/12 + 'px, ' + -movementMatrix.Y/12 + 'px, 0)');
+		});
+
+		$('#quote').mousemove(function(e) {
+			movementMatrix = parallaxFactory.getMatrix(this, e);
+
+			$('#quote-landing').css('transform', 'perspective(600px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -10px)');
+			$('#quote cite').css('transform', 'perspective(600px) translate3d(' + -movementMatrix.X/12 + 'px, ' + -movementMatrix.Y/12 + 'px, 0)');
 		});
 	};
 

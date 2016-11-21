@@ -147,6 +147,13 @@ rko.carouselView = (function(window) {
 			$('#parallax-landing').css('transform', 'translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -movementMatrix.X/12 + 'px, ' + -movementMatrix.Y/12 + 'px, 0)');
 		});
+
+		$('#quote').mousemove(function(e) {
+			movementMatrix = parallaxFactory.getMatrix(this, e);
+
+			$('#quote-landing').css('transform', 'perspective(600px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -10px)');
+			$('#quote cite').css('transform', 'perspective(600px) translate3d(' + -movementMatrix.X/12 + 'px, ' + -movementMatrix.Y/12 + 'px, 0)');
+		});
 	};
 
 	view.bind = function() {
