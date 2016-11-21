@@ -1325,10 +1325,11 @@ button.swiper-pagination-bullet {
 
 .personal-gallery ul {
   width: 60%;
+  padding: 12px 0;
 }
 
 .personal-gallery ul li {
-  padding: 25px 0;
+  padding: 12px 0;
 }
 
 .personal-gallery img {

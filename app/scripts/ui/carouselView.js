@@ -18,11 +18,19 @@ rko.carouselView = (function(window) {
 		$('#main').html(html);
 		$('body').removeClass().addClass('carouselMode');
 
-		this.krizaPhotoTimeline = new TimelineLite({paused: true});
-		this.krizaPhotoTimeline.to($('#kriza .gallery-scroller'), 300, { y: '-100%' });
+		var that = this,
+			maxHeight;
 
-		this.mattPhotoTimeline = new TimelineLite({paused: true});
-		this.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: '-100%' });
+		$('#matt .gallery-scroller').imagesLoaded( function() {
+			maxHeight = -$('#matt .gallery-scroller').innerHeight() + ($(window).innerHeight());
+			that.krizaPhotoTimeline = new TimelineLite({paused: true});
+			that.krizaPhotoTimeline.to($('#kriza .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true });
+		});
+		$('#kriza .gallery-scroller').imagesLoaded( function() {
+			maxHeight = -$('#matt .gallery-scroller').innerHeight() + ($(window).innerHeight());
+			that.mattPhotoTimeline = new TimelineLite({paused: true});
+			that.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true });
+		});
 
 		this.bind();
 	};
@@ -67,30 +75,14 @@ rko.carouselView = (function(window) {
 		view.currentSlideId = $currentSlide[0].id;
 
 		$currentSlide.hasClass('light-mode') ? $carouselPagination.addClass('light-mode') : $carouselPagination.removeClass('light-mode');
-
 		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
 
 		swiper.disableMousewheelControl();
 	};
 
 	view.handleCarouselSlideChangeEnd = function(swiper) {
-		// var $currentSlide = $('.carousel-slide-active'),
-		// 	$carouselPagination = $('.swiper-pagination'),
-		// 	currentSlideId = $currentSlide[0].id;
 
-		// if (currentSlideId === 'kriza') {
-		// 	$('.gallery-scroller').removeAttr('style');
-		// 	view.mattPhotoTimeline.restart();
-		// 	view.mattPhotoTimeline.stop();
-		// }
-
-		// if (currentSlideId === 'matt') {
-		// 	$('.gallery-scroller').removeAttr('style');
-		// 	view.krizaPhotoTimeline.restart();
-		// 	view.krizaPhotoTimeline.stop();
-		// }
-
-		if (swiper.activeIndex === 2) {
+		if (view.currentSlideId === 'gallery') {
 			if (typeof view.swiperGallery === 'undefined') {
 				view.swiperGallery = new Swiper('.swiper-container-gallery', {
 					pagination: '.swiper-pagination-gallery',
@@ -159,40 +151,36 @@ rko.carouselView = (function(window) {
 		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
 		this.weddingCountdown.initCountdownClock();
 
-		$('.gallery-movingUp-area').hover(function () {
-			if (view.currentSlideId === 'kriza') {
-				view.krizaPhotoTimeline.reverse();
-				view.krizaPhotoTimeline.timeScale(14);
-			} else if (view.currentSlideId === 'matt') {
-				view.mattPhotoTimeline.reverse();
-				view.mattPhotoTimeline.timeScale(14);
-			}
+		$('#matt .gallery-movingUp-area').hover(function () {
+			view.mattPhotoTimeline.reverse();
+			view.mattPhotoTimeline.timeScale(44);
 		}, function () {
-			if (view.currentSlideId === 'kriza') {
-				view.krizaPhotoTimeline.stop();
-				view.krizaPhotoTimeline.timeScale(1);
-			} else if (view.currentSlideId === 'matt') {
-				view.mattPhotoTimeline.stop();
-				view.mattPhotoTimeline.timeScale(1);
-			}
+			view.mattPhotoTimeline.stop();
+			view.mattPhotoTimeline.timeScale(1);
 		});
 
-		$('.gallery-movingDown-area').hover(function () {
-			if (view.currentSlideId === 'kriza') {
-				view.krizaPhotoTimeline.play();
-				view.krizaPhotoTimeline.timeScale(14);
-			} else if (view.currentSlideId === 'matt') {
-				view.mattPhotoTimeline.play();
-				view.mattPhotoTimeline.timeScale(14);
-			}
+		$('#kriza .gallery-movingUp-area').hover(function () {
+			view.krizaPhotoTimeline.reverse();
+			view.krizaPhotoTimeline.timeScale(44);
 		}, function () {
-			if (view.currentSlideId === 'kriza') {
-				view.krizaPhotoTimeline.stop();
-				view.krizaPhotoTimeline.timeScale(1);
-			} else if (view.currentSlideId === 'matt') {
-				view.mattPhotoTimeline.stop();
-				view.mattPhotoTimeline.timeScale(1);
-			}
+			view.krizaPhotoTimeline.stop();
+			view.krizaPhotoTimeline.timeScale(1);
+		});
+
+		$('#matt .gallery-movingDown-area').hover(function () {
+			view.mattPhotoTimeline.play();
+			view.mattPhotoTimeline.timeScale(44);
+		}, function () {
+			view.mattPhotoTimeline.stop();
+			view.mattPhotoTimeline.timeScale(1);
+		});
+
+		$('#kriza .gallery-movingDown-area').hover(function () {
+			view.krizaPhotoTimeline.play();
+			view.krizaPhotoTimeline.timeScale(44);
+		}, function () {
+			view.krizaPhotoTimeline.stop();
+			view.krizaPhotoTimeline.timeScale(1);
 		});
 	};
 
