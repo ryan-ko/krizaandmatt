@@ -21,12 +21,12 @@ rko.carouselView = (function(window) {
 		var that = this,
 			maxHeight;
 
-		$('#matt .gallery-scroller').imagesLoaded( function() {
-			maxHeight = -$('#matt .gallery-scroller').innerHeight() + ($(window).innerHeight());
+		$('#kriza .gallery-scroller').imagesLoaded( function() {
+			maxHeight = -$('#kriza .gallery-scroller').innerHeight() + ($(window).innerHeight());
 			that.krizaPhotoTimeline = new TimelineLite({paused: true});
 			that.krizaPhotoTimeline.to($('#kriza .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Quad.easeInOut });
 		});
-		$('#kriza .gallery-scroller').imagesLoaded( function() {
+		$('#matt .gallery-scroller').imagesLoaded( function() {
 			maxHeight = -$('#matt .gallery-scroller').innerHeight() + ($(window).innerHeight());
 			that.mattPhotoTimeline = new TimelineLite({paused: true});
 			that.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Quad.easeInOut });
