@@ -152,6 +152,18 @@ rko.carouselView = (function(window) {
 			$('#quote-landing').css('transform', 'perspective(600px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -10px)');
 			$('#quote cite').css('transform', 'perspective(600px) translate3d(' + -movementMatrix.X/12 + 'px, ' + -movementMatrix.Y/12 + 'px, 0)');
 		});
+
+		$('#location').mousemove(function(e) {
+			movementMatrix = parallaxFactory.getMatrix(this, e);
+
+			$('#location-landing').css('transform', 'perspective(600px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -10px)');
+		});
+
+		$('#seeyou').mousemove(function(e) {
+			movementMatrix = parallaxFactory.getMatrix(this, e);
+
+			$('#seeyou-landing').css('transform', 'perspective(600px) translate3d(' + movementMatrix.X/5 + 'px, ' + movementMatrix.Y/5 + 'px, -10px)');
+		});
 	};
 
 	view.bind = function() {
