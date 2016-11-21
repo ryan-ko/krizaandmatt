@@ -1,10 +1,10 @@
-RKO.LOCK = (function(window) {
-	var lock = {
+rko.passwordView = (function(window) {
+	var view = {
 	},
 	utils = new Utils(),
-	core = RKO.CORE;
+	carouselView = rko.carouselView;
 
-	lock.bind = function() {
+	view.bind = function() {
 		$('#secretword-input').keydown(function(e) {
 			$('#login-error-msg').removeClass('show');
 		});
@@ -35,7 +35,7 @@ RKO.LOCK = (function(window) {
 					var data = $.parseJSON(data);
 					if (data.result === 'success') {
 						$('#main').html(data.html);
-						core.bind();
+						carouselView.bind();
 						$('body').removeClass().addClass('invitationMode');
 						$(document).unbind('keydown');
 					} else {
@@ -47,9 +47,9 @@ RKO.LOCK = (function(window) {
 		});
 	};
 
-	lock.init = function() {
-		lock.bind();
+	view.init = function() {
+		view.bind();
 	};
 
-	return lock;
+	return view;
 }(window));

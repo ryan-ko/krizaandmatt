@@ -1,22 +1,11 @@
-RKO.COUNTDOWN = (function(window) {
-	var countdown = {
-	},
-	utils = new Utils();
+function Countdown(endtime, $target) {
+	this.endtime = endtime;
+	this.utils = new Utils();
+	this.$target = $target;
+}
 
-	countdown.initCountdownClock = function(endtime) {
-		var timeinterval = setInterval(function(){
-			var t = countdown.getTimeRemaining(endtime);
-			$('#invitation .days').html(t.days);
-			$('#invitation .hours').html(t.hours);
-			$('#invitation .mins').html(t.minutes);
-			$('#invitation .secs').html(t.seconds);
-			if (t.total <= 0) {
-				clearInterval(timeinterval);
-			}
-		}, 1000);
-	};
-
-	countdown.getTimeRemaining = function(endtime) {
+Countdown.prototype = {
+	getTimeRemaining: function(endtime) {
 		var t = Date.parse(endtime) - Date.parse(new Date());
 		var seconds = Math.floor( (t/1000) % 60 );
 		var minutes = Math.floor( (t/1000/60) % 60 );
@@ -25,13 +14,25 @@ RKO.COUNTDOWN = (function(window) {
 
 		return {
 			'total': t,
-			'days': utils.convertToTwoDigits(days),
-			'hours': utils.convertToTwoDigits(hours),
-			'minutes': utils.convertToTwoDigits(minutes),
-			'seconds': utils.convertToTwoDigits(seconds)
+			'days': this.utils.convertToTwoDigits(days),
+			'hours': this.utils.convertToTwoDigits(hours),
+			'minutes': this.utils.convertToTwoDigits(minutes),
+			'seconds': this.utils.convertToTwoDigits(seconds)
 		};
-	};
+	},
+	initCountdownClock: function() {
+		var that = this;
+		console.log('that.$target', that.$target.children());
+		var timeinterval = setInterval(function(){
+			var t = that.getTimeRemaining(that.endtime);
+			that.$target.children('.days').html(t.days);
+			that.$target.children('.hours').html(t.hours);
+			that.$target.children('.mins').html(t.minutes);
+			that.$target.children('.secs').html(t.seconds);
+			if (t.total <= 0) {
+				clearInterval(timeinterval);
+			}
+		}, 1000);
+	}
+};
 
-	return countdown;
-
-}(window));

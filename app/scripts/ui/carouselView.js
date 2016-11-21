@@ -1,12 +1,12 @@
-RKO.CORE = (function(window) {
-	var core = {
+rko.carouselView = (function(window) {
+	var view = {
 		swiper: undefined,
 		swiperGallery: undefined,
 		krizaTimeline: undefined,
 		swiperLock: undefined
 	};
 
-	core.bind = function() {
+	view.bind = function() {
 
 		var $plusOneCheckbox = $('#plusone-checkbox-result'),
 			$plusOneInput = $('#plusone-input');
@@ -35,42 +35,42 @@ RKO.CORE = (function(window) {
 		});
 
 		$('.gallery-movingUp-area').hover(function () {
-			core.krizaTimeline.reverse();
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.reverse();
+			view.krizaTimeline.timeScale(14);
 		}, function () {
-			core.krizaTimeline.stop();
-			core.krizaTimeline.timeScale(1);
+			view.krizaTimeline.stop();
+			view.krizaTimeline.timeScale(1);
 		});
 
 		$('.gallery-movingDown-area').hover(function () {
-			core.krizaTimeline.play();
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.play();
+			view.krizaTimeline.timeScale(14);
 		}, function () {
-			core.krizaTimeline.stop();
-			core.krizaTimeline.timeScale(1);
+			view.krizaTimeline.stop();
+			view.krizaTimeline.timeScale(1);
 		});
 
 		$('.gallery-movingUp-area').mousedown(function () {
-			core.krizaTimeline.timeScale(60);
+			view.krizaTimeline.timeScale(60);
 			console.log('hit');
 		});
 
 		$('.gallery-movingUp-area').mouseup(function () {
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.timeScale(14);
 			console.log('hit');
 		});
 
 		$('.gallery-movingDown-area').mousedown(function () {
-			core.krizaTimeline.timeScale(60);
+			view.krizaTimeline.timeScale(60);
 			console.log('hit');
 		});
 
 		$('.gallery-movingDown-area').mouseup(function () {
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.timeScale(14);
 			console.log('hit');
 		});
 
-		core.swiper = new Swiper('.swiper-container', {
+		view.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
 			slidesPerView: 1,
@@ -92,27 +92,27 @@ RKO.CORE = (function(window) {
 				}
 
 				if (swiper.activeIndex === 3) {
-					if (typeof core.krizaTimeline === 'undefined') {
-						core.krizaTimeline = new TimelineLite();
-						core.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
-						core.krizaTimeline.stop();
+					if (typeof view.krizaTimeline === 'undefined') {
+						view.krizaTimeline = new TimelineLite();
+						view.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
+						view.krizaTimeline.stop();
 					} else {
-						core.krizaTimeline.restart();
-						core.krizaTimeline.stop();
+						view.krizaTimeline.restart();
+						view.krizaTimeline.stop();
 					}
 				} else {
 					$('.kriza-gallery-container .gallery-scroller').removeAttr('style');
-					if (typeof core.krizaTimeline !== 'undefined') {
-						core.krizaTimeline.stop();
-						core.krizaTimeline.restart();
+					if (typeof view.krizaTimeline !== 'undefined') {
+						view.krizaTimeline.stop();
+						view.krizaTimeline.restart();
 					}
 				}
 				swiper.disableMousewheelControl();
 			},
 			onSlideChangeEnd: function(swiper) {
 				if (swiper.activeIndex === 2) {
-					if (typeof core.swiperGallery === 'undefined') {
-						core.swiperGallery = new Swiper('.swiper-container-gallery', {
+					if (typeof view.swiperGallery === 'undefined') {
+						view.swiperGallery = new Swiper('.swiper-container-gallery', {
 							pagination: '.swiper-pagination-gallery',
 							direction: 'horizontal',
 							slidesPerView: 1,
@@ -134,7 +134,7 @@ RKO.CORE = (function(window) {
 					}
 				}
 
-				core.swiperLock = setTimeout(function() {
+				view.swiperLock = setTimeout(function() {
 					swiper.enableMousewheelControl();
 				}, 400);
 			}
@@ -158,10 +158,11 @@ RKO.CORE = (function(window) {
 			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
 		});
-		countdown = RKO.COUNTDOWN;
-		countdown.initCountdownClock('2017-06-23');
+
+		var countdown = new Countdown('2017-06-23', $('#invitation .countdown'));
+		countdown.initCountdownClock();
 	};
 
-	return core;
+	return view;
 
 }(window));

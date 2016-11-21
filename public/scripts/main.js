@@ -9,54 +9,43 @@ Utils.prototype = {
 		}
 	},
 	isCharacterKeyPress: function (evt) {
-		if (typeof evt.which == "undefined") {
+		if (typeof evt.which === 'undefined') {
 			return true;
-		} else if (typeof evt.which == "number" && evt.which > 0) {
+		} else if (typeof evt.which === 'number' && evt.which > 0) {
 			return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
 		}
 		return false;
 	}
 };
-RKO.PARALLAX_FACTORY = (function(window) {
-	var parallax = {
-		amountMovedX: undefined,
-		amountMovedY: undefined,
-		degX: undefined,
-		degY: undefined
-	};
+function ParallaxFactory(maxDeg) {
+	this.parallaxPackage = {};
+	this.maxDeg = maxDeg;
+}
 
-	parallax.onMove = function(context, e, maxDeg) {
+ParallaxFactory.prototype = {
+	getMatrix: function(context, e) {
+		var that = this;
 		var halfW = ( context.clientWidth / 2 );
 		var halfH = ( context.clientHeight / 2 );
 		var coorX = ( halfW - ( e.pageX - context.offsetLeft ) );
 		var coorY = ( halfH - ( e.pageY - context.offsetTop ) );
-		parallax.degX  = ( ( coorY / halfH ) * maxDeg ) + 'deg';
-		parallax.degY  = ( ( coorX / halfW ) * -(maxDeg) ) + 'deg';
-		parallax.amountMovedX = ((e.pageX * -1 / 2) + halfW / 2) / 8;
-		parallax.amountMovedY = ((e.pageY * -1 / 2) + halfH / 2) / 8;
-	};
+		that.parallaxPackage.degX  = ( ( coorY / halfH ) * that.maxDeg ) + 'deg';
+		that.parallaxPackage.degY  = ( ( coorX / halfW ) * -(that.maxDeg) ) + 'deg';
+		that.parallaxPackage.X = ((e.pageX * -1 / 2) + halfW / 2) / 8;
+		that.parallaxPackage.Y = ((e.pageY * -1 / 2) + halfH / 2) / 8;
 
-	return parallax;
-}(window));
-RKO.COUNTDOWN = (function(window) {
-	var countdown = {
-	},
-	utils = new Utils();
+		return that.parallaxPackage;
+	}
+}
 
-	countdown.initCountdownClock = function(endtime) {
-		var timeinterval = setInterval(function(){
-			var t = countdown.getTimeRemaining(endtime);
-			$('#invitation .days').html(t.days);
-			$('#invitation .hours').html(t.hours);
-			$('#invitation .mins').html(t.minutes);
-			$('#invitation .secs').html(t.seconds);
-			if (t.total <= 0) {
-				clearInterval(timeinterval);
-			}
-		}, 1000);
-	};
+function Countdown(endtime, $target) {
+	this.endtime = endtime;
+	this.utils = new Utils();
+	this.$target = $target;
+}
 
-	countdown.getTimeRemaining = function(endtime) {
+Countdown.prototype = {
+	getTimeRemaining: function(endtime) {
 		var t = Date.parse(endtime) - Date.parse(new Date());
 		var seconds = Math.floor( (t/1000) % 60 );
 		var minutes = Math.floor( (t/1000/60) % 60 );
@@ -65,25 +54,38 @@ RKO.COUNTDOWN = (function(window) {
 
 		return {
 			'total': t,
-			'days': utils.convertToTwoDigits(days),
-			'hours': utils.convertToTwoDigits(hours),
-			'minutes': utils.convertToTwoDigits(minutes),
-			'seconds': utils.convertToTwoDigits(seconds)
+			'days': this.utils.convertToTwoDigits(days),
+			'hours': this.utils.convertToTwoDigits(hours),
+			'minutes': this.utils.convertToTwoDigits(minutes),
+			'seconds': this.utils.convertToTwoDigits(seconds)
 		};
-	};
+	},
+	initCountdownClock: function() {
+		var that = this;
+		console.log('that.$target', that.$target.children());
+		var timeinterval = setInterval(function(){
+			var t = that.getTimeRemaining(that.endtime);
+			that.$target.children('.days').html(t.days);
+			that.$target.children('.hours').html(t.hours);
+			that.$target.children('.mins').html(t.minutes);
+			that.$target.children('.secs').html(t.seconds);
+			if (t.total <= 0) {
+				clearInterval(timeinterval);
+			}
+		}, 1000);
+	}
+};
 
-	return countdown;
 
-}(window));
-RKO.CORE = (function(window) {
-	var core = {
+rko.carouselView = (function(window) {
+	var view = {
 		swiper: undefined,
 		swiperGallery: undefined,
 		krizaTimeline: undefined,
 		swiperLock: undefined
 	};
 
-	core.bind = function() {
+	view.bind = function() {
 
 		var $plusOneCheckbox = $('#plusone-checkbox-result'),
 			$plusOneInput = $('#plusone-input');
@@ -112,42 +114,42 @@ RKO.CORE = (function(window) {
 		});
 
 		$('.gallery-movingUp-area').hover(function () {
-			core.krizaTimeline.reverse();
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.reverse();
+			view.krizaTimeline.timeScale(14);
 		}, function () {
-			core.krizaTimeline.stop();
-			core.krizaTimeline.timeScale(1);
+			view.krizaTimeline.stop();
+			view.krizaTimeline.timeScale(1);
 		});
 
 		$('.gallery-movingDown-area').hover(function () {
-			core.krizaTimeline.play();
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.play();
+			view.krizaTimeline.timeScale(14);
 		}, function () {
-			core.krizaTimeline.stop();
-			core.krizaTimeline.timeScale(1);
+			view.krizaTimeline.stop();
+			view.krizaTimeline.timeScale(1);
 		});
 
 		$('.gallery-movingUp-area').mousedown(function () {
-			core.krizaTimeline.timeScale(60);
+			view.krizaTimeline.timeScale(60);
 			console.log('hit');
 		});
 
 		$('.gallery-movingUp-area').mouseup(function () {
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.timeScale(14);
 			console.log('hit');
 		});
 
 		$('.gallery-movingDown-area').mousedown(function () {
-			core.krizaTimeline.timeScale(60);
+			view.krizaTimeline.timeScale(60);
 			console.log('hit');
 		});
 
 		$('.gallery-movingDown-area').mouseup(function () {
-			core.krizaTimeline.timeScale(14);
+			view.krizaTimeline.timeScale(14);
 			console.log('hit');
 		});
 
-		core.swiper = new Swiper('.swiper-container', {
+		view.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
 			slidesPerView: 1,
@@ -169,27 +171,27 @@ RKO.CORE = (function(window) {
 				}
 
 				if (swiper.activeIndex === 3) {
-					if (typeof core.krizaTimeline === 'undefined') {
-						core.krizaTimeline = new TimelineLite();
-						core.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
-						core.krizaTimeline.stop();
+					if (typeof view.krizaTimeline === 'undefined') {
+						view.krizaTimeline = new TimelineLite();
+						view.krizaTimeline.to($('.gallery-scroller'), 300, {y:'-100%'});
+						view.krizaTimeline.stop();
 					} else {
-						core.krizaTimeline.restart();
-						core.krizaTimeline.stop();
+						view.krizaTimeline.restart();
+						view.krizaTimeline.stop();
 					}
 				} else {
 					$('.kriza-gallery-container .gallery-scroller').removeAttr('style');
-					if (typeof core.krizaTimeline !== 'undefined') {
-						core.krizaTimeline.stop();
-						core.krizaTimeline.restart();
+					if (typeof view.krizaTimeline !== 'undefined') {
+						view.krizaTimeline.stop();
+						view.krizaTimeline.restart();
 					}
 				}
 				swiper.disableMousewheelControl();
 			},
 			onSlideChangeEnd: function(swiper) {
 				if (swiper.activeIndex === 2) {
-					if (typeof core.swiperGallery === 'undefined') {
-						core.swiperGallery = new Swiper('.swiper-container-gallery', {
+					if (typeof view.swiperGallery === 'undefined') {
+						view.swiperGallery = new Swiper('.swiper-container-gallery', {
 							pagination: '.swiper-pagination-gallery',
 							direction: 'horizontal',
 							slidesPerView: 1,
@@ -211,7 +213,7 @@ RKO.CORE = (function(window) {
 					}
 				}
 
-				core.swiperLock = setTimeout(function() {
+				view.swiperLock = setTimeout(function() {
 					swiper.enableMousewheelControl();
 				}, 400);
 			}
@@ -235,20 +237,21 @@ RKO.CORE = (function(window) {
 			$('#parallax-landing').css('transform', 'translate3d(' + amountMovedX/2 + 'px, ' + amountMovedY/2 + 'px, -200px)');
 			$('#landing .km-logo').css('transform', 'perspective(200px) translate3d(' + -amountMovedX/12 + 'px, ' + -amountMovedY/12 + 'px, 0)');
 		});
-		countdown = RKO.COUNTDOWN;
-		countdown.initCountdownClock('2017-06-23');
+
+		var countdown = new Countdown('2017-06-23', $('#invitation .countdown'));
+		countdown.initCountdownClock();
 	};
 
-	return core;
+	return view;
 
 }(window));
-RKO.LOCK = (function(window) {
-	var lock = {
+rko.passwordView = (function(window) {
+	var view = {
 	},
 	utils = new Utils(),
-	core = RKO.CORE;
+	carouselView = rko.carouselView;
 
-	lock.bind = function() {
+	view.bind = function() {
 		$('#secretword-input').keydown(function(e) {
 			$('#login-error-msg').removeClass('show');
 		});
@@ -279,7 +282,7 @@ RKO.LOCK = (function(window) {
 					var data = $.parseJSON(data);
 					if (data.result === 'success') {
 						$('#main').html(data.html);
-						core.bind();
+						carouselView.bind();
 						$('body').removeClass().addClass('invitationMode');
 						$(document).unbind('keydown');
 					} else {
@@ -291,27 +294,32 @@ RKO.LOCK = (function(window) {
 		});
 	};
 
-	lock.init = function() {
-		lock.bind();
+	view.init = function() {
+		view.bind();
 	};
 
-	return lock;
+	return view;
 }(window));
-RKO.APP = (function(window) {
+rko.app = (function(window) {
 
 	var app = {},
-	lock = RKO.LOCK,
-	parallaxFactory = RKO.PARALLAX_FACTORY;
+	passwordView = rko.passwordView;
 
 	app.init = function() {
-		lock.init();
+		passwordView.init();
+
+		var parallaxFactory = new ParallaxFactory(5),
+			movementMatrix;
 
 		$('#auth').mousemove(function(e) {
-			parallaxFactory.onMove(this, e, 5);
+			movementMatrix = parallaxFactory.getMatrix(this, e);
 
-			$('#parallax-auth').css('transform', 'perspective(1000px) translate3d(' + parallaxFactory.amountMovedX/2 + 'px, ' + parallaxFactory.amountMovedY/2 + 'px, -20px)');
-			$('.lock-icon').css('transform', 'perspective(40px) translate3d(' + -parallaxFactory.amountMovedX/4 + 'px, ' + -parallaxFactory.amountMovedY/4 + 'px, 0) rotateX(' + parallaxFactory.degX +') rotateY('+ parallaxFactory.degY +')');
-			$('.logo').css('transform', 'perspective(500px) translate3d(' + -parallaxFactory.amountMovedX/8 + 'px, ' + -parallaxFactory.amountMovedY/8 + 'px, 0) rotateX(' + parallaxFactory.degX + ') rotateY(' + parallaxFactory.degY + ')');
+			$('#parallax-auth')
+				.css('transform', 'perspective(1000px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -20px)');
+			$('.lock-icon')
+				.css('transform', 'perspective(40px) translate3d(' + -movementMatrix.X/4 + 'px, ' + -movementMatrix.Y/4 + 'px, 0) rotateX(' + movementMatrix.degX +') rotateY('+ movementMatrix.degY +')');
+			$('.logo')
+				.css('transform', 'perspective(500px) translate3d(' + -movementMatrix.X/8 + 'px, ' + -movementMatrix.Y/8 + 'px, 0) rotateX(' + movementMatrix.degX + ') rotateY(' + movementMatrix.degY + ')');
 		});
 	};
 

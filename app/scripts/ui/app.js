@@ -1,18 +1,23 @@
-RKO.APP = (function(window) {
+rko.app = (function(window) {
 
 	var app = {},
-	lock = RKO.LOCK,
-	parallaxFactory = RKO.PARALLAX_FACTORY;
+	passwordView = rko.passwordView;
 
 	app.init = function() {
-		lock.init();
+		passwordView.init();
+
+		var parallaxFactory = new ParallaxFactory(5),
+			movementMatrix;
 
 		$('#auth').mousemove(function(e) {
-			parallaxFactory.onMove(this, e, 5);
+			movementMatrix = parallaxFactory.getMatrix(this, e);
 
-			$('#parallax-auth').css('transform', 'perspective(1000px) translate3d(' + parallaxFactory.amountMovedX/2 + 'px, ' + parallaxFactory.amountMovedY/2 + 'px, -20px)');
-			$('.lock-icon').css('transform', 'perspective(40px) translate3d(' + -parallaxFactory.amountMovedX/4 + 'px, ' + -parallaxFactory.amountMovedY/4 + 'px, 0) rotateX(' + parallaxFactory.degX +') rotateY('+ parallaxFactory.degY +')');
-			$('.logo').css('transform', 'perspective(500px) translate3d(' + -parallaxFactory.amountMovedX/8 + 'px, ' + -parallaxFactory.amountMovedY/8 + 'px, 0) rotateX(' + parallaxFactory.degX + ') rotateY(' + parallaxFactory.degY + ')');
+			$('#parallax-auth')
+				.css('transform', 'perspective(1000px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -20px)');
+			$('.lock-icon')
+				.css('transform', 'perspective(40px) translate3d(' + -movementMatrix.X/4 + 'px, ' + -movementMatrix.Y/4 + 'px, 0) rotateX(' + movementMatrix.degX +') rotateY('+ movementMatrix.degY +')');
+			$('.logo')
+				.css('transform', 'perspective(500px) translate3d(' + -movementMatrix.X/8 + 'px, ' + -movementMatrix.Y/8 + 'px, 0) rotateX(' + movementMatrix.degX + ') rotateY(' + movementMatrix.degY + ')');
 		});
 	};
 

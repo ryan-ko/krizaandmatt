@@ -38,10 +38,10 @@ gulp.task('browser-sync', ['nodemon'], function() {
 gulp.task('scripts', function() {
 	return gulp.src([
 			'./app/scripts/classes/Utils.js',
-			'./app/scripts/ui/parallaxFactory.js',
+			'./app/scripts/classes/ParallaxFactory.js',
 			'./app/scripts/classes/Countdown.js',
-			'./app/scripts/ui/core.js',
-			'./app/scripts/ui/lock.js',
+			'./app/scripts/ui/carouselView.js',
+			'./app/scripts/ui/passwordView.js',
 			'./app/scripts/ui/app.js'
 		])
 		.pipe(concat('main.js'))
