@@ -18,7 +18,6 @@ $menuWidth: 56%;
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity 1s $parallaxEase;
-	padding: 54px 0;
 	color: $content;
 
 	.menuMode & {
@@ -30,7 +29,11 @@ $menuWidth: 56%;
 		width: 50%;
 		height: 100%;
 		float: left;
-		padding: 0 46px;
+		padding: 54px 46px;
+
+		&:first-child {
+			// background: #cc856a;
+		}
 	}
 	.menu-block {
 		display: block;
@@ -121,6 +124,12 @@ $menuWidth: 56%;
 				font-size: 12px;
 				letter-spacing: 0.3em;
 				padding: 8px;
+				cursor: pointer;
+
+				&:hover {
+					background: #fff;
+					color: $primaryColor;
+				}
 			}
 		}
 
