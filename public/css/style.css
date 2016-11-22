@@ -932,6 +932,10 @@ button.swiper-pagination-bullet {
   padding: 54px 46px;
 }
 
+#menu .menu-column:first-child {
+  background: #cc856a;
+}
+
 #menu .menu-block {
   display: block;
   width: 100%;
