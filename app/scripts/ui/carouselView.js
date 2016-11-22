@@ -5,8 +5,6 @@ rko.carouselView = (function(window) {
 		krizaTimeline: undefined,
 		swiperLock: undefined,
 		bindables: {
-			$plusOneCheckbox: $('#plusone-checkbox'),
-			$rsvpForm: $('#rsvp-form')
 		},
 		weddingCountdown: undefined,
 		krizaPhotoTimeline: undefined,
@@ -14,8 +12,9 @@ rko.carouselView = (function(window) {
 		currentSlideId: undefined
 	};
 
-	view.init = function(html) {
+	view.init = function(html, menuHtml) {
 		$('#main').html(html);
+		$('#menu').html(menuHtml);
 		$('body').removeClass().addClass('carouselMode');
 
 		var that = this,
@@ -37,9 +36,11 @@ rko.carouselView = (function(window) {
 
 	view.setupRSVPForm = function() {
 		var $plusOneCheckbox = $('#plusone-checkbox-result'),
-			$plusOneInput = $('#plusone-input');
+			$plusOneInput = $('#plusone-input'),
+			$rsvpForm = $('#rsvp-form'),
+			$plusOneCheckboxInput = $('#plusone-checkbox');
 
-		this.bindables.$plusOneCheckbox.on('click', function(e) {
+		$plusOneCheckboxInput.on('click', function(e) {
 			if ($(e.target).is(':checked')) {
 				$plusOneCheckbox.val('Yes');
 				$plusOneInput.removeClass('hidden');
@@ -49,7 +50,7 @@ rko.carouselView = (function(window) {
 			}
 		});
 
-		this.bindables.$rsvpForm.submit(function(e) {
+		$rsvpForm.submit(function(e) {
 			var url = $(this).attr('action');
 			$.ajax({
 				type: 'POST',

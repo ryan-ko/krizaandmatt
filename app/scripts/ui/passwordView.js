@@ -51,7 +51,7 @@ rko.passwordView = (function(window) {
 					data = $.parseJSON(data);
 					if (data.result === 'success') {
 						that.unbind();
-						carouselView.init(data.html);
+						carouselView.init(data.html, data.menuHtml);
 					} else {
 						that.showPasswordErrorMessage();
 					}
