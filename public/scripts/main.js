@@ -120,11 +120,9 @@ rko.carouselView = (function(window) {
 			maxHeight;
 
 		$('#landing').imagesLoaded(function() {
-			console.log('loaded!');
 			$('#main').removeClass('loading');
 		});
 		$('#landing .logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			console.log('h333it');
 			$('#main').removeClass('entranceMode');
 			that.bind();
 		});
@@ -359,7 +357,7 @@ rko.passwordView = (function(window) {
 		},
 		$body: $('body'),
 		$passwordErrorMsg: $('#login-error-msg'),
-		helloMessages: ['Hello!', 'Nice to see you!', '안녕하세요!', 'Correct!']
+		helloMessages: ['Hello!', '안녕하세요!']
 	},
 	utils = new Utils(),
 	carouselView = rko.carouselView;

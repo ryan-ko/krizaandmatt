@@ -22,11 +22,9 @@ rko.carouselView = (function(window) {
 			maxHeight;
 
 		$('#landing').imagesLoaded(function() {
-			console.log('loaded!');
 			$('#main').removeClass('loading');
 		});
 		$('#landing .logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			console.log('h333it');
 			$('#main').removeClass('entranceMode');
 			that.bind();
 		});
