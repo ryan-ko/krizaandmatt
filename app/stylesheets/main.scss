@@ -68,7 +68,7 @@ $menuWidth: 56%;
 
 		.menu-block {
 			&:nth-child(1) {
-				transition-delay: 0.7s;
+				transition-delay: 0.5s;
 				.menuMode & {
 					transform: translate3d(0,0,0);
 					opacity: 1;
@@ -76,7 +76,7 @@ $menuWidth: 56%;
 			}
 
 			&:nth-child(2) {
-				transition-delay: 0.9s;
+				transition-delay: 0.6s;
 				.menuMode & {
 					transform: translate3d(0,0,0);
 					opacity: 1;
@@ -96,8 +96,8 @@ $menuWidth: 56%;
 				height: 85%;
 				border-right: 1px dotted #fff;
 				opacity: 0;
-				transition-delay: 1.2s !important;
-				transition: transform 1s $parallaxEase, opacity 1s $parallaxEase;
+				transition-delay: 1s !important;
+				transition: transform 0.7s $parallaxEase, opacity 1s $parallaxEase;
 				transform: translate3d(-40px, 0, 0);
 
 				.menuMode & {
@@ -116,7 +116,7 @@ $menuWidth: 56%;
 				}
 
 				&:nth-child(2) {
-					transition-delay: 0.5s;
+					transition-delay: 0.4s;
 					.menuMode & {
 						transform: translate3d(0,0,0);
 						opacity: 1;
@@ -130,7 +130,7 @@ $menuWidth: 56%;
 		width: 100%;
 		max-width: 400px;
 		transform: translate3d(-144px, 0, 0);
-		transition: transform 1.5s $parallaxEase, opacity 2s $parallaxEase;
+		transition: transform 1.3s $parallaxEase, opacity 2s $parallaxEase;
 		opacity: 0;
 		-webkit-font-smoothing: antialiased;
 
