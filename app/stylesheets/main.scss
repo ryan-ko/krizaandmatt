@@ -130,7 +130,7 @@ $menuWidth: 56%;
 		width: 100%;
 		max-width: 400px;
 		transform: translate3d(-144px, 0, 0);
-		transition: transform 1.5s $parallaxEase, opacity 1.5s $parallaxEase;
+		transition: transform 1.5s $parallaxEase, opacity 2s $parallaxEase;
 		opacity: 0;
 		-webkit-font-smoothing: antialiased;
 
