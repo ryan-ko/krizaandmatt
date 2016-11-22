@@ -6,6 +6,7 @@
 	background-color: $primaryColor;
 
 	.carouselMode & {
+		transition: opacity 3s $gravityEases 3s;
 		opacity: 0;
 		pointer-events: none;
 	}

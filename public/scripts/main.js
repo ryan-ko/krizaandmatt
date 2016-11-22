@@ -457,9 +457,8 @@ rko.app = (function(window) {
 		$('.lock-icon').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#auth').removeClass('entranceMode');
 			that.setupParallaxEffects();
+			passwordView.init(that.modeLabel);
 		});
-
-		passwordView.init(this.modeLabel);
 	};
 
 	app.setupParallaxEffects = function() {
