@@ -10,7 +10,7 @@ rko.passwordView = (function(window) {
 		},
 		$body: $('body'),
 		$passwordErrorMsg: $('#login-error-msg'),
-		helloMessages: ['Hello!', 'Hi there!', 'Nice to see you!', '안녕하세요!', 'You made it!', 'Correct!']
+		helloMessages: ['Hello!', 'Nice to see you!', '안녕하세요!', 'Correct!']
 	},
 	utils = new Utils(),
 	carouselView = rko.carouselView;
