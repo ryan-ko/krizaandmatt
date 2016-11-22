@@ -246,6 +246,30 @@ $menuWidth: 56%;
 		pointer-events: auto;
 	}
 
+	&.entranceMode {
+		.bg {
+			transition: opacity 3s $parallaxEase 2s !important;
+		}
+		.logo {
+			transition: opacity 3s $parallaxEase 3s !important;
+		}
+		.km-logo {
+			transition: opacity 3s $parallaxEase 4s !important;
+		}
+		.landing-labels {
+			transition: opacity 3s $parallaxEase 5s !important;
+		}
+		#menu-btn {
+			transition: opacity 3s $parallaxEase 6s !important;
+		}
+	}
+
+	&.loading {
+		.km-logo, .logo, .bg, .landing-labels, #menu-btn {
+			opacity: 0;
+		}
+	}
+
 	.menuMode & {
 		transform: translate3d($menuWidth, 0, 0);
 	}

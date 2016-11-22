@@ -18,8 +18,7 @@ rko.app = (function(window) {
 
 		var that = this;
 
-		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			console.log('hit');
+		$('.lock-icon').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#auth').removeClass('entranceMode');
 			that.setupParallaxEffects();
 		});

@@ -113,11 +113,21 @@ rko.carouselView = (function(window) {
 	view.init = function(html, menuHtml) {
 		$('#main').html(html);
 		$('#menu').html(menuHtml);
+
 		$('body').removeClass().addClass('carouselMode');
 
 		var that = this,
 			maxHeight;
 
+		$('#main').imagesLoaded(function() {
+			console.log('loaded!');
+			$('#main').removeClass('loading');
+		});
+		$('#main .logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+			console.log('h333it');
+			$('#main').removeClass('entranceMode');
+			that.bind();
+		});
 		$('#kriza .gallery-scroller').imagesLoaded( function() {
 			maxHeight = -$('#kriza .gallery-scroller').innerHeight() + ($(window).innerHeight());
 			that.krizaPhotoTimeline = new TimelineLite({paused: true});
@@ -128,8 +138,6 @@ rko.carouselView = (function(window) {
 			that.mattPhotoTimeline = new TimelineLite({paused: true});
 			that.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Quad.easeInOut });
 		});
-
-		this.bind();
 	};
 
 	view.setupRSVPForm = function() {
@@ -446,8 +454,7 @@ rko.app = (function(window) {
 
 		var that = this;
 
-		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			console.log('hit');
+		$('.lock-icon').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#auth').removeClass('entranceMode');
 			that.setupParallaxEffects();
 		});

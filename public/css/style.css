@@ -719,13 +719,13 @@ button.swiper-pagination-bullet {
 }
 
 #auth.entranceMode .lock-icon {
-  -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 4.5s !important;
-  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 4.5s !important;
+  -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 3.5s !important;
+  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 3.5s !important;
 }
 
 #auth.entranceMode .password-hint {
-  -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 4.5s !important;
-  transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 4.5s !important;
+  -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 7s !important;
+  transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 7s !important;
 }
 
 #auth.loading .bg, #auth.loading .logo, #auth.loading .lock-icon, #auth.loading .password-hint {
@@ -1246,6 +1246,35 @@ button.swiper-pagination-bullet {
 .carouselMode #main {
   opacity: 1;
   pointer-events: auto;
+}
+
+#main.entranceMode .bg {
+  -webkit-transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 2s !important;
+  transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 2s !important;
+}
+
+#main.entranceMode .logo {
+  -webkit-transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 3s !important;
+  transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 3s !important;
+}
+
+#main.entranceMode .km-logo {
+  -webkit-transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 4s !important;
+  transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 4s !important;
+}
+
+#main.entranceMode .landing-labels {
+  -webkit-transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 5s !important;
+  transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 5s !important;
+}
+
+#main.entranceMode #menu-btn {
+  -webkit-transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 6s !important;
+  transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 6s !important;
+}
+
+#main.loading .km-logo, #main.loading .logo, #main.loading .bg, #main.loading .landing-labels, #main.loading #menu-btn {
+  opacity: 0;
 }
 
 .menuMode #main {
