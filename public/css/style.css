@@ -980,7 +980,7 @@ button.swiper-pagination-bullet {
 .menuMode #menu .menu-column:first-child:before {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
-  opacity: 1;
+  opacity: 0.5;
 }
 
 #menu .menu-column:first-child .menu-block:nth-child(1) {
