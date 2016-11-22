@@ -17,8 +17,40 @@ $menuWidth: 56%;
 	z-index: -1;
 	opacity: 1;
 	pointer-events: none;
-	transition: opacity 1s $parallaxEase;
+	transition: all 1s $parallaxEase;
 	color: $content;
+
+	&.light-mode {
+		background: #f2f2f2;
+		color: #444444;
+
+		input {
+			border-bottom: 1px solid #444 !important;
+			color: #444 !important;
+
+			&::placeholder {
+				color: #444 !important;
+			}
+		}
+
+		#rsvp-submit-btn {
+			border: 1px solid #444 !important;
+			color: #444 !important;
+
+			&:hover {
+				background: #444 !important;
+				color: #f2f2f2 !important;
+			}
+		}
+
+		.menu-column {
+			&:first-child {
+				&:before {
+					border-right: 1px dotted #444 !important;
+				}
+			}
+		}
+	}
 
 	.menuMode & {
 		pointer-events: auto;
@@ -36,7 +68,7 @@ $menuWidth: 56%;
 
 		.menu-block {
 			&:nth-child(1) {
-				transition-delay: 0.8s;
+				transition-delay: 0.9s;
 				.menuMode & {
 					transform: translate3d(0,0,0);
 					opacity: 1;
@@ -44,7 +76,7 @@ $menuWidth: 56%;
 			}
 
 			&:nth-child(2) {
-				transition-delay: 0.9s;
+				transition-delay: 1.1s;
 				.menuMode & {
 					transform: translate3d(0,0,0);
 					opacity: 1;
@@ -64,8 +96,9 @@ $menuWidth: 56%;
 				height: 85%;
 				border-right: 1px dotted #fff;
 				opacity: 0;
-				transition-delay: 0.7s;
-				transition: all 1.7s $parallaxEase;
+				transition-delay: 1.4s !important;
+				transition: transform 1s $parallaxEase, opacity 1s $parallaxEase;
+				transform: translate3d(-40px, 0, 0);
 
 				.menuMode & {
 					transform: translate3d(0,0,0);
@@ -83,7 +116,7 @@ $menuWidth: 56%;
 				}
 
 				&:nth-child(2) {
-					transition-delay: 0.6s;
+					transition-delay: 0.7s;
 					.menuMode & {
 						transform: translate3d(0,0,0);
 						opacity: 1;
@@ -96,9 +129,10 @@ $menuWidth: 56%;
 		display: block;
 		width: 100%;
 		max-width: 400px;
-		transform: translate3d(-100px, 0, 0);
-		transition: all 1s $parallaxEase;
+		transform: translate3d(-144px, 0, 0);
+		transition: transform 1.5s $parallaxEase, opacity 1.5s $parallaxEase;
 		opacity: 0;
+		-webkit-font-smoothing: antialiased;
 
 		.menu-subheadine {
 			@include sub-headline();
@@ -129,6 +163,7 @@ $menuWidth: 56%;
 				border-bottom: 1px solid #fff;
 				margin-bottom: 10px;
 				max-width: 260px;
+				transition: all 1s $parallaxEase;
 
 				&:focus {
 					outline: none;
@@ -137,6 +172,7 @@ $menuWidth: 56%;
 				&::placeholder {
 					font-family: $primaryFont;
 					color: #fff;
+					transition: all 1s $parallaxEase;
 				}
 			}
 			#plusone-input {
@@ -224,7 +260,7 @@ $menuWidth: 56%;
 		left: 13px;
 		cursor: pointer;
 		display: block;
-		transition: transform 1s $parallaxEase;
+		transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 		.menuMode & {
 			transform: rotate3d(0, 0, 1, 45deg);
@@ -237,6 +273,26 @@ $menuWidth: 56%;
 
 		img {
 			width: 16px;
+			position: absolute;
+			transition: opacity 1s $parallaxEase;
+			left: 14px;
+			top: 14px;
+		}
+
+		.white {
+			opacity: 0;
+		}
+		.black {
+			opacity: 1;
+		}
+
+		&.light-mode {
+			.white {
+				opacity: 1;
+			}
+			.black {
+				opacity: 0;
+			}
 		}
 	}
 }

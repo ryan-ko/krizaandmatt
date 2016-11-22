@@ -168,9 +168,19 @@ rko.carouselView = (function(window) {
 
 	view.handleCarouselSlideChangeStart = function(swiper) {
 		var $currentSlide = $('.carousel-slide-active'),
-			$carouselPagination = $('.swiper-pagination');
+			$carouselPagination = $('.swiper-pagination'),
+			$menuBtn = $('#menu-btn'),
+			$menu = $('#menu');
 
 		view.currentSlideId = $currentSlide[0].id;
+
+		if ($currentSlide.hasClass('light-mode') || $currentSlide.hasClass('no-pagination')) {
+			$menuBtn.addClass('light-mode');
+			$menu.addClass('light-mode');
+		} else {
+			$menuBtn.removeClass('light-mode');
+			$menu.removeClass('light-mode');
+		}
 
 		$currentSlide.hasClass('light-mode') ? $carouselPagination.addClass('light-mode') : $carouselPagination.removeClass('light-mode');
 		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
