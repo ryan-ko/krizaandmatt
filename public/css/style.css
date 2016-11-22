@@ -1016,11 +1016,25 @@ button.swiper-pagination-bullet {
   position: absolute;
   z-index: 100;
   bottom: 60px;
+  margin: 8px;
 }
 
-.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 10px;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 8px;
+}
+
+.swiper-pagination-gallery {
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .swiper-pagination-bullet {
