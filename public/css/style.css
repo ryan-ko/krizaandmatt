@@ -733,8 +733,8 @@ button.swiper-pagination-bullet {
 }
 
 #auth.entranceMode .password-hint {
-  -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 7s !important;
-  transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 7s !important;
+  -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 5s !important;
+  transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1) 5s !important;
 }
 
 #auth.loading .bg, #auth.loading .logo, #auth.loading .lock-icon, #auth.loading .password-hint {
