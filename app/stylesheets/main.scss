@@ -548,10 +548,11 @@
 		display: block;
 	}
 	p {
-		font-size: 20px;
+		font-size: 15px;
 		letter-spacing: -0.01em;
 		padding-top: 5px;
 		padding-bottom: 1px;
+		line-height: 18px;
 	}
 }
 
@@ -571,6 +572,7 @@
 		color: #fff;
 		opacity: 0.4;
 		max-width: 810px;
+		transition: opacity 10s cubic-bezier(.55,0,.1,1);
 
 		p {
 			font-size: 43px;
@@ -601,6 +603,12 @@
 		transition: transform 0.8s cubic-bezier(.215, .61, .355, 1);
 		transform-style: preserve-3d;
 		backface-visibility: hidden;
+	}
+
+	&.carousel-slide-active {
+		blockquote {
+			opacity: 1;
+		}
 	}
 }
 
