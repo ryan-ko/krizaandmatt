@@ -4,11 +4,17 @@
 	transition: opacity 1s $gravityEase;
 	position: absolute;
 	background-color: $primaryColor;
+	z-index: 10000;
 
 	.carouselMode & {
-		transition: opacity 3s $parallaxEase 6s !important;
+		transition: opacity 2.2s $parallaxEase 0.8s !important;
 		opacity: 0;
 		pointer-events: none;
+
+		.bg, .logo, .lock-icon, .password-hint {
+			opacity: 1;
+			transform: translate3d(0,0,0) !important;
+		}
 	}
 
 	&.entranceMode {

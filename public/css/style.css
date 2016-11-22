@@ -701,13 +701,20 @@ button.swiper-pagination-bullet {
   transition: opacity 1s cubic-bezier(0.55, 0, 0.1, 1);
   position: absolute;
   background-color: #d79074;
+  z-index: 10000;
 }
 
 .carouselMode #auth {
-  -webkit-transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 6s !important;
-  transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1) 6s !important;
+  -webkit-transition: opacity 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s !important;
+  transition: opacity 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s !important;
   opacity: 0;
   pointer-events: none;
+}
+
+.carouselMode #auth .bg, .carouselMode #auth .logo, .carouselMode #auth .lock-icon, .carouselMode #auth .password-hint {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+          transform: translate3d(0, 0, 0) !important;
 }
 
 #auth.entranceMode .bg {

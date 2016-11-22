@@ -9,7 +9,8 @@ rko.passwordView = (function(window) {
 			$doc: $(document)
 		},
 		$body: $('body'),
-		$passwordErrorMsg: $('#login-error-msg')
+		$passwordErrorMsg: $('#login-error-msg'),
+		helloMessages: ['Hello!', 'Hi there!', 'Nice to see you!', '안녕하세요!', 'You made it!', 'Correct!']
 	},
 	utils = new Utils(),
 	carouselView = rko.carouselView;
@@ -50,6 +51,7 @@ rko.passwordView = (function(window) {
 				success: function(data) {
 					data = $.parseJSON(data);
 					if (data.result === 'success') {
+						$('.password-hint').html(view.helloMessages[Math.floor(Math.random() * view.helloMessages.length)]);
 						that.unbind();
 						carouselView.init(data.html, data.menuHtml);
 					} else {
