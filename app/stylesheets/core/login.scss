@@ -5,6 +5,7 @@
 	position: absolute;
 	background-color: $primaryColor;
 	z-index: 10000;
+	overflow: hidden;
 
 	.carouselMode & {
 		transition: opacity 3s $parallaxEase 1s !important;

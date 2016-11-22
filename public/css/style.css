@@ -702,6 +702,7 @@ button.swiper-pagination-bullet {
   position: absolute;
   background-color: #d79074;
   z-index: 10000;
+  overflow: hidden;
 }
 
 .carouselMode #auth {
