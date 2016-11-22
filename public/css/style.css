@@ -1257,7 +1257,7 @@ button.swiper-pagination-bullet {
   -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   left: 14px;
-  top: 14px;
+  top: 16px;
 }
 
 #main #menu-btn .white {
