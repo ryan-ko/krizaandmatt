@@ -206,6 +206,12 @@ rko.carouselView = (function(window) {
 					nextButton: '.swiper-button-next',
 					prevButton: '.swiper-button-prev'
 				});
+			} else {
+				view.swiperGallery.startAutoplay();
+			}
+		} else {
+			if (typeof view.swiperGallery !== 'undefined') {
+				view.swiperGallery.stopAutoplay();
 			}
 		}
 
