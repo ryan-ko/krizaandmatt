@@ -6,24 +6,172 @@
 @import 'shared/swiper';
 @import 'core/login';
 
-#main {
-	transition: opacity 1s cubic-bezier(.55,0,.1,1);
+$menuWidth: 56%;
+#menu {
+	width: $menuWidth;
+	height: 100%;
+	background: $primaryColor;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
 	opacity: 0;
 	pointer-events: none;
-	transition-delay: 0.4s;
+	transition: opacity 1s $parallaxEase;
+	padding: 54px 0;
+	color: $content;
+
+	.menuMode & {
+		opacity: 1;
+		pointer-events: auto;
+		z-index: 0;
+	}
+	.menu-column {
+		width: 50%;
+		height: 100%;
+		float: left;
+		padding: 0 46px;
+	}
+	.menu-block {
+		display: block;
+		width: 100%;
+		max-width: 400px;
+
+		.menu-subheadine {
+			@include sub-headline();
+		}
+
+		h1 {
+			@include content-headline();
+		}
+
+		p {
+			@include content-block();
+			padding-bottom: 22px;
+			max-width: 239px;
+			font-family: $primaryFont;
+		}
+		form {
+			padding-top: 4px;
+
+			label {
+				display: none;
+			}
+			input {
+				background: none;
+				border: none;
+				color: #fff;
+				font-size: 13px;
+				padding: 8px 0 6px 0;
+				width: 100%;
+				border-bottom: 1px solid #fff;
+				margin-bottom: 10px;
+				max-width: 260px;
+
+				&:focus {
+					outline: none;
+				}
+
+				&::placeholder {
+					font-family: $primaryFont;
+					color: #fff;
+				}
+			}
+			#plusone-input {
+				&.hidden {
+					display: none;
+				}
+			}
+			#plusOne {
+				overflow: hidden;
+				margin-top: 19px;
+				position: relative;
+				label, input {
+					display: block;
+				}
+				#plusone-checkbox {
+					position: absolute;
+					top: -3px;
+					left: -7px;
+				}
+				label {
+					padding-left: 17px;
+					font-size: 12px;
+					display: block;
+					padding-bottom: 22px;
+					letter-spacing: 0.06em;
+
+					em {
+						display: block;
+						font-size: 10px;
+						position: relative;
+						left: -18px;
+						top: 6px;
+						text-decoration: none;
+						font-style: normal;
+						letter-spacing: 0em;
+					}
+				}
+			}
+
+			#rsvp-submit-btn {
+				border: 1px solid #fff;
+				margin-top: 29px;
+				font-family: $primaryFont;
+				font-size: 12px;
+				letter-spacing: 0.3em;
+				padding: 8px;
+			}
+		}
+
+		&#timeAndLocation {
+			margin-top: 60px;
+		}
+		&#qanda {
+			margin-top: 110px;
+		}
+	}
+}
+#main {
+	transition: all 1.5s $gravityEase;
+	opacity: 0;
+	pointer-events: none;
 
 	.carouselMode & {
 		opacity: 1;
 		pointer-events: auto;
 	}
-}
 
-#rsvp-form {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 10000;
+	.menuMode & {
+		transform: translate3d($menuWidth, 0, 0);
+		pointer-events: none;
+	}
+
+	#menu-btn {
+		@include resetWebkitAppearance();
+		position: absolute;
+		z-index: 1000;
+		width: 44px;
+		height: 44px;
+		top: 40px;
+		left: 13px;
+		cursor: pointer;
+		display: block;
+		transition: transform 1s $parallaxEase;
+
+		.menuMode & {
+			transform: rotate3d(0, 0, 1, 45deg);
+			pointer-events: auto;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		img {
+			width: 16px;
+		}
+	}
 }
 
 .swiper-container, .swiper-container-gallery {

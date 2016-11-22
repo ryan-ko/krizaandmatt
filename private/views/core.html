@@ -1,3 +1,6 @@
+<button id="menu-btn">
+	<img src="./assets/img/plus-icon.png" />
+</button>
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide" id="landing">
@@ -173,24 +176,3 @@
 	<!-- Add Pagination -->
 	<div class="swiper-pagination"></div>
 </div>
-
-<form id="rsvp-form" action="/rsvped" method="POST">
-	<div class="form-group">
-		<label class="form-label" for="firstname">Name</label>
-		<input class="form-input" type="text" name="firstname" id="firstname"/>
-	</div>
-	<div class="form-group">
-		<label class="form-label" for="email">Email</label>
-		<input class="form-input" type="text" name="email" id="email"/>
-	</div>
-	<div class="form-group">
-		<label class="form-label" for="plusone">I will bring a partner* to this event.</label>
-		<input id="plusone-checkbox" type="checkbox" />
-		<input id="plusone-checkbox-result" type="hidden" name="plusone" value="No"/>
-	</div>
-	<div id="plusone-input" class="form-group hidden">
-		<label class="form-label" for="plusonename">Partner name</label>
-		<input id="plusone-name" class="form-input" type="text" name="plusonename"/>
-	</div>
-	<input type="submit" value="RSVP"/>
-</form>

@@ -283,6 +283,15 @@ rko.carouselView = (function(window) {
 		this.setupParallaxEffects();
 		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
 
+		$('#menu-btn').on('click', function() {
+			console.log('hit');
+			if($('body').hasClass('menuMode')) {
+				$('body').removeClass('menuMode');
+			} else {
+				$('body').addClass('menuMode');
+			}
+		});
+
 		$('#matt .gallery-movingUp-area').hover(function () {
 			view.mattPhotoTimeline.reverse();
 			view.mattPhotoTimeline.timeScale(25);
