@@ -55,7 +55,7 @@ $secondaryFont: 'proxima-nova', sans-serif;
 	} @else {
 		transform: perspective($perspective) translate3d(0, 0, $zindex) scale3d(1, 1, 1);
 	}
-	transition: all $duration $parallaxEase;
+	transition: transform $duration $parallaxEase 0s;
 	transform-style: preserve-3d;
 	backface-visibility: hidden;
 }

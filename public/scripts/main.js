@@ -439,8 +439,20 @@ rko.app = (function(window) {
 	passwordView = rko.passwordView;
 
 	app.init = function() {
+		$('#auth').imagesLoaded(function() {
+			console.log('loaded!');
+			$('#auth').removeClass('loading');
+		});
+
+		var that = this;
+
+		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+			console.log('hit');
+			$('#auth').removeClass('entranceMode');
+			that.setupParallaxEffects();
+		});
+
 		passwordView.init(this.modeLabel);
-		this.setupParallaxEffects();
 	};
 
 	app.setupParallaxEffects = function() {
