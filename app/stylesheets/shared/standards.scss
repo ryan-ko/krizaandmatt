@@ -1,5 +1,66 @@
+$gravityEase: cubic-bezier(.55,0,.1,1);
+$parallaxEase: cubic-bezier(.215, .61, .355, 1);
+$primaryColor: #d79074;
+$content: #fff;
+$contentBg: #f4f4f4;
+$contentAlert: #ff0000;
+$contentBgOpacity: rgba(242, 242, 242, 0.77);
+
+$primaryFont: 'Lora', serif;
+$secondaryFont: 'proxima-nova', sans-serif;
+@mixin resetWebkitAppearance {
+	-webkit-appearance: none;
+	border: 0;
+	background: none;
+}
+@mixin sub-headline {
+	font-size: 12px;
+	font-family: $secondaryFont;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.112em;
+	padding-bottom: 10px;
+}
+@mixin content-headline {
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	line-height: 28px;
+	padding-bottom: 28px;
+}
+@mixin content-block {
+	font-size: 12px;
+	line-height: 21px;
+	letter-spacing: 0.05em;
+	padding-bottom: 10px;
+}
+@mixin vertical-center() {
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+}
+@mixin horizontal-center() {
+	left: 50%;
+	transform: translate3d(-50%, 0, 0);
+}
+@mixin parallax-bg-setup($perspective, $zindex, $duration) {
+	width: 1550px;
+	height: 928.5px;
+	@include parallax-setup($perspective, $zindex, $duration);
+	z-index: 0;
+}
+@mixin parallax-setup($perspective, $zindex, $duration) {
+	@if $perspective == 0 {
+		transform: translate3d(0, 0, $zindex);
+	} @else {
+		transform: perspective($perspective) translate3d(0, 0, $zindex) scale3d(1, 1, 1);
+	}
+	transition: all $duration $parallaxEase;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+}
+
 body {
-	font-family: 'Lora', serif;
+	font-family: $primaryFont;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #444;

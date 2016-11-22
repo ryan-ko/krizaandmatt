@@ -122,6 +122,7 @@ rko.carouselView = (function(window) {
 			slideActiveClass: 'carousel-slide-active',
 			paginationClickable: true,
 			spaceBetween: 0,
+			speed: 700,
 			mousewheelControl: true,
 			keyboardControl: true,
 			simulateTouch: false,

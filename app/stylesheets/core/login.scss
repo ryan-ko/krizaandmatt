@@ -1,9 +1,9 @@
 #auth {
 	width: 100%;
 	height: 100%;
-	transition: opacity 1s cubic-bezier(.55,0,.1,1);
+	transition: opacity 1s $gravityEase;
 	position: absolute;
-	background-color: #d79074;
+	background-color: $primaryColor;
 
 	.carouselMode & {
 		opacity: 0;
@@ -11,16 +11,12 @@
 	}
 
 	.form-label {
-		font-family: 'proxima-nova', sans-serif;
-		font-weight: 400;
-		text-transform: uppercase;
-		font-size: 12px;
-		letter-spacing: 0.112em;
+		@include sub-headline();
 		display: block;
 		overflow: hidden;
 		width: 100%;
+		transition: all 1s $parallaxEase;
 		transform: translate3d(0, -40px, 0);
-		transition: all 1s cubic-bezier(.215, .61, .355, 1);
 		opacity: 0;
 
 		.passwordMode & {
@@ -29,19 +25,17 @@
 		}
 	}
 	input {
-		-webkit-appearance: none;
-		border: 0;
-		background: none;
+		@include resetWebkitAppearance();
 		font-size: 180px;
-		font-family: 'Lora', serif;
+		font-family: $primaryFont;
 		padding-top: 90px;
 		padding-bottom: 168px;
 		overflow: hidden;
 		width: 100%;
-		color: #d69074;
+		color: $primaryColor;
 
 		transform: translate3d(200px, 0, 0) scale3d(1.2, 1.2, 1.2);
-		transition: all 1s cubic-bezier(.215, .61, .355, 1);
+		transition: all 1s $parallaxEase;
 		opacity: 0;
 
 		.passwordMode & {
@@ -54,24 +48,14 @@
 		}
 	}
 	.bg {
-		width: 1550px;
-		transform: perspective(1000px) translate3d(0, 0, -20px) scale3d(1, 1, 1);
-		z-index: 0;
-		height: 928.5px;
-		opacity: 1;
-		transition: transform 0.8s cubic-bezier(.215, .61, .355, 1);
-		transform-style: preserve-3d;
-		backface-visibility: hidden;
-
+		@include parallax-bg-setup(1000px, -20px, 0.8s);
 		.passwordMode & {
 			transform: perspective(1000px) scale3d(1.1, 1.1, 1.1) translate3d(0,0, -240px) !important;
-			opacity: 1;
 		}
 	}
 	.lock-panel {
 		position: absolute;
 		width: 500px;
-		margin: 0 auto;
 		top: 48%;
 		left: 50%;
 		transform: translate3d(-50%, -50%, 0);
@@ -84,13 +68,10 @@
 		margin: 0 auto;
 		pointer-events: none;
 		opacity: 1;
-		transform: perspective(600px) translate3d(0, 0, 0);
-		transition: all 0.4s cubic-bezier(.215, .61, .355, 1);
-		transform-style: preserve-3d;
-		backface-visibility: hidden;
+		@include parallax-setup(40px, 0, 0.4s);
 		.passwordMode & {
 			opacity: 0;
-			transform: translate3d(0, 20px, 0);
+			transform: translate3d(0, -14px, 0) !important;
 		}
 	}
 	.logo {
@@ -99,19 +80,16 @@
 		display: block;
 		padding-top: 20px;
 		pointer-events: none;
-		transform: translate3d(0, 0, 0);
-		transition: all 0.6s cubic-bezier(.215, .61, .355, 1);
 		opacity: 1;
-		transform-style: preserve-3d;
-		backface-visibility: hidden;
+		@include parallax-setup(500px, 0, 0.6s);
 
 		.passwordMode & {
 			opacity: 0;
-			transform: translate3d(0, 20px, 0);
+			transform: translate3d(0, -5px, 0) !important;
 		}
 	}
 	.password-hint {
-		color: #fff;
+		color: $content;
 		display: block;
 		text-align: center;
 		top: 30px;
@@ -119,22 +97,22 @@
 		font-size: 12px;
 		text-transform: capitalize;
 		pointer-events: none;
-		transition: all 0.6s cubic-bezier(.215, .61, .355, 1);
+		transition: all 0.6s $parallaxEase;
 		letter-spacing: 0.03em;
 
 		.passwordMode & {
 			opacity: 0;
-			transform: translate3d(0, 20px, 0);
+			transform: translate3d(0, 10px, 0);
 		}
 	}
 	.password-panel {
 		width: 100%;
 		height: 100%;
-		background-color: rgba(242, 242, 242, 0.77);
+		background-color: $contentBgOpacity;
 		padding: 70px 46px;
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.3s $parallaxEase;
 		position: absolute;
 		z-index: 30;
 
@@ -154,18 +132,14 @@
 			opacity: 1;
 		}
 		span {
-			font-family: 'proxima-nova', sans-serif;
-			font-size: 12px;
-			font-weight: 400;
-			letter-spacing: 0.112em;
-			text-transform: uppercase;
-			color: #ff0000;
+			@include sub-headline();
+			color: $contentAlert;
 			padding-bottom: 15px;
 			display: block;
 		}
 		p {
-			font-size: 17px;
-			line-height: 18px;
+			font-size: 18px;
+			line-height: 23px;
 			letter-spacing: 0.01em;
 		}
 	}
