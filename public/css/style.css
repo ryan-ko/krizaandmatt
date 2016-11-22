@@ -1091,7 +1091,6 @@ button.swiper-pagination-bullet {
 .menuMode #main {
   -webkit-transform: translate3d(56%, 0, 0);
           transform: translate3d(56%, 0, 0);
-  pointer-events: none;
 }
 
 #main #menu-btn {

@@ -153,7 +153,6 @@ $menuWidth: 56%;
 
 	.menuMode & {
 		transform: translate3d($menuWidth, 0, 0);
-		pointer-events: none;
 	}
 
 	#menu-btn {
