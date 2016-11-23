@@ -8,7 +8,7 @@
 	overflow: hidden;
 
 	.carouselMode & {
-		transition: opacity 1.8s $parallaxEase 0.8s !important;
+		transition: opacity 1.3s $parallaxEase 1.3s !important;
 		opacity: 0;
 		pointer-events: none;
 

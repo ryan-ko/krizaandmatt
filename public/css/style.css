@@ -711,8 +711,8 @@ button.swiper-pagination-bullet {
 }
 
 .carouselMode #auth {
-  -webkit-transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s !important;
-  transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s !important;
+  -webkit-transition: opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 1.3s !important;
+  transition: opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 1.3s !important;
   opacity: 0;
   pointer-events: none;
 }
