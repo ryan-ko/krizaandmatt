@@ -15,6 +15,7 @@
 		.bg, .logo, .lock-icon, .password-hint {
 			opacity: 1;
 			transform: translate3d(0,0,0) !important;
+			transition: transform 3s $parallaxEase !important;
 		}
 	}
 
