@@ -30,9 +30,10 @@ rko.carouselView = (function(window) {
 		var that = this,
 			maxHeight;
 
-		$('#landing').imagesLoaded(function() {
+		// $('#landing').imagesLoaded(function() {
+		setTimeout(function() {
 			$('#main').removeClass('loading');
-		});
+		}, 100);
 		$('#landing .logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#main').removeClass('entranceMode');
 			that.bind();

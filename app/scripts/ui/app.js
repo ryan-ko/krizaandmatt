@@ -11,10 +11,11 @@ rko.app = (function(window) {
 	passwordView = rko.passwordView;
 
 	app.init = function() {
-		$('#auth').imagesLoaded(function() {
+		// $('#auth').imagesLoaded(function() {
+		setTimeout(function() {
 			console.log('loaded!');
 			$('#auth').removeClass('loading');
-		});
+		}, 100);
 
 		var that = this;
 
