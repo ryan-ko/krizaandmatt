@@ -1947,8 +1947,8 @@ button.swiper-pagination-bullet {
   color: #fff;
   opacity: 0.4;
   max-width: 810px;
-  -webkit-transition: opacity 10s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: opacity 10s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition: opacity 6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 6s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 #quote blockquote p {
