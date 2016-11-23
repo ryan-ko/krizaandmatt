@@ -116,6 +116,15 @@ rko.carouselView = (function(window) {
 
 		$('body').removeClass().addClass('carouselMode');
 
+		// Temp solution
+		$(document).on('keyup keypress', function(e) {
+			var keyCode = e.keyCode || e.which;
+			if (keyCode === 13) {
+				e.preventDefault();
+				return false;
+			}
+		});
+
 		var that = this,
 			maxHeight;
 
@@ -399,7 +408,6 @@ rko.passwordView = (function(window) {
 					data = $.parseJSON(data);
 					if (data.result === 'success') {
 						$('.password-hint').html(view.helloMessages[Math.floor(Math.random() * view.helloMessages.length)]);
-						that.unbind();
 						carouselView.init(data.html, data.menuHtml);
 					} else {
 						that.showPasswordErrorMessage();
@@ -456,8 +464,11 @@ rko.app = (function(window) {
 
 		$('.lock-icon').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#auth').removeClass('entranceMode');
-			that.setupParallaxEffects();
-			passwordView.init(that.modeLabel);
+			console.log(e);
+			if (e.type === 'transitionend') {
+				that.setupParallaxEffects();
+				passwordView.init(that.modeLabel);
+			}
 		});
 	};
 

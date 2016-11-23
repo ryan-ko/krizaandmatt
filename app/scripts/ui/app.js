@@ -20,8 +20,11 @@ rko.app = (function(window) {
 
 		$('.lock-icon').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#auth').removeClass('entranceMode');
-			that.setupParallaxEffects();
-			passwordView.init(that.modeLabel);
+			console.log(e);
+			if (e.type === 'transitionend') {
+				that.setupParallaxEffects();
+				passwordView.init(that.modeLabel);
+			}
 		});
 	};
 

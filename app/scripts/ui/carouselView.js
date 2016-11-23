@@ -18,6 +18,15 @@ rko.carouselView = (function(window) {
 
 		$('body').removeClass().addClass('carouselMode');
 
+		// Temp solution
+		$(document).on('keyup keypress', function(e) {
+			var keyCode = e.keyCode || e.which;
+			if (keyCode === 13) {
+				e.preventDefault();
+				return false;
+			}
+		});
+
 		var that = this,
 			maxHeight;
 
