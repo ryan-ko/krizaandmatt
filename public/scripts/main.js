@@ -464,7 +464,7 @@ rko.app = (function(window) {
 
 		var that = this;
 
-		$('.lock-icon').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			$('#auth').removeClass('entranceMode');
 			console.log(e);
 			if (e.type === 'transitionend') {

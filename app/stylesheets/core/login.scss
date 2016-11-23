@@ -21,16 +21,16 @@
 
 	&.entranceMode {
 		.bg {
-			transition: opacity 3s $parallaxEase 1s !important;
+			transition: opacity 1.5s $parallaxEase 0s !important;
 		}
 		.logo {
-			transition: opacity 3s $parallaxEase 2.5s !important;
+			transition: opacity 2s $parallaxEase 1s !important;
 		}
 		.lock-icon {
-			transition: opacity 2s $parallaxEase 3.5s !important;
+			transition: opacity 2s $parallaxEase 2s !important;
 		}
 		.password-hint {
-			transition: opacity 1s $parallaxEase 5s !important;
+			transition: opacity 2s $parallaxEase 2s !important;
 		}
 	}
 
