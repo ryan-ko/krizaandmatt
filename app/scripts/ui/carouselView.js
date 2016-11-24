@@ -13,6 +13,7 @@ rko.carouselView = (function(window) {
 	};
 
 	view.init = function(html, menuHtml) {
+		console.log('view inited');
 		$('#main').html(html);
 		$('#menu').html(menuHtml);
 
@@ -34,9 +35,12 @@ rko.carouselView = (function(window) {
 		setTimeout(function() {
 			$('#main').removeClass('loading');
 		}, 100);
-		$('#landing .logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			$('#main').removeClass('entranceMode');
-			that.bind();
+		$('#landing .km-logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+			console.log('e', e);
+			if (e.type === 'transitionend') {
+				$('#main').removeClass('entranceMode');
+				that.bind();
+			}
 		});
 		$('#kriza .gallery-scroller').imagesLoaded( function() {
 			maxHeight = -$('#kriza .gallery-scroller').innerHeight() + ($(window).innerHeight());
@@ -124,6 +128,14 @@ rko.carouselView = (function(window) {
 	};
 
 	view.handleCarouselSlideChangeEnd = function(swiper) {
+		console.log('swiper', swiper.activeIndex);
+		console.log('(swiper.slides.length -1)', (swiper.slides.length -1));
+
+		if (swiper.activeIndex == (swiper.slides.length -1)) {
+			$('#backToTop').addClass('show');
+		} else {
+			$('#backToTop').removeClass('show');
+		}
 
 		if (view.currentSlideId === 'gallery') {
 			if (typeof view.swiperGallery === 'undefined') {
@@ -161,6 +173,7 @@ rko.carouselView = (function(window) {
 
 	view.setupCarousel = function() {
 		var that = this;
+		console.log('created swiper!');
 		view.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
@@ -174,6 +187,11 @@ rko.carouselView = (function(window) {
 			simulateTouch: false,
 			mousewheelForceToAxis: true,
 			mousewheelSensitivity: 0.5,
+			onInit: function(swiper) {
+				setTimeout(function() {
+					$('.swiper-pagination').addClass('active');
+				}, 10);
+			},
 			onSlideChangeStart: function(swiper) {
 				that.handleCarouselSlideChangeStart(swiper);
 			},
@@ -216,11 +234,16 @@ rko.carouselView = (function(window) {
 	};
 
 	view.bind = function() {
+		console.log('bind called!');
 		var that = this;
 		this.setupRSVPForm();
 		this.setupCarousel();
 		this.setupParallaxEffects();
 		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
+
+		$('#backToTop').on('click', function() {
+			view.swiper.slideTo(0, 2000);
+		});
 
 		$('#menu-btn').on('click', function() {
 			console.log('hit');
