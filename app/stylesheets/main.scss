@@ -331,7 +331,6 @@ $menuWidth: 56%;
 	font-size: 18px;
 	overflow: hidden;
 }
-
 .swiper-container-gallery {
 	.swiper-slide {
 		background-color: #333;
@@ -377,12 +376,10 @@ $menuWidth: 56%;
 		}
 	}
 }
-
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
 	background-image: url(../assets/img/right-arrow.png);
 	right: 40px;
 }
-
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
 	background-image: url(../assets/img/left-arrow.png);
 	left: 40px;
@@ -398,7 +395,6 @@ $menuWidth: 56%;
 	top: auto;
 	width: 35px;
 }
-
 .swiper-container-horizontal > .swiper-pagination-bullets {
 	position: absolute;
 	z-index: 100;
@@ -410,18 +406,15 @@ $menuWidth: 56%;
 		height: 8px;
 	}
 }
-
 .swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
 	margin: 10px;
 }
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
 	margin: 8px;
 }
-
 .swiper-pagination-gallery {
 	transition: opacity 0.5s ease;
 }
-
 .swiper-pagination-bullet {
 	width: 10px;
 	height: 10px;
