@@ -20,9 +20,6 @@
 	}
 
 	&.entranceMode {
-		.bg {
-			transition: opacity 1.5s $parallaxEase 0s !important;
-		}
 		.logo {
 			transition: opacity 2s $parallaxEase 1s !important;
 		}
@@ -30,6 +27,9 @@
 			transition: opacity 2s $parallaxEase 2s !important;
 		}
 		.password-hint {
+			transition: opacity 2s $parallaxEase 2s !important;
+		}
+		.bg {
 			transition: opacity 2s $parallaxEase 2s !important;
 		}
 	}

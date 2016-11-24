@@ -727,11 +727,6 @@ button.swiper-pagination-bullet {
   transition: transform 3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
 }
 
-#lock.entranceMode .bg {
-  -webkit-transition: opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s !important;
-  transition: opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s !important;
-}
-
 #lock.entranceMode .logo {
   -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 1s !important;
   transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 1s !important;
@@ -743,6 +738,11 @@ button.swiper-pagination-bullet {
 }
 
 #lock.entranceMode .password-hint {
+  -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 2s !important;
+  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 2s !important;
+}
+
+#lock.entranceMode .bg {
   -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 2s !important;
   transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1) 2s !important;
 }
