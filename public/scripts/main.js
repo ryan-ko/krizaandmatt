@@ -451,7 +451,7 @@ rko.app = (function(window) {
 		$lockIcon: $('.lock-icon'),
 		$logo: $('.logo'),
 		$background: $('#parallax-auth'),
-		$viewContainer: $('#auth')
+		$viewContainer: $('#lock')
 	},
 	passwordView = rko.passwordView;
 
@@ -459,13 +459,13 @@ rko.app = (function(window) {
 		// $('#auth').imagesLoaded(function() {
 		setTimeout(function() {
 			console.log('loaded!');
-			$('#auth').removeClass('loading');
+			app.$viewContainer.removeClass('loading');
 		}, 100);
 
 		var that = this;
 
 		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			$('#auth').removeClass('entranceMode');
+			that.$viewContainer.removeClass('entranceMode');
 			console.log(e);
 			if (e.type === 'transitionend') {
 				that.setupParallaxEffects();
