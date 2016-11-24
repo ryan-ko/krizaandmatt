@@ -165,13 +165,13 @@ rko.carouselView = (function(window) {
 		});
 
 		$rsvpForm.submit(function(e) {
-			var url = $(this).attr('action');
+			var url = $(this).attr('action'), data;
 			$.ajax({
 				type: 'POST',
 				url: url,
 				data: $(this).serialize(),
 				success: function(data) {
-					console.log('RSVP result:', data);
+					data = $.parseJSON(data);
 					if (data.result === 'success') {
 						$('#rsvp-thankyou').addClass('show');
 						setTimeout(function() {
