@@ -1,0 +1,130 @@
+.personal-gallery {
+	position: relative;
+	padding: 0 100px;
+	height: 100%;
+	overflow: hidden;
+
+	.gallery-movingUp-area,
+	.gallery-movingDown-area {
+		width: 60%;
+		height: 50%;
+		display: block;
+		position: absolute;
+		z-index: 1000;
+		left: 0;
+		padding-left: 100px;
+		padding-right: 20px;
+		box-sizing: border-box;
+
+		.up-icon,
+		.down-icon {
+			transition: transform 0.5s cubic-bezier(.215, .61, .355, 1);
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+			transform: translate3d(0,0,0);
+		}
+
+		&:hover {
+			.up-icon {
+				transform: translate3d(0, 20px, 0) scale3d(1.3, 1.3, 1.3);
+			}
+
+			.down-icon {
+				transform: translate3d(0, -20px, 0) scale3d(1.3, 1.3, 1.3);
+			}
+		}
+	}
+
+	&.matt-gallery-container {
+		.gallery-movingUp-area,
+		.gallery-movingDown-area {
+			right: 0;
+			left: auto;
+			padding-right: 100px;
+			padding-left: 20px;
+		}
+		.gallery-scroller {
+			float: right;
+		}
+		.gallery-movingUp-area,
+		.gallery-movingDown-area {
+			.up-icon,
+			.down-icon {
+				right: 100px;
+				left: 20px;
+			}
+		}
+	}
+	.gallery-movingUp-area {
+		top: 0;
+		.up-icon {
+			width: 24px;
+			height: 12px;
+			margin: 0 auto;
+			display: block;
+			top: 60px;
+			position: absolute;
+			left: 100px;
+			right: 20px;
+		}
+	}
+	.gallery-movingDown-area {
+		bottom: 0;
+		.down-icon {
+			width: 24px;
+			height: 12px;
+			margin: 0 auto;
+			display: block;
+			bottom: 60px;
+			position: absolute;
+			left: 100px;
+			right: 20px;
+		}
+	}
+
+	ul {
+		width: 60%;
+		padding: 12px 0;
+
+		li {
+			padding: 12px 0;
+		}
+	}
+	img {
+		width: 100%;
+	}
+}
+
+.gallery-intro {
+	position: absolute;
+	top: 70%;
+	left: 70%;
+	transform: translate3d(0, -50%, 0);
+
+	.gallery-intro-rows {
+		padding-bottom: 28px;
+	}
+
+	span {
+		text-transform: uppercase;
+		font-family: 'proxima-nova', sans-serif;
+		font-size: 13px;
+		letter-spacing: 0.04em;
+		color: #d69074;
+		font-weight: 300;
+		padding-bottom: 2px;
+		display: block;
+	}
+	p {
+		font-size: 16px;
+		letter-spacing: -0.01em;
+		padding-top: 5px;
+		padding-bottom: 1px;
+		line-height: 18px;
+	}
+}
+
+.matt-gallery-container + .gallery-intro {
+	left: auto;
+	right: 70%;
+}

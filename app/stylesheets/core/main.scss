@@ -1,0 +1,84 @@
+#main {
+	transition: all 1.5s $gravityEase;
+	opacity: 0;
+	pointer-events: none;
+
+	.carouselMode & {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&.entranceMode {
+		.bg {
+			transition: opacity 3s $parallaxEase 2s !important;
+		}
+		.logo {
+			transition: opacity 3s $parallaxEase 3s !important;
+		}
+		.km-logo {
+			transition: opacity 3s $parallaxEase 4s !important;
+		}
+		.landing-labels {
+			transition: opacity 3s $parallaxEase 5s !important;
+		}
+		#menu-btn {
+			transition: opacity 3s $parallaxEase 6s !important;
+		}
+	}
+
+	&.loading {
+		.km-logo, .logo, .bg, .landing-labels, #menu-btn {
+			opacity: 0;
+		}
+	}
+
+	.menuMode & {
+		transform: translate3d($menuWidth, 0, 0);
+	}
+
+	#menu-btn {
+		@include resetWebkitAppearance();
+		position: absolute;
+		z-index: 1000;
+		width: 44px;
+		height: 44px;
+		top: 40px;
+		left: 13px;
+		cursor: pointer;
+		display: block;
+		transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+		.menuMode & {
+			transform: rotate3d(0, 0, 1, 45deg);
+			pointer-events: auto;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		img {
+			width: 16px;
+			position: absolute;
+			transition: opacity 1s $parallaxEase;
+			left: 14px;
+			top: 16px;
+		}
+
+		.white {
+			opacity: 0;
+		}
+		.black {
+			opacity: 1;
+		}
+
+		&.light-mode {
+			.white {
+				opacity: 1;
+			}
+			.black {
+				opacity: 0;
+			}
+		}
+	}
+}

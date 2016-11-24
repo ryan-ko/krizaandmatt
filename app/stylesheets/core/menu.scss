@@ -1,0 +1,219 @@
+#menu {
+	width: $menuWidth;
+	height: 100%;
+	background: $primaryColor;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	opacity: 1;
+	pointer-events: none;
+	transition: all 1s $parallaxEase;
+	color: $content;
+
+	&.light-mode {
+		background: $menuBgLight;
+		color: $menuContentLight;
+
+		input, #rsvp-submit-btn {
+			border-bottom: 1px solid $menuContentLight !important;
+			color: $menuContentLight !important;
+		}
+		input {
+			&::placeholder {
+				color: $menuContentLight !important;
+			}
+		}
+		#rsvp-submit-btn {
+			border: 1px solid $menuContentLight !important;
+			&:hover {
+				background: $menuContentLight !important;
+				color: $menuBgLight !important;
+			}
+		}
+		.menu-column {
+			&:first-child {
+				&:before {
+					border-right: 1px dotted $menuContentLight !important;
+				}
+			}
+		}
+	}
+
+	.menuMode & {
+		pointer-events: auto;
+		z-index: 0;
+	}
+
+	.menu-column {
+		width: 50%;
+		height: 100%;
+		float: left;
+		position: relative;
+		padding-right: 90px;
+		padding-left: 46px;
+		padding-top: 56px;
+		padding-bottom: 56px;
+
+		&:first-child {
+			padding-right: 100px;
+			padding-left: 46px;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 7.5%;
+				right: 7%;
+				width: 1px;
+				height: 85%;
+				border-right: 1px dotted $content;
+				opacity: 0;
+				transition-delay: 1s !important;
+				transition: transform 0.7s $parallaxEase, opacity 1s $parallaxEase;
+				transform: translate3d(-40px, 0, 0);
+
+				.menuMode & {
+					transform: translate3d(0,0,0);
+					opacity: 0.5;
+				}
+			}
+
+			.menu-block {
+				&:nth-child(1) {
+					transition-delay: 0.3s;
+					.menuMode & {
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+				}
+
+				&:nth-child(2) {
+					transition-delay: 0.4s;
+					.menuMode & {
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		.menu-block {
+			display: block;
+			width: 100%;
+			max-width: 400px;
+			transform: translate3d(-144px, 0, 0);
+			transition: transform 1.3s $parallaxEase, opacity 2s $parallaxEase;
+			opacity: 0;
+
+			&:nth-child(1) {
+				transition-delay: 0.5s;
+				.menuMode & {
+					transform: translate3d(0,0,0);
+					opacity: 1;
+				}
+			}
+
+			&:nth-child(2) {
+				transition-delay: 0.6s;
+				.menuMode & {
+					transform: translate3d(0,0,0);
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.menu-block {
+		.menu-subheadine {
+			@include sub-headline();
+		}
+
+		h1 {
+			@include content-headline();
+		}
+
+		p {
+			@include content-block();
+			padding-bottom: 22px;
+			font-family: $primaryFont;
+		}
+		form {
+			padding-top: 4px;
+
+			label {
+				display: none;
+			}
+			input {
+				background: none;
+				border: none;
+				color: $content;
+				font-size: 13px;
+				padding: 8px 0 6px 0;
+				width: 100%;
+				border-bottom: 1px solid $content;
+				margin-bottom: 10px;
+				max-width: 260px;
+				transition: all 1s $parallaxEase;
+
+				&:focus {
+					outline: none;
+				}
+
+				&::placeholder {
+					font-family: $primaryFont;
+					color: $content;
+					transition: all 1s $parallaxEase;
+				}
+			}
+			#plusone-input {
+				&.hidden {
+					display: none;
+				}
+			}
+			#plusOne {
+				overflow: hidden;
+				margin-top: 20px;
+				position: relative;
+				label, input {
+					display: block;
+				}
+				#plusone-checkbox {
+					position: absolute;
+					top: 0;
+					left: -4px;
+					border: none;
+					box-shadow: none;
+					border-radius: 0;
+					-webkit-appearance: none;
+					background-image: url(../assets/img/checkbox.jpg);
+					background-size: 10px 10px;
+					background-repeat: no-repeat;
+					width: 24px;
+					height: 24px;
+					display: block;
+					padding: 0;
+
+					&:checked {
+						background-image: url(../assets/img/checkbox-checked.jpg);
+					}
+				}
+				label {
+					@include content-block();
+					padding-left: 22px;
+					display: block;
+					padding-bottom: 22px;
+				}
+			}
+
+			#rsvp-submit-btn {
+				@include bordered-button();
+				margin-top: 29px;
+			}
+		}
+		&#timeAndLocation {
+			margin-top: 60px;
+		}
+		&#qanda {
+			margin-top: 80px;
+		}
+	}
+}

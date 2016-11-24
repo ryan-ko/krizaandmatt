@@ -4,8 +4,12 @@ $primaryColor: #d79074;
 $content: #fff;
 $contentBg: #f4f4f4;
 $contentAlert: #ff0000;
-$contentBgOpacity: rgba(242, 242, 242, 0.77);
 
+$menuBgLight: #f2f2f2;
+$menuContentLight: #444;
+
+$contentBgOpacity: rgba(242, 242, 242, 0.77);
+$menuWidth: 56%;
 $primaryFont: 'Lora', serif;
 $secondaryFont: 'proxima-nova', sans-serif;
 @mixin resetWebkitAppearance {
@@ -18,7 +22,7 @@ $secondaryFont: 'proxima-nova', sans-serif;
 	font-family: $secondaryFont;
 	font-weight: 400;
 	text-transform: uppercase;
-	letter-spacing: 0.112em;
+	letter-spacing: 0.1em;
 	padding-bottom: 10px;
 	display: block;
 }
@@ -34,6 +38,25 @@ $secondaryFont: 'proxima-nova', sans-serif;
 	line-height: 21px;
 	letter-spacing: 0.05em;
 	padding-bottom: 10px;
+}
+@mixin bordered-button {
+	-webkit-appearance: none;
+	border: 1px solid $content;
+	font-family: 'Lora', serif;
+	background: transparent;
+	color: $content;
+	width: 100%;
+	display: block;
+	padding: 7px 4px;
+	font-size: 13px;
+	letter-spacing: 0.37em;
+	cursor: pointer;
+	transition: all 0.5s $parallaxEase;
+
+	&:hover {
+		background: $content;
+		color: $primaryColor;
+	}
 }
 @mixin vertical-center() {
 	top: 50%;
