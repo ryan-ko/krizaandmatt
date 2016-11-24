@@ -82,6 +82,7 @@ rko.carouselView = (function(window) {
 						$('#rsvp-submit-btn').hide();
 						$('#rsvp-form input').prop('disabled', true);
 						$('#rsvp-form').addClass('disabled');
+						$('.rsvp-button-external').hide();
 					}
 				}
 			});
@@ -228,6 +229,13 @@ rko.carouselView = (function(window) {
 			} else {
 				$('body').addClass('menuMode');
 			}
+		});
+
+		$('.rsvp-button-external').on('click', function() {
+			if (!$('body').hasClass('menuMode')) {
+				$('#menu-btn').trigger('click');
+			}
+			$('#firstname').focus();
 		});
 
 		$('#matt .gallery-movingUp-area').hover(function () {
