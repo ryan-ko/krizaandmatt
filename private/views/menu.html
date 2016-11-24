@@ -22,11 +22,11 @@
 		<form id="rsvp-form" action="/rsvped" method="POST">
 			<div class="form-group">
 				<label class="form-label" for="firstname">Name</label>
-				<input class="form-input" type="text" placeholder="Name" name="firstname" id="firstname"/>
+				<input class="form-input" type="text" placeholder="Name" name="firstname" id="firstname" autocomplete="off" />
 			</div>
 			<div class="form-group">
 				<label class="form-label" for="email">E-mail</label>
-				<input class="form-input" type="text" placeholder="E-mail" name="email" id="email"/>
+				<input class="form-input" type="text" placeholder="E-mail" name="email" id="email" autocomplete="off" />
 			</div>
 			<div class="form-group" id="plusOne">
 				<input id="plusone-checkbox" type="checkbox" />
@@ -35,7 +35,7 @@
 			</div>
 			<div id="plusone-input" class="form-group hidden">
 				<label class="form-label" for="plusonename">Partner name</label>
-				<input id="plusone-name" placeholder="Partner Name" class="form-input" type="text" name="plusonename"/>
+				<input id="plusone-name" placeholder="Partner Name" class="form-input" type="text" name="plusonename" autocomplete="off" />
 			</div>
 			<input type="submit" id="rsvp-submit-btn" value="SEND"/>
 		</form>

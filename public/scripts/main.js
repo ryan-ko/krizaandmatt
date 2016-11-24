@@ -172,6 +172,15 @@ rko.carouselView = (function(window) {
 				data: $(this).serialize(),
 				success: function(data) {
 					console.log('RSVP result:', data);
+					if (data.result === 'success') {
+						$('#rsvp-thankyou').addClass('show');
+						setTimeout(function() {
+							$('#rsvp-thankyou').removeClass('show');
+						}, 5000);
+						$('#rsvp-submit-btn').hide();
+						$('#rsvp-form input').prop('disabled', true);
+						$('#rsvp-form').addClass('disabled');
+					}
 				}
 			});
 			e.preventDefault();
