@@ -2160,7 +2160,7 @@ button.swiper-pagination-bullet {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(242, 242, 242, 0.77);
+  background-color: rgba(242, 242, 242, 0.95);
   z-index: 100000;
   padding: 72px 46px;
   opacity: 0;
