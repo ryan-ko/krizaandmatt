@@ -1,4 +1,12 @@
 @charset "UTF-8";
+/* --------------------------------------------------------
+krizaandmatt.com
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 /*************************************
 	Shared — Reset
 	http://meyerweb.com/eric/tools/css/reset/
@@ -699,6 +707,14 @@ button.swiper-pagination-bullet {
   }
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Login Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 #lock {
   width: 100%;
   height: 100%;
@@ -717,7 +733,7 @@ button.swiper-pagination-bullet {
   pointer-events: none;
 }
 
-.carouselMode #lock .bg, .carouselMode #lock .logo, .carouselMode #lock .lock-icon, .carouselMode #lock .password-hint {
+.carouselMode #lock .bg, .carouselMode #lock .logo, .carouselMode #lock .lock-icon .password-hint {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0) !important;
           transform: translate3d(0, 0, 0) !important;
@@ -779,6 +795,7 @@ button.swiper-pagination-bullet {
   -webkit-appearance: none;
   border: 0;
   background: none;
+  border-radius: 0;
   font-size: 180px;
   font-family: "Lora", serif;
   padding-top: 90px;
@@ -953,6 +970,14 @@ button.swiper-pagination-bullet {
   letter-spacing: 0.01em;
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Menu Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 #menu {
   width: 56%;
   height: 100%;
@@ -998,14 +1023,14 @@ button.swiper-pagination-bullet {
   height: 85%;
   border-right: 1px dotted #fff;
   opacity: 0;
-  -webkit-transition-delay: 1s !important;
-          transition-delay: 1s !important;
-  -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -webkit-transform: translate3d(-40px, 0, 0);
-          transform: translate3d(-40px, 0, 0);
+  -webkit-transition-delay: 0.5s !important;
+          transition-delay: 0.5s !important;
+  -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform: translate3d(-144px, 0, 0);
+          transform: translate3d(-144px, 0, 0);
 }
 
 .menuMode #menu .menu-column:first-child:before {
@@ -1014,23 +1039,12 @@ button.swiper-pagination-bullet {
   opacity: 0.5;
 }
 
-#menu .menu-column:first-child .menu-block:nth-child(1) {
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-}
-
-.menuMode #menu .menu-column:first-child .menu-block:nth-child(1) {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  opacity: 1;
-}
-
-#menu .menu-column:first-child .menu-block:nth-child(2) {
+#menu .menu-column:first-child .menu-block:nth-child(1), #menu .menu-column:first-child .menu-block:nth-child(2) {
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
 
-.menuMode #menu .menu-column:first-child .menu-block:nth-child(2) {
+.menuMode #menu .menu-column:first-child .menu-block:nth-child(1), .menuMode #menu .menu-column:first-child .menu-block:nth-child(2) {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 1;
@@ -1049,23 +1063,12 @@ button.swiper-pagination-bullet {
   opacity: 0;
 }
 
-#menu .menu-column .menu-block:nth-child(1) {
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-}
-
-.menuMode #menu .menu-column .menu-block:nth-child(1) {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  opacity: 1;
-}
-
-#menu .menu-column .menu-block:nth-child(2) {
+#menu .menu-column .menu-block:nth-child(1), #menu .menu-column .menu-block:nth-child(2) {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
 }
 
-.menuMode #menu .menu-column .menu-block:nth-child(2) {
+.menuMode #menu .menu-column .menu-block:nth-child(1), .menuMode #menu .menu-column .menu-block:nth-child(2) {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 1;
@@ -1171,13 +1174,14 @@ button.swiper-pagination-bullet {
 }
 
 #menu .menu-block form #plusOne #plusone-checkbox {
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  border-radius: 0;
   position: absolute;
   top: 1px;
   left: -2px;
-  border: none;
   box-shadow: none;
-  border-radius: 0;
-  -webkit-appearance: none;
   background-image: url(../assets/img/checkbox.jpg);
   background-size: 10px 10px;
   background-repeat: no-repeat;
@@ -1279,9 +1283,19 @@ button.swiper-pagination-bullet {
   border-right: 1px dotted #444 !important;
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Main/Overall Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 #main {
-  -webkit-transition: all 1.5s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: all 1.5s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: -webkit-transform 1.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 1.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 1.5s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.5s cubic-bezier(0.55, 0, 0.1, 1);
   opacity: 0;
   pointer-events: none;
 }
@@ -1290,6 +1304,7 @@ button.swiper-pagination-bullet {
   -webkit-appearance: none;
   border: 0;
   background: none;
+  border-radius: 0;
   position: absolute;
   bottom: 292px;
   left: -8px;
@@ -1362,6 +1377,7 @@ button.swiper-pagination-bullet {
   -webkit-appearance: none;
   border: 0;
   background: none;
+  border-radius: 0;
   position: absolute;
   z-index: 1000;
   width: 44px;
@@ -1370,10 +1386,10 @@ button.swiper-pagination-bullet {
   left: 13px;
   cursor: pointer;
   display: block;
-  -webkit-transition: -webkit-transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: -webkit-transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .menuMode #main #menu-btn {
@@ -1411,6 +1427,14 @@ button.swiper-pagination-bullet {
   opacity: 0;
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Custom Swiper Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 .swiper-container, .swiper-container-gallery {
   width: 100%;
   height: 100%;
@@ -1424,10 +1448,12 @@ button.swiper-pagination-bullet {
 
 .swiper-slide h2 {
   font-size: 12px;
-  font-family: 'proxima-nova', sans-serif;
+  font-family: "proxima-nova", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  padding-bottom: 10px;
+  display: block;
   padding-bottom: 10px;
 }
 
@@ -1469,7 +1495,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-container-gallery .swiper-slide {
-  background-color: #333;
+  background-color: #d79074;
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(1) {
@@ -1563,8 +1589,8 @@ button.swiper-pagination-bullet {
 
 .swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
   opacity: 0;
-  -webkit-transform: translate3d(-20px, 0, 0);
-          transform: translate3d(-20px, 0, 0);
+  -webkit-transform: translate3d(-10px, 0, 0);
+          transform: translate3d(-10px, 0, 0);
   -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1616,6 +1642,11 @@ button.swiper-pagination-bullet {
           transition-delay: 0.9s;
 }
 
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet:nth-child(10) {
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
 .swiper-container-horizontal > .swiper-pagination-bullets {
   position: absolute;
   z-index: 100;
@@ -1637,8 +1668,8 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-gallery {
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .swiper-pagination-bullet {
@@ -1647,8 +1678,8 @@ button.swiper-pagination-bullet {
   background: transparent;
   border: 1px solid #444;
   opacity: 0.8;
-  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .swiper-pagination-bullet:hover {
@@ -1668,10 +1699,10 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-bullet-active {
-  background: #444444;
+  background: #444;
   opacity: 1;
-  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .light-mode .swiper-pagination-bullet-active, .swiper-container-gallery .swiper-pagination-bullet-active {

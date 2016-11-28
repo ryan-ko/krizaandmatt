@@ -1,3 +1,12 @@
+/* --------------------------------------------------------
+krizaandmatt.com Menu Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
+
 #menu {
 	width: $menuWidth;
 	height: 100%;
@@ -39,9 +48,9 @@
 				height: 85%;
 				border-right: 1px dotted $content;
 				opacity: 0;
-				transition-delay: 1s !important;
-				transition: transform 0.7s $parallaxEase, opacity 1s $parallaxEase;
-				transform: translate3d(-40px, 0, 0);
+				transition-delay: 0.5s !important;
+				transition: transform 1.3s $parallaxEase, opacity 2s $parallaxEase;
+				transform: translate3d(-144px, 0, 0);
 
 				.menuMode & {
 					transform: translate3d(0,0,0);
@@ -50,14 +59,7 @@
 			}
 
 			.menu-block {
-				&:nth-child(1) {
-					transition-delay: 0.3s;
-					.menuMode & {
-						transform: translate3d(0, 0, 0);
-						opacity: 1;
-					}
-				}
-
+				&:nth-child(1),
 				&:nth-child(2) {
 					transition-delay: 0.4s;
 					.menuMode & {
@@ -76,14 +78,7 @@
 			transition: transform 1.3s $parallaxEase, opacity 2s $parallaxEase;
 			opacity: 0;
 
-			&:nth-child(1) {
-				transition-delay: 0.5s;
-				.menuMode & {
-					transform: translate3d(0,0,0);
-					opacity: 1;
-				}
-			}
-
+			&:nth-child(1),
 			&:nth-child(2) {
 				transition-delay: 0.6s;
 				.menuMode & {
@@ -152,13 +147,11 @@
 					display: block;
 				}
 				#plusone-checkbox {
+					@include resetWebkitAppearance();
 					position: absolute;
 					top: 1px;
 					left: -2px;
-					border: none;
 					box-shadow: none;
-					border-radius: 0;
-					-webkit-appearance: none;
 					background-image: url(../assets/img/checkbox.jpg);
 					background-size: 10px 10px;
 					background-repeat: no-repeat;

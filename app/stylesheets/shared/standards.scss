@@ -1,5 +1,6 @@
 $gravityEase: cubic-bezier(.55,0,.1,1);
 $parallaxEase: cubic-bezier(.215, .61, .355, 1);
+$bounceEase: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 $primaryColor: #d79074;
 $content: #fff;
 $contentBg: #f4f4f4;
@@ -17,6 +18,7 @@ $secondaryFont: 'proxima-nova', sans-serif;
 	-webkit-appearance: none;
 	border: 0;
 	background: none;
+	border-radius: 0;
 }
 @mixin sub-headline {
 	font-size: 12px;

@@ -1,5 +1,14 @@
+/* --------------------------------------------------------
+krizaandmatt.com Main/Overall Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
+
 #main {
-	transition: all 1.5s $gravityEase;
+	transition: transform 1.5s $gravityEase;
 	opacity: 0;
 	pointer-events: none;
 
@@ -11,7 +20,7 @@
 		z-index: 10000;
 		font-size: 11px;
 		letter-spacing: 0.1em;
-		color: #444;
+		color: $menuContentLight;
 		cursor: pointer;
 		transition: all 1s $parallaxEase;
 		opacity: 0;
@@ -74,7 +83,7 @@
 		left: 13px;
 		cursor: pointer;
 		display: block;
-		transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		transition: transform 1.5s $bounceEase;
 
 		.menuMode & {
 			transform: rotate3d(0, 0, 1, 45deg);
@@ -92,7 +101,6 @@
 			left: 14px;
 			top: 16px;
 		}
-
 		.white {
 			opacity: 0;
 		}

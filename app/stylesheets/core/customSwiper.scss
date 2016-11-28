@@ -1,3 +1,12 @@
+/* --------------------------------------------------------
+krizaandmatt.com Custom Swiper Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
+
 .swiper-container, .swiper-container-gallery {
 	width: 100%;
 	height: 100%;
@@ -8,73 +17,35 @@
 	overflow: hidden;
 
 	h2 {
-		font-size: 12px;
-		font-family: 'proxima-nova', sans-serif;
-		font-weight: 400;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		@include sub-headline();
 		padding-bottom: 10px;
 	}
 	h1 {
-		font-size: 18px;
-		font-weight: 400;
-		letter-spacing: 0.05em;
-		line-height: 28px;
-		padding-bottom: 28px;
+		@include content-headline();
 	}
 	p {
-		font-size: 12px;
-		line-height: 21px;
-		letter-spacing: 0.05em;
-		padding-bottom: 10px;
+		@include content-block();
 	}
 	button {
 		@include bordered-button();
 		margin-top: 32px;
 	}
 }
+
 .swiper-container-gallery {
+
 	.swiper-slide {
-		background-color: #333;
-		&:nth-child(1) {
-			background: url(../assets/img/gallery/1.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(2) {
-			background: url(../assets/img/gallery/2.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(3) {
-			background: url(../assets/img/gallery/3.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(4) {
-			background: url(../assets/img/gallery/4.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(5) {
-			background: url(../assets/img/gallery/5.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(6) {
-			background: url(../assets/img/gallery/6.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(7) {
-			background: url(../assets/img/gallery/7.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(8) {
-			background: url(../assets/img/gallery/8.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(9) {
-			background: url(../assets/img/gallery/9.jpg) no-repeat center center;
-			background-size: cover;
-		}
-		&:nth-child(10) {
-			background: url(../assets/img/gallery/10.jpg) no-repeat center center;
-			background-size: cover;
+		background-color: $primaryColor;
+
+		// Waiting on official images
+		$gallery-image-list: 1 2 3 4 5 6 7 8 9 10;
+
+		@each $current-image in $gallery-image-list {
+			$i: index($gallery-image-list, $current-image);
+			&:nth-child(#{$i}) {
+				background: url(../assets/img/gallery/#{$current-image}.jpg) no-repeat center center;
+				background-size: cover;
+			}
 		}
 	}
 }
@@ -111,37 +82,14 @@
 
 	.swiper-pagination-bullet {
 		opacity: 0;
-		transform: translate3d(-20px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
 		transition: transform 1s $parallaxEase, opacity 1s $parallaxEase;
 
-		&:nth-child(1) {
-			transition-delay: 0.1s;
+		@for $i from 1 through 10 {
+			&:nth-child(#{$i}) {
+				transition-delay: 0.1s * $i;
+			}
 		}
-		&:nth-child(2) {
-			transition-delay: 0.2s;
-		}
-		&:nth-child(3) {
-			transition-delay: 0.3s;
-		}
-		&:nth-child(4) {
-			transition-delay: 0.4s;
-		}
-		&:nth-child(5) {
-			transition-delay: 0.5s;
-		}
-		&:nth-child(6) {
-			transition-delay: 0.6s;
-		}
-		&:nth-child(7) {
-			transition-delay: 0.7s;
-		}
-		&:nth-child(8) {
-			transition-delay: 0.8s;
-		}
-		&:nth-child(9) {
-			transition-delay: 0.9s;
-		}
-
 	}
 }
 .swiper-container-horizontal > .swiper-pagination-bullets {
@@ -162,24 +110,24 @@
 	margin: 8px;
 }
 .swiper-pagination-gallery {
-	transition: opacity 0.5s ease;
+	transition: opacity 0.5s $parallaxEase;
 }
 .swiper-pagination-bullet {
 	width: 10px;
 	height: 10px;
 	background: transparent;
-	border: 1px solid #444;
+	border: 1px solid $menuContentLight;
 	opacity: 0.8;
-	transition: all 0.5s cubic-bezier(.55,0,.1,1);
+	transition: all 0.5s $parallaxEase;
 
 	&:hover {
-		background: #444;
+		background: $menuContentLight;
 	}
 
 	.light-mode &, .swiper-container-gallery & {
-		border: 1px solid #f4f4f4;
+		border: 1px solid $contentBg;
 		&:hover {
-			background: #f4f4f4;
+			background: $contentBg;
 		}
 	}
 
@@ -188,11 +136,11 @@
 	}
 }
 .swiper-pagination-bullet-active {
-	background: #444444;
+	background: $menuContentLight;
 	opacity: 1;
-	transition: all 0.5s cubic-bezier(.55,0,.1,1);
+	transition: all 0.5s $parallaxEase;
 
 	.light-mode &, .swiper-container-gallery & {
-		background: #f4f4f4;
+		background: $contentBg;
 	}
 }
