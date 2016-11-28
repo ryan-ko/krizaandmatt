@@ -1,3 +1,12 @@
+/* --------------------------------------------------------
+krizaandmatt.com Personal Gallery Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
+
 .personal-gallery {
 	position: relative;
 	padding: 0 100px;
@@ -18,10 +27,8 @@
 
 		.up-icon,
 		.down-icon {
-			transition: transform 0.5s cubic-bezier(.215, .61, .355, 1);
-			transform-style: preserve-3d;
-			backface-visibility: hidden;
-			transform: translate3d(0,0,0);
+			transition: transform 1s $parallaxEase;
+			transform: translate3d(0,0,0) scale3d(1, 1, 1);
 		}
 
 		&:hover {
@@ -106,21 +113,16 @@
 	}
 
 	span {
-		text-transform: uppercase;
-		font-family: 'proxima-nova', sans-serif;
-		font-size: 13px;
-		letter-spacing: 0.04em;
-		color: #d69074;
-		font-weight: 300;
+		@include sub-headline();
 		padding-bottom: 2px;
-		display: block;
+		color: $primaryColor;
 	}
 	p {
 		font-size: 16px;
 		letter-spacing: -0.01em;
+		line-height: 18px;
 		padding-top: 5px;
 		padding-bottom: 1px;
-		line-height: 18px;
 	}
 }
 

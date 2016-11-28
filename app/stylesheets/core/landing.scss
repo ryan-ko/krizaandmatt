@@ -8,7 +8,7 @@ website: www.ryanko.me
 ----------------------------------------------------------*/
 
 #landing {
-	background-color: #efefef;
+	background-color: $contentBg;
 	.bg {
 		@include parallax-bg-setup(0, -200, 0.8s);
 		z-index: -1;
@@ -37,10 +37,11 @@ website: www.ryanko.me
 		margin: 0 auto;
 		position: relative;
 		top: -34px;
+		left: 64px;
 		user-select: none;
 
 		li {
-			font-family: 'proxima-nova', sans-serif;
+			font-family: $secondaryFont;
 			display: inline-block;
 			width: 19.3%;
 			text-align: left;

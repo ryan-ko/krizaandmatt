@@ -14,6 +14,7 @@ $rsvpBgOpacity: rgba(242, 242, 242, 0.95);
 $menuWidth: 56%;
 $primaryFont: 'Lora', serif;
 $secondaryFont: 'proxima-nova', sans-serif;
+
 @mixin resetWebkitAppearance {
 	-webkit-appearance: none;
 	border: 0;
@@ -110,8 +111,8 @@ html, body {
 }
 
 img.full-bleed {
-	min-height: 100%;
 	min-width: 100%;
+	min-height: 100%;
 	height: auto;
 	width: auto;
 	position: absolute;

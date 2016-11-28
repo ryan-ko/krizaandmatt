@@ -105,8 +105,8 @@ html, body {
 }
 
 img.full-bleed {
-  min-height: 100%;
   min-width: 100%;
+  min-height: 100%;
   height: auto;
   width: auto;
   position: absolute;
@@ -1718,7 +1718,7 @@ email: rko@ryanko.me
 website: www.ryanko.me
 ----------------------------------------------------------*/
 #landing {
-  background-color: #efefef;
+  background-color: #f4f4f4;
 }
 
 #landing .bg {
@@ -1775,6 +1775,7 @@ website: www.ryanko.me
   margin: 0 auto;
   position: relative;
   top: -34px;
+  left: 64px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -1782,7 +1783,7 @@ website: www.ryanko.me
 }
 
 #landing ul li {
-  font-family: 'proxima-nova', sans-serif;
+  font-family: "proxima-nova", sans-serif;
   display: inline-block;
   width: 19.3%;
   text-align: left;
@@ -1809,18 +1810,26 @@ website: www.ryanko.me
   max-width: 414px;
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Invitation Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 #invitation {
-  background-color: #d69074;
   color: #fff;
+  background-color: #d79074;
 }
 
 #invitation .content-container {
-  max-width: 252px;
-  width: 100%;
-  text-align: left;
   top: 50%;
   -webkit-transform: translate3d(0, -50%, 0);
           transform: translate3d(0, -50%, 0);
+  max-width: 252px;
+  width: 100%;
+  text-align: left;
   position: relative;
   padding: 0 11.8%;
 }
@@ -1850,28 +1859,7 @@ website: www.ryanko.me
 #invitation .countdown-container .thedate {
   width: 490px;
   margin: 0 auto;
-}
-
-#invitation .countdown-container .countdown {
-  width: 490px;
-  margin: 0 auto;
-  color: #444444;
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-#invitation .countdown-container .countdown.hidden {
-  opacity: 0;
-  -webkit-transform: translate3d(0, -40px, 0);
-          transform: translate3d(0, -40px, 0);
-}
-
-#invitation .countdown-container .thedate {
-  color: #d69074;
-  font-family: 'Lora', sans-serif;
+  color: #d79074;
   font-size: 80px;
   opacity: 0.7;
   font-weight: normal;
@@ -1884,15 +1872,28 @@ website: www.ryanko.me
 }
 
 #invitation .countdown-container .countdown {
+  width: 490px;
+  margin: 0 auto;
   color: #444;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
   text-align: left;
   padding-top: 127px;
   padding-left: 16px;
 }
 
+#invitation .countdown-container .countdown.hidden {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -60px, 0);
+          transform: translate3d(0, -60px, 0);
+}
+
 #invitation .countdown-container .countdown .days, #invitation .countdown-container .countdown .hours, #invitation .countdown-container .countdown .mins, #invitation .countdown-container .countdown .secs {
   position: relative;
-  font-family: 'proxima-nova', sans-serif;
+  font-family: "proxima-nova", sans-serif;
   padding-bottom: 16px;
   padding-right: 24px;
   font-size: 30px;
@@ -1900,46 +1901,31 @@ website: www.ryanko.me
 }
 
 #invitation .countdown-container .countdown .days:before, #invitation .countdown-container .countdown .hours:before, #invitation .countdown-container .countdown .mins:before, #invitation .countdown-container .countdown .secs:before {
+  font-family: "Lora", serif;
   position: absolute;
   bottom: 0;
   left: 0;
   display: block;
-  color: #444;
   font-size: 14px;
-  font-family: 'Lora', sans-serif;
 }
 
 #invitation .countdown-container .countdown .days:before {
   content: 'Days';
 }
 
-#invitation .countdown-container .countdown .hours {
-  padding-right: 30px;
-}
-
 #invitation .countdown-container .countdown .hours:before {
   content: 'Hour';
-}
-
-#invitation .countdown-container .countdown .hours:after {
-  content: ':';
-  position: absolute;
-  display: block;
-  top: 9px;
-  font-size: 22px;
-  font-weight: 400;
-  right: 9px;
-}
-
-#invitation .countdown-container .countdown .mins {
-  padding-right: 30px;
 }
 
 #invitation .countdown-container .countdown .mins:before {
   content: 'Min.';
 }
 
-#invitation .countdown-container .countdown .mins:after {
+#invitation .countdown-container .countdown .hours, #invitation .countdown-container .countdown .mins {
+  padding-right: 30px;
+}
+
+#invitation .countdown-container .countdown .hours:after, #invitation .countdown-container .countdown .mins:after {
   content: ':';
   position: absolute;
   display: block;
@@ -1960,6 +1946,14 @@ website: www.ryanko.me
   font-size: 14px;
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Personal Gallery Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 .personal-gallery {
   position: relative;
   padding: 0 100px;
@@ -1984,16 +1978,12 @@ website: www.ryanko.me
 .personal-gallery .gallery-movingUp-area .down-icon,
 .personal-gallery .gallery-movingDown-area .up-icon,
 .personal-gallery .gallery-movingDown-area .down-icon {
-  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: -webkit-transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+          transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
 }
 
 .personal-gallery .gallery-movingUp-area:hover .up-icon,
@@ -2084,22 +2074,23 @@ website: www.ryanko.me
 }
 
 .gallery-intro span {
+  font-size: 12px;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
-  font-family: 'proxima-nova', sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: #d69074;
-  font-weight: 300;
-  padding-bottom: 2px;
+  letter-spacing: 0.1em;
+  padding-bottom: 10px;
   display: block;
+  padding-bottom: 2px;
+  color: #d79074;
 }
 
 .gallery-intro p {
   font-size: 16px;
   letter-spacing: -0.01em;
+  line-height: 18px;
   padding-top: 5px;
   padding-bottom: 1px;
-  line-height: 18px;
 }
 
 .matt-gallery-container + .gallery-intro {
