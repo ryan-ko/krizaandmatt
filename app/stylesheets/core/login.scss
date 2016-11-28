@@ -18,11 +18,11 @@ website: www.ryanko.me
 
 	.carouselMode & {
 		transition: opacity 1.3s $parallaxEase 1.3s !important;
-		opacity: 0;
+		opacity: 1;
 		pointer-events: none;
 
-		.bg, .logo, .lock-icon .password-hint {
-			opacity: 1;
+		.bg, .logo, .lock-icon, .password-hint {
+			opacity: 0;
 			transform: translate3d(0,0,0) !important;
 			transition: transform 3s $parallaxEase !important;
 		}

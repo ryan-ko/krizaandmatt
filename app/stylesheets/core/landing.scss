@@ -35,9 +35,9 @@ website: www.ryanko.me
 		padding: 4px 0;
 		text-align: center;
 		margin: 0 auto;
-		left: 64px;
 		position: relative;
 		top: -34px;
+		user-select: none;
 
 		li {
 			font-family: 'proxima-nova', sans-serif;
@@ -51,6 +51,7 @@ website: www.ryanko.me
 			font-weight: 400;
 			letter-spacing: 0.05em;
 			line-height: 17px;
+			max-width: 274px;
 
 			span {
 				position: relative;
@@ -61,6 +62,8 @@ website: www.ryanko.me
 
 			&:first-child {
 				width: 29%;
+				min-width: 320px;
+				max-width: 414px;
 			}
 		}
 	}

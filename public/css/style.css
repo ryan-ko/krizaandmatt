@@ -729,12 +729,12 @@ website: www.ryanko.me
 .carouselMode #lock {
   -webkit-transition: opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 1.3s !important;
   transition: opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 1.3s !important;
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
 
-.carouselMode #lock .bg, .carouselMode #lock .logo, .carouselMode #lock .lock-icon .password-hint {
-  opacity: 1;
+.carouselMode #lock .bg, .carouselMode #lock .logo, .carouselMode #lock .lock-icon, .carouselMode #lock .password-hint {
+  opacity: 0;
   -webkit-transform: translate3d(0, 0, 0) !important;
           transform: translate3d(0, 0, 0) !important;
   -webkit-transition: -webkit-transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
@@ -1773,9 +1773,12 @@ website: www.ryanko.me
   padding: 4px 0;
   text-align: center;
   margin: 0 auto;
-  left: 64px;
   position: relative;
   top: -34px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #landing ul li {
@@ -1790,6 +1793,7 @@ website: www.ryanko.me
   font-weight: 400;
   letter-spacing: 0.05em;
   line-height: 17px;
+  max-width: 274px;
 }
 
 #landing ul li span {
@@ -1801,6 +1805,8 @@ website: www.ryanko.me
 
 #landing ul li:first-child {
   width: 29%;
+  min-width: 320px;
+  max-width: 414px;
 }
 
 #invitation {
