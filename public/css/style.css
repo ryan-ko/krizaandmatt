@@ -729,12 +729,12 @@ website: www.ryanko.me
 .carouselMode #lock {
   -webkit-transition: opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 1.3s !important;
   transition: opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1) 1.3s !important;
-  opacity: 1;
+  opacity: 0;
   pointer-events: none;
 }
 
 .carouselMode #lock .bg, .carouselMode #lock .logo, .carouselMode #lock .lock-icon, .carouselMode #lock .password-hint {
-  opacity: 0;
+  opacity: 1;
   -webkit-transform: translate3d(0, 0, 0) !important;
           transform: translate3d(0, 0, 0) !important;
   -webkit-transition: -webkit-transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
