@@ -1709,25 +1709,33 @@ website: www.ryanko.me
   background: #f4f4f4;
 }
 
+/* --------------------------------------------------------
+krizaandmatt.com Landing Stylesheet
+
+version: 0.9
+author: Ryan Ko
+email: rko@ryanko.me
+website: www.ryanko.me
+----------------------------------------------------------*/
 #landing {
   background-color: #efefef;
 }
 
 #landing .bg {
   width: 1550px;
-  -webkit-transform: translate3d(0, 0, -200px) scale3d(1, 1, 1);
-          transform: translate3d(0, 0, -200px) scale3d(1, 1, 1);
-  z-index: -1;
   height: 928.5px;
-  opacity: 1;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform: translate3d(0, 0, -200);
+          transform: translate3d(0, 0, -200);
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  z-index: 0;
+  z-index: -1;
 }
 
 #landing .content-container {
@@ -1742,10 +1750,12 @@ website: www.ryanko.me
 #landing .km-logo {
   width: 72px;
   display: block;
-  -webkit-transform: perspective(200px) translate3d(0, 0, 0);
-          transform: perspective(200px) translate3d(0, 0, 0);
-  -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transform: perspective(200) translate3d(0, 0, 0) scale3d(1, 1, 1);
+          transform: perspective(200) translate3d(0, 0, 0) scale3d(1, 1, 1);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: -webkit-transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, -webkit-transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
@@ -1756,14 +1766,6 @@ website: www.ryanko.me
   width: 266px;
   display: block;
   padding-top: 18px;
-  -webkit-transform: perspective(600px) translate3d(0, 0, 0);
-          transform: perspective(600px) translate3d(0, 0, 0);
-  -webkit-transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
 
 #landing ul {
@@ -1784,14 +1786,17 @@ website: www.ryanko.me
   position: relative;
   padding: 0 20px;
   box-sizing: border-box;
-  color: #444444;
+  color: #444;
   font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 17px;
 }
 
 #landing ul li span {
   position: relative;
   left: 0;
   font-size: 15px;
+  top: -1px;
 }
 
 #landing ul li:first-child {
