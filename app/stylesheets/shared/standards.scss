@@ -91,7 +91,7 @@ body {
 	font-family: $primaryFont;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: #444;
+	color: $menuContentLight;
 	box-sizing: border-box;
 	background: $primaryColor;
 	font-weight: normal;
