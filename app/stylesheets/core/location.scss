@@ -20,7 +20,7 @@
 		width: 40%;
 		height: 100%;
 		z-index: 1000;
-		background-color: rgba(242, 242, 242, 0.85);
+		background-color: rgba(242, 242, 242, 0.9);
 		top: 0;
 		right: 0;
 		position: absolute;
@@ -54,6 +54,7 @@
 			line-height: 22px;
 			max-width: 110px;
 			margin-right: 23px;
+			letter-spacing: 0.05em;
 		}
 
 		a {
@@ -64,6 +65,7 @@
 			text-decoration: none;
 			z-index: 1000;
 			cursor: pointer;
+			letter-spacing: 0.05em;
 
 			&:hover {
 				text-decoration: underline;

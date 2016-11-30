@@ -2071,6 +2071,22 @@ website: www.ryanko.me
 
 .gallery-intro .gallery-intro-rows {
   padding-bottom: 28px;
+  font-weight: 100;
+  -webkit-transform: translate3d(0, -20px, 0);
+          transform: translate3d(0, -20px, 0);
+  opacity: 0;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+  -webkit-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.carousel-slide-active .gallery-intro .gallery-intro-rows {
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .gallery-intro span {
@@ -2087,10 +2103,12 @@ website: www.ryanko.me
 
 .gallery-intro p {
   font-size: 16px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.05em;
   line-height: 18px;
   padding-top: 5px;
   padding-bottom: 1px;
+  font-weight: 100;
+  zoom: 0;
 }
 
 .matt-gallery-container + .gallery-intro {
@@ -2132,7 +2150,7 @@ website: www.ryanko.me
   font-style: normal;
   font-size: 18px;
   padding-left: 100px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.05em;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: -webkit-transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -2200,7 +2218,7 @@ website: www.ryanko.me
   width: 40%;
   height: 100%;
   z-index: 1000;
-  background-color: rgba(242, 242, 242, 0.85);
+  background-color: rgba(242, 242, 242, 0.9);
   top: 0;
   right: 0;
   position: absolute;
@@ -2245,6 +2263,7 @@ website: www.ryanko.me
   line-height: 22px;
   max-width: 110px;
   margin-right: 23px;
+  letter-spacing: 0.05em;
 }
 
 #location .where-content a {
@@ -2255,6 +2274,7 @@ website: www.ryanko.me
   text-decoration: none;
   z-index: 1000;
   cursor: pointer;
+  letter-spacing: 0.05em;
 }
 
 #location .where-content a:hover {
