@@ -10,7 +10,8 @@ rko.passwordView = (function(window) {
 		},
 		$body: $('body'),
 		$passwordErrorMsg: $('#login-error-msg'),
-		helloMessages: ['Hello!', '안녕하세요!']
+		helloMessages: ['Hello!', '안녕하세요!'],
+		submitInProgress: false
 	},
 	utils = new Utils(),
 	carouselView = rko.carouselView;
@@ -46,20 +47,26 @@ rko.passwordView = (function(window) {
 
 			console.log('pw form submit!');
 
-			$.ajax({
-				type: 'POST',
-				url: url,
-				data: $(this).serialize(),
-				success: function(data) {
-					data = $.parseJSON(data);
-					if (data.result === 'success') {
-						$('.password-hint').html(view.helloMessages[Math.floor(Math.random() * view.helloMessages.length)]);
-						carouselView.init(data.html, data.menuHtml);
-					} else {
-						that.showPasswordErrorMessage();
+			if (!view.submitInProgress) {
+				view.submitInProgress = true;
+
+				$.ajax({
+					type: 'POST',
+					url: url,
+					data: $(this).serialize(),
+					success: function(data) {
+						data = $.parseJSON(data);
+						if (data.result === 'success') {
+							$('.password-hint').html(view.helloMessages[Math.floor(Math.random() * view.helloMessages.length)]);
+							carouselView.init(data.html, data.menuHtml);
+						} else {
+							that.showPasswordErrorMessage();
+							view.submitInProgress = false;
+						}
 					}
-				}
-			});
+				});
+			}
+
 			e.preventDefault();
 		});
 	};
