@@ -44,6 +44,8 @@ rko.passwordView = (function(window) {
 			var url = $(this).attr('action'),
 				data;
 
+			console.log('pw form submit!');
+
 			$.ajax({
 				type: 'POST',
 				url: url,
