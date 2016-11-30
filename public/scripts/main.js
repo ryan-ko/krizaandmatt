@@ -442,9 +442,8 @@ rko.passwordView = (function(window) {
 			var url = $(this).attr('action'),
 				data;
 
-			console.log('pw form submit!');
-
 			if (!view.submitInProgress) {
+				console.log('pw form submitted');
 				view.submitInProgress = true;
 
 				$.ajax({
@@ -462,6 +461,8 @@ rko.passwordView = (function(window) {
 						}
 					}
 				});
+			} else {
+				console.log('pw form in progress, locked!');
 			}
 
 			e.preventDefault();
