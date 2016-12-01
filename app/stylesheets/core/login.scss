@@ -73,7 +73,7 @@ website: www.ryanko.me
 		width: 100%;
 		color: $primaryColor;
 		transform: translate3d(200px, 0, 0) scale3d(1.2, 1.2, 1.2);
-		transition: all 1s $parallaxEase;
+		transition: transform 1s $parallaxEase;
 		opacity: 0;
 
 		@media (max-width: 970px) {
