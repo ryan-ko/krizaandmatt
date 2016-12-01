@@ -454,6 +454,7 @@ rko.passwordView = (function(window) {
 						data = $.parseJSON(data);
 						if (data.result === 'success') {
 							$('.password-hint').html(view.helloMessages[Math.floor(Math.random() * view.helloMessages.length)]);
+							$('.lock-icon').attr('src', './assets/img/login/unlock_icon.png');
 							carouselView.init(data.html, data.menuHtml);
 						} else {
 							that.showPasswordErrorMessage();
