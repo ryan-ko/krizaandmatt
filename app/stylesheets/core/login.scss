@@ -73,13 +73,17 @@ website: www.ryanko.me
 		width: 100%;
 		color: $primaryColor;
 		transform: translate3d(200px, 0, 0) scale3d(1.2, 1.2, 1.2);
-		transition: transform 1s $parallaxEase;
+		transition: all 1s $parallaxEase;
 		opacity: 0;
 
 		@media (max-width: 970px) {
 			font-size: 90px;
 			padding-top: 10px;
 			padding-bottom: 40px;
+		}
+
+		@media (max-width: 390px) {
+			transition: none;
 		}
 
 		.passwordMode & {
