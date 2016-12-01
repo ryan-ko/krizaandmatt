@@ -125,6 +125,14 @@ rko.carouselView = (function(window) {
 		}
 
 		swiper.disableMousewheelControl();
+
+		if (view.currentSlideId === 'kriza') {
+			view.mattPhotoTimeline.stop();
+		}
+
+		if (view.currentSlideId === 'matt') {
+			view.krizaPhotoTimeline.stop();
+		}
 	};
 
 	view.handleCarouselSlideChangeEnd = function(swiper) {

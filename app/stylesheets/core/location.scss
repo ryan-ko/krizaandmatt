@@ -27,6 +27,7 @@
 		min-width: 574px;
 		padding: 300px 60px 60px 140px;
 		box-sizing: border-box;
+		transform: translate3d(0, 0, 100px);
 
 		@media (max-width: 648px) {
 			width: 100%;
