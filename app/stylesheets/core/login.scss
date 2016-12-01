@@ -100,17 +100,37 @@ website: www.ryanko.me
 		transform: translate3d(-50%, -50%, 0);
 		z-index: 10;
 	}
-	.lock-icon {
+	.lock-icon,
+	.unlock-icon {
 		z-index: 2;
 		width: 28px;
 		display: block;
 		margin: 0 auto;
 		pointer-events: none;
+	}
+	.lock-icon {
 		opacity: 1;
 		@include parallax-setup(40px, 0, 0.4s);
 		.passwordMode & {
 			opacity: 0;
 			transform: translate3d(0, -14px, 0) !important;
+		}
+		&.hidden {
+			opacity: 0;
+		}
+	}
+	.unlock-icon {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 6px;
+		transition: all 1s $parallaxEase;
+		opacity: 0.7;
+		transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+
+		&.hidden {
+			opacity: 0;
+			transform: translate3d(0, -10px, 0) rotate3d(0, 0, 1, -45deg);
 		}
 	}
 	.logo {

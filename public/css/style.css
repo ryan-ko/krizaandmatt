@@ -851,12 +851,16 @@ website: www.ryanko.me
   z-index: 10;
 }
 
-#lock .lock-icon {
+#lock .lock-icon,
+#lock .unlock-icon {
   z-index: 2;
   width: 28px;
   display: block;
   margin: 0 auto;
   pointer-events: none;
+}
+
+#lock .lock-icon {
   opacity: 1;
   -webkit-transform: perspective(40px) translate3d(0, 0, 0) scale3d(1, 1, 1);
           transform: perspective(40px) translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -874,6 +878,28 @@ website: www.ryanko.me
   opacity: 0;
   -webkit-transform: translate3d(0, -14px, 0) !important;
           transform: translate3d(0, -14px, 0) !important;
+}
+
+#lock .lock-icon.hidden {
+  opacity: 0;
+}
+
+#lock .unlock-icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  -webkit-transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  opacity: 0.7;
+  -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+          transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+}
+
+#lock .unlock-icon.hidden {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -10px, 0) rotate3d(0, 0, 1, -45deg);
+          transform: translate3d(0, -10px, 0) rotate3d(0, 0, 1, -45deg);
 }
 
 #lock .logo {
