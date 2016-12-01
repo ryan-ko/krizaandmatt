@@ -29,13 +29,13 @@ $secondaryFont: 'proxima-nova', sans-serif;
 	letter-spacing: 0.1em;
 	padding-bottom: 10px;
 	display: block;
+	line-height: 15px;
 }
 @mixin content-headline {
 	font-size: 18px;
 	font-weight: 400;
 	letter-spacing: 0.05em;
 	line-height: 28px;
-	padding-bottom: 28px;
 }
 @mixin content-block {
 	font-size: 12px;
