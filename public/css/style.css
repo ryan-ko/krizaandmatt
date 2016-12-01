@@ -1882,7 +1882,7 @@ website: www.ryanko.me
 
 @media (max-width: 1000px) {
   #landing ul {
-    left: 10%;
+    left: 32px;
     padding-right: 32px;
   }
 }
