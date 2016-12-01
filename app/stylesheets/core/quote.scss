@@ -11,11 +11,40 @@
 		max-width: 810px;
 		transition: opacity 6s cubic-bezier(.55,0,.1,1);
 
+		@media (max-width: 974px) {
+			max-width: 590px;
+		}
+
+		@media (max-width: 780px) {
+			max-width: 400px;
+		}
+
+		@media (max-width: 598px) {
+			max-width: 400px;
+			padding: 30px;
+			top: 100px;
+			transform: none;
+			position: relative;
+		}
+
 		p {
 			font-size: 43px;
 			line-height: 61px;
 			letter-spacing: -0.01em;
 			line-height: 62px;
+
+			@media (max-width: 974px) {
+				font-size: 32px;
+				line-height: 48px;
+			}
+			@media (max-width: 780px) {
+				font-size: 22px;
+				line-height: 34px;
+			}
+			@media (max-width: 598px) {
+				font-size: 15px;
+				line-height: 26px;
+			}
 		}
 	}
 	cite {
@@ -29,6 +58,14 @@
 		padding-left: 100px;
 		letter-spacing: 0.05em;
 		transition: transform 0.8s cubic-bezier(.215, .61, .355, 1);
+
+		@media (max-width: 598px) {
+			position: relative;
+			bottom: auto;
+			top: 100px;
+			padding-left: 30px;
+			font-size: 15px;
+		}
 	}
 	#quote-landing {
 		z-index: 5;

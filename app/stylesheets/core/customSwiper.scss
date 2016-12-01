@@ -22,6 +22,11 @@ website: www.ryanko.me
 	}
 	h1 {
 		@include content-headline();
+		padding-bottom: 28px;
+
+		@media (max-width: 400px) {
+			padding-bottom: 20px;
+		}
 	}
 	p {
 		@include content-block();
@@ -29,6 +34,10 @@ website: www.ryanko.me
 	button {
 		@include bordered-button();
 		margin-top: 32px;
+
+		@media (max-width: 400px) {
+			margin-top: 12px;
+		}
 	}
 }
 
@@ -100,11 +109,15 @@ website: www.ryanko.me
 	position: absolute;
 	z-index: 100;
 	bottom: 60px;
-	margin: 8px;
+	box-sizing: border-box;
 
 	.swiper-pagination-bullet {
 		width: 8px;
 		height: 8px;
+	}
+
+	@media (max-width: 400px) {
+		bottom: 20px;
 	}
 }
 .swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {

@@ -18,6 +18,26 @@ website: www.ryanko.me
 		text-align: left;
 		position: relative;
 		padding: 0 11.8%;
+
+		@media (max-width: 780px) {
+			box-sizing: border-box;
+			padding: 0 0 0 0;
+			max-width: 260px;
+			margin: 0 auto;
+		}
+
+		h2 {
+			&.mobile {
+				display: none;
+			}
+			@media (max-width: 780px) {
+				display: none;
+
+				&.mobile {
+					display: block;
+				}
+			}
+		}
 	}
 
 	.countdown-container {
@@ -28,6 +48,14 @@ website: www.ryanko.me
 		position: absolute;
 		right: 0;
 		top: 0;
+
+		@media (max-width: 1075px) {
+			min-width: inherit;
+		}
+
+		@media (max-width: 780px) {
+			display: none;
+		}
 
 		&-wrapper {
 			height: auto;
@@ -48,6 +76,11 @@ website: www.ryanko.me
 			font-weight: normal;
 			display: block;
 
+			@media (max-width: 1075px) {
+				width: 310px;
+				font-size: 50px;
+			}
+
 			span {
 				padding: 0 2px;
 				letter-spacing: 0.06em;
@@ -64,6 +97,11 @@ website: www.ryanko.me
 			text-align: left;
 			padding-top: 127px;
 			padding-left: 16px;
+
+			@media (max-width: 1075px) {
+				width: 310px;
+				padding-top: 154px;
+			}
 
 			&.hidden {
 				opacity: 0;
