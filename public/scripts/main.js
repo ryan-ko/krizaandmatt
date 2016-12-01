@@ -506,6 +506,7 @@ rko.passwordView = (function(window) {
 							$('.unlock-icon').removeClass('hidden');
 							$('.lock-icon').addClass('hidden');
 							carouselView.init(data.html, data.menuHtml);
+							document.activeElement.blur();
 						} else {
 							that.showPasswordErrorMessage();
 							view.submitInProgress = false;
