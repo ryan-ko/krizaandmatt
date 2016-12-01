@@ -2501,9 +2501,25 @@ website: www.ryanko.me
   box-sizing: border-box;
 }
 
+@media (max-width: 648px) {
+  #location .where-content {
+    width: 100%;
+    padding: 31px;
+    min-width: initial;
+  }
+}
+
 #location .where-content-wrapper {
   position: absolute;
   bottom: 92px;
+}
+
+@media (max-width: 648px) {
+  #location .where-content-wrapper {
+    position: relative;
+    bottom: auto;
+    top: 90px;
+  }
 }
 
 #location .where-content .label {
@@ -2538,6 +2554,7 @@ website: www.ryanko.me
   max-width: 110px;
   margin-right: 23px;
   letter-spacing: 0.05em;
+  padding-bottom: 10px;
 }
 
 #location .where-content a {

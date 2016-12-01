@@ -28,9 +28,21 @@
 		padding: 300px 60px 60px 140px;
 		box-sizing: border-box;
 
+		@media (max-width: 648px) {
+			width: 100%;
+			padding: 31px;
+			min-width: initial;
+		}
+
 		&-wrapper {
 			position: absolute;
 			bottom: 92px;
+
+			@media (max-width: 648px) {
+				position: relative;
+				bottom: auto;
+				top: 90px;
+			}
 		}
 
 		.label {
@@ -55,6 +67,7 @@
 			max-width: 110px;
 			margin-right: 23px;
 			letter-spacing: 0.05em;
+			padding-bottom: 10px;
 		}
 
 		a {
