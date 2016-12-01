@@ -69,6 +69,7 @@ website: www.ryanko.me
 		font-family: $primaryFont;
 		padding-top: 90px;
 		padding-bottom: 168px;
+		padding-left: 0;
 		overflow: hidden;
 		width: 100%;
 		color: $primaryColor;
@@ -84,7 +85,6 @@ website: www.ryanko.me
 
 		@media (max-width: 500px) {
 			transition: none;
-			transform: translate3d(0, 0, 0) scale3d(1, 1, 1) !important;
 		}
 
 		.passwordMode & {
