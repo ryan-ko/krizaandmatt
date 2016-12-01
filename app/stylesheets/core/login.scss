@@ -124,7 +124,7 @@ website: www.ryanko.me
 		left: 0;
 		right: 0;
 		top: 6px;
-		transition: all 1s $parallaxEase;
+		transition: all 1s $bounceEase;
 		opacity: 0.7;
 		transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
 
