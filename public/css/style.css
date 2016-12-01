@@ -818,10 +818,12 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 500px) {
   #lock input {
     -webkit-transition: none;
     transition: none;
+    -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) !important;
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1) !important;
   }
 }
 
