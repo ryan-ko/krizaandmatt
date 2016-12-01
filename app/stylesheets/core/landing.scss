@@ -24,7 +24,7 @@ website: www.ryanko.me
 		display: block;
 		@include parallax-setup(200, 0, 0.4s);
 
-		@media (max-width: 400px) {
+		@media (max-width: 515px) {
 			width: 56px;
 		}
 	}
@@ -33,7 +33,7 @@ website: www.ryanko.me
 		display: block;
 		padding-top: 18px;
 
-		@media (max-width: 400px) {
+		@media (max-width: 515px) {
 			width: 230px;
 		}
 	}
@@ -54,7 +54,7 @@ website: www.ryanko.me
 			padding-right: 32px;
 		}
 
-		@media (max-width: 400px) {
+		@media (max-width: 515px) {
 			top: 0px;
 		}
 

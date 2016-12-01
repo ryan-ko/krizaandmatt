@@ -24,7 +24,7 @@ website: www.ryanko.me
 		@include content-headline();
 		padding-bottom: 28px;
 
-		@media (max-width: 400px) {
+		@media (max-width: 515px) {
 			padding-bottom: 20px;
 		}
 	}
@@ -35,7 +35,7 @@ website: www.ryanko.me
 		@include bordered-button();
 		margin-top: 32px;
 
-		@media (max-width: 400px) {
+		@media (max-width: 515px) {
 			margin-top: 12px;
 		}
 	}
@@ -83,7 +83,7 @@ website: www.ryanko.me
 		}
 	}
 
-	@media (max-width: 400px) {
+	@media (max-width: 515px) {
 		display: none;
 	}
 }
@@ -116,7 +116,7 @@ website: www.ryanko.me
 		height: 8px;
 	}
 
-	@media (max-width: 400px) {
+	@media (max-width: 515px) {
 		bottom: 20px;
 	}
 }
