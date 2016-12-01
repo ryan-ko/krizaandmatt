@@ -2319,7 +2319,7 @@ website: www.ryanko.me
   #quote blockquote {
     max-width: 400px;
     padding: 30px;
-    top: 100px;
+    top: 80px;
     -webkit-transform: none;
             transform: none;
     position: relative;
@@ -2349,8 +2349,8 @@ website: www.ryanko.me
 
 @media (max-width: 598px) {
   #quote blockquote p {
-    font-size: 15px;
-    line-height: 26px;
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 
