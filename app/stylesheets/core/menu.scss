@@ -19,6 +19,7 @@ website: www.ryanko.me
 	pointer-events: none;
 	transition: all 1s $parallaxEase;
 	color: $content;
+	overflow: hidden;
 
 	.menuMode & {
 		pointer-events: auto;

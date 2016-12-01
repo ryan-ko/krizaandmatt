@@ -11,6 +11,7 @@ website: www.ryanko.me
 	transition: transform 1.5s $gravityEase;
 	opacity: 0;
 	pointer-events: none;
+	overflow: hidden;
 
 	#backToTop {
 		@include resetWebkitAppearance();
