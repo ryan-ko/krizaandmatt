@@ -1440,6 +1440,12 @@ website: www.ryanko.me
   transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+@media (max-width: 400px) {
+  #main #menu-btn {
+    top: 10px;
+  }
+}
+
 .menuMode #main #menu-btn {
   -webkit-transform: rotate3d(0, 0, 1, 45deg);
           transform: rotate3d(0, 0, 1, 45deg);
@@ -1628,6 +1634,12 @@ website: www.ryanko.me
           transform: translate3d(0, 0, 0) !important;
 }
 
+@media (max-width: 400px) {
+  .swiper-container-vertical .swiper-pagination {
+    display: none;
+  }
+}
+
 .swiper-container-vertical > .swiper-pagination-bullets {
   left: 20px;
   bottom: -15px;
@@ -1810,10 +1822,22 @@ website: www.ryanko.me
           backface-visibility: hidden;
 }
 
+@media (max-width: 400px) {
+  #landing .km-logo {
+    width: 48px;
+  }
+}
+
 #landing .logo {
   width: 266px;
   display: block;
   padding-top: 18px;
+}
+
+@media (max-width: 400px) {
+  #landing .logo {
+    width: 200px;
+  }
 }
 
 #landing ul {
@@ -1828,6 +1852,20 @@ website: www.ryanko.me
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  padding-right: 64px;
+}
+
+@media (max-width: 1000px) {
+  #landing ul {
+    left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  #landing ul {
+    top: 0px;
+  }
 }
 
 #landing ul li {
@@ -1856,6 +1894,18 @@ website: www.ryanko.me
   width: 29%;
   min-width: 320px;
   max-width: 414px;
+}
+
+@media (max-width: 830px) {
+  #landing ul li {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: initial;
+    padding: 10px 0;
+  }
+  #landing ul li:first-child {
+    padding-bottom: 30px;
+  }
 }
 
 /* --------------------------------------------------------

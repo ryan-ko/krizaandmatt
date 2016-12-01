@@ -85,6 +85,10 @@ website: www.ryanko.me
 		display: block;
 		transition: transform 1.5s $bounceEase;
 
+		@media (max-width: 400px) {
+			top: 10px;
+		}
+
 		.menuMode & {
 			transform: rotate3d(0, 0, 1, 45deg);
 			pointer-events: auto;

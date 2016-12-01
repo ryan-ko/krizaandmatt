@@ -73,6 +73,10 @@ website: www.ryanko.me
 			transform: translate3d(0, 0, 0) !important;
 		}
 	}
+
+	@media (max-width: 400px) {
+		display: none;
+	}
 }
 .swiper-container-vertical > .swiper-pagination-bullets {
 	left: 20px;
