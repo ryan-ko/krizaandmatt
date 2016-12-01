@@ -8,9 +8,11 @@ rko.app = (function(window) {
 		$background: $('#parallax-auth'),
 		$viewContainer: $('#lock')
 	},
-	passwordView = rko.passwordView;
+	passwordView = rko.passwordView,
+	utils = new Utils();
 
 	app.init = function() {
+		utils.disableDefaultTouch();
 		// $('#auth').imagesLoaded(function() {
 		setTimeout(function() {
 			console.log('loaded!');
