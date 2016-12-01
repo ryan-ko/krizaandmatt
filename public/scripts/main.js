@@ -443,8 +443,10 @@ rko.passwordView = (function(window) {
 
 		if (utils.isTouchDevice()) {
 			that.bindables.$doc.on('click', function() {
-				that.$body.removeClass().addClass(that.modeLabel);
-				that.bindables.$passwordInput.focus();
+				if (that.$body.hasClass(that.previousModeLabel)) {
+					that.$body.removeClass().addClass(that.modeLabel);
+					that.bindables.$passwordInput.focus();
+				}
 			});
 		}
 
