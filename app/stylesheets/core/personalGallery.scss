@@ -29,6 +29,10 @@ website: www.ryanko.me
 		padding-right: 20px;
 		box-sizing: border-box;
 
+		@media (max-width: 868px) {
+			width: 50%;
+		}
+
 		.up-icon,
 		.down-icon {
 			transition: transform 1s $parallaxEase;
@@ -63,6 +67,10 @@ website: www.ryanko.me
 			.down-icon {
 				right: 100px;
 				left: 20px;
+
+				@media (max-width: 868px) {
+					right: 28px;
+				}
 			}
 		}
 	}
@@ -77,6 +85,10 @@ website: www.ryanko.me
 			position: absolute;
 			left: 100px;
 			right: 20px;
+
+			@media (max-width: 868px) {
+				left: 28px;
+			}
 		}
 	}
 	.gallery-movingDown-area {
@@ -90,6 +102,10 @@ website: www.ryanko.me
 			position: absolute;
 			left: 100px;
 			right: 20px;
+
+			@media (max-width: 868px) {
+				left: 28px;
+			}
 		}
 	}
 
@@ -131,18 +147,10 @@ website: www.ryanko.me
 		padding-bottom: 28px;
 		font-weight: 100;
 		transform: translate3d(0, -20px, 0);
-		opacity: 0;
-		transition-delay: 0.3s;
-		transition: all 2s $parallaxEase;
+		opacity: 1;
 
 		@media (max-width: 500px) {
 			padding-bottom: 18px;
-		}
-
-		.carousel-slide-active & {
-			transition-delay: 1s;
-			transform: translate3d(0, 0, 0);
-			opacity: 1;
 		}
 	}
 
