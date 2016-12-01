@@ -19,6 +19,9 @@ Utils.prototype = {
 			return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
 		}
 		return false;
+	},
+	isTouchDevice: function() {
+		return typeof window.ontouchstart !== 'undefined';
 	}
 };
 function ParallaxFactory(maxDeg) {
@@ -438,6 +441,13 @@ rko.passwordView = (function(window) {
 			}
 		});
 
+		if (utils.isTouchDevice()) {
+			that.bindables.$doc.on('click', function() {
+				that.$body.removeClass().addClass(that.modeLabel);
+				that.bindables.$passwordInput.focus();
+			});
+		}
+
 		that.bindables.$passwordForm.submit(function(e) {
 			var url = $(this).attr('action'),
 				data;
@@ -537,6 +547,8 @@ rko.app = (function(window) {
 			that.$logo.css('transform', 'perspective(500px) translate3d(' + -movementMatrix.X/8 + 'px, ' + -movementMatrix.Y/8 + 'px, 0) rotateX(' + movementMatrix.degX + ') rotateY(' + movementMatrix.degY + ')');
 			that.$background.css('transform', 'perspective(1000px) translate3d(' + movementMatrix.X/2 + 'px, ' + movementMatrix.Y/2 + 'px, -20px)');
 		});
+
+		// http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source
 	};
 
 	return app;

@@ -10,6 +10,7 @@
 	opacity: 0;
 	pointer-events: none;
 	transition: all 1s $parallaxEase;
+	overflow: hidden;
 
 	span, p {
 		opacity: 0;

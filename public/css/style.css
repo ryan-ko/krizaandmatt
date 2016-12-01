@@ -810,6 +810,14 @@ website: www.ryanko.me
   opacity: 0;
 }
 
+@media (max-width: 970px) {
+  #lock input {
+    font-size: 90px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+}
+
 .passwordMode #lock input {
   -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
           transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -843,7 +851,7 @@ website: www.ryanko.me
 
 #lock .lock-panel {
   position: absolute;
-  width: 500px;
+  width: 210px;
   top: 48%;
   left: 50%;
   -webkit-transform: translate3d(-50%, -50%, 0);
@@ -958,6 +966,12 @@ website: www.ryanko.me
   transition: opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   position: absolute;
   z-index: 30;
+}
+
+@media (max-width: 390px) {
+  #lock .password-panel {
+    padding: 48px 24px;
+  }
 }
 
 .passwordMode #lock .password-panel {
@@ -2349,6 +2363,7 @@ website: www.ryanko.me
   pointer-events: none;
   -webkit-transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  overflow: hidden;
 }
 
 #rsvp-thankyou span, #rsvp-thankyou p {

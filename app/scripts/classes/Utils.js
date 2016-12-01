@@ -19,5 +19,8 @@ Utils.prototype = {
 			return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
 		}
 		return false;
+	},
+	isTouchDevice: function() {
+		return typeof window.ontouchstart !== 'undefined';
 	}
 };

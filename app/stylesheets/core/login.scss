@@ -72,10 +72,15 @@ website: www.ryanko.me
 		overflow: hidden;
 		width: 100%;
 		color: $primaryColor;
-
 		transform: translate3d(200px, 0, 0) scale3d(1.2, 1.2, 1.2);
 		transition: all 1s $parallaxEase;
 		opacity: 0;
+
+		@media (max-width: 970px) {
+			font-size: 90px;
+			padding-top: 10px;
+			padding-bottom: 40px;
+		}
 
 		.passwordMode & {
 			transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -94,7 +99,7 @@ website: www.ryanko.me
 	}
 	.lock-panel {
 		position: absolute;
-		width: 500px;
+		width: 210px;
 		top: 48%;
 		left: 50%;
 		transform: translate3d(-50%, -50%, 0);
@@ -174,6 +179,10 @@ website: www.ryanko.me
 		transition: opacity 0.3s $parallaxEase;
 		position: absolute;
 		z-index: 30;
+
+		@media (max-width: 390px) {
+			padding: 48px 24px;
+		}
 
 		.passwordMode & {
 			opacity: 1;
