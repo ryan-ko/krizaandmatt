@@ -45,12 +45,12 @@ rko.carouselView = (function(window) {
 		$('#kriza .gallery-scroller').imagesLoaded( function() {
 			maxHeight = -$('#kriza .gallery-scroller').innerHeight() + ($(window).innerHeight());
 			that.krizaPhotoTimeline = new TimelineLite({paused: true});
-			that.krizaPhotoTimeline.to($('#kriza .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Quad.easeInOut });
+			that.krizaPhotoTimeline.to($('#kriza .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Linear.easeNone });
 		});
 		$('#matt .gallery-scroller').imagesLoaded( function() {
 			maxHeight = -$('#matt .gallery-scroller').innerHeight() + ($(window).innerHeight());
 			that.mattPhotoTimeline = new TimelineLite({paused: true});
-			that.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Quad.easeInOut });
+			that.mattPhotoTimeline.to($('#matt .gallery-scroller'), 300, { y: maxHeight + 'px', force3D: true, ease: Linear.easeNone });
 		});
 	};
 
@@ -253,7 +253,7 @@ rko.carouselView = (function(window) {
 			view.swiper.slideTo(0, 2000);
 		});
 
-		$('#menu-btn').on('click', function() {
+		$('#menu-btn, #slider-menu-btn').on('click', function() {
 			console.log('hit');
 			if($('body').hasClass('menuMode')) {
 				$('body').removeClass('menuMode');

@@ -1044,6 +1044,20 @@ website: www.ryanko.me
   overflow: hidden;
 }
 
+@media (max-width: 1288px) {
+  #menu {
+    width: 61.6%;
+  }
+}
+
+@media (max-width: 1028px) {
+  #menu {
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 .menuMode #menu {
   pointer-events: auto;
   z-index: 0;
@@ -1060,9 +1074,28 @@ website: www.ryanko.me
   padding-bottom: 56px;
 }
 
+@media (max-width: 1288px) {
+  #menu .menu-column {
+    padding-right: 46px;
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 1028px) {
+  #menu .menu-column {
+    width: 100%;
+  }
+}
+
 #menu .menu-column:first-child {
   padding-right: 100px;
   padding-left: 46px;
+}
+
+@media (max-width: 1288px) {
+  #menu .menu-column:first-child {
+    padding-right: 70px;
+  }
 }
 
 #menu .menu-column:first-child:before {
@@ -1088,6 +1121,12 @@ website: www.ryanko.me
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 0.5;
+}
+
+@media (max-width: 1028px) {
+  #menu .menu-column:first-child:before {
+    display: none;
+  }
 }
 
 #menu .menu-column:first-child .menu-block:nth-child(1), #menu .menu-column:first-child .menu-block:nth-child(2) {
@@ -1285,6 +1324,12 @@ website: www.ryanko.me
   margin-top: 60px;
 }
 
+@media (max-width: 1288px) {
+  #menu .menu-block#timeAndLocation {
+    margin-top: 30px;
+  }
+}
+
 #menu .menu-block#qanda {
   margin-top: 80px;
 }
@@ -1427,42 +1472,40 @@ website: www.ryanko.me
           transform: translate3d(56%, 0, 0);
 }
 
-#main #menu-btn {
+@media (max-width: 1288px) {
+  .menuMode #main {
+    -webkit-transform: translate3d(61.6%, 0, 0);
+            transform: translate3d(61.6%, 0, 0);
+  }
+}
+
+@media (max-width: 1028px) {
+  .menuMode #main {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+}
+
+#menu-btn,
+#slider-menu-btn {
   -webkit-appearance: none;
   border: 0;
   background: none;
   border-radius: 0;
-  position: absolute;
   z-index: 1000;
   width: 44px;
   height: 44px;
-  top: 40px;
-  left: 13px;
   cursor: pointer;
   display: block;
-  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@media (max-width: 515px) {
-  #main #menu-btn {
-    top: 10px;
-  }
-}
-
-.menuMode #main #menu-btn {
-  -webkit-transform: rotate3d(0, 0, 1, 45deg);
-          transform: rotate3d(0, 0, 1, 45deg);
-  pointer-events: auto;
-}
-
-#main #menu-btn:focus {
+#menu-btn:focus,
+#slider-menu-btn:focus {
   outline: none;
 }
 
-#main #menu-btn img {
+#menu-btn img,
+#slider-menu-btn img {
   width: 16px;
   position: absolute;
   -webkit-transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1471,20 +1514,77 @@ website: www.ryanko.me
   top: 16px;
 }
 
-#main #menu-btn .white {
+#menu-btn {
+  position: absolute;
+  top: 40px;
+  left: 13px;
+  -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.menuMode #menu-btn {
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+          transform: rotate3d(0, 0, 1, 45deg);
+  pointer-events: auto;
+}
+
+@media (max-width: 515px) {
+  #menu-btn {
+    right: 13px;
+  }
+}
+
+#menu-btn .white {
   opacity: 0;
 }
 
-#main #menu-btn .black {
+#menu-btn .black {
   opacity: 1;
 }
 
-#main #menu-btn.light-mode .white {
+#menu-btn.light-mode .white {
   opacity: 1;
 }
 
-#main #menu-btn.light-mode .black {
+#menu-btn.light-mode .black {
   opacity: 0;
+}
+
+#slider-menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 13px;
+  opacity: 0;
+  -webkit-transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transform: translate3d(0, -60px, 0) rotate3d(0, 0, 1, 45deg);
+          transform: translate3d(0, -60px, 0) rotate3d(0, 0, 1, 45deg);
+}
+
+@media (max-width: 1028px) {
+  #slider-menu-btn {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);
+            transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);
+  }
+}
+
+#slider-menu-btn .white {
+  opacity: 1;
+}
+
+#slider-menu-btn .black {
+  opacity: 0;
+}
+
+.light-mode #slider-menu-btn .white {
+  opacity: 0;
+}
+
+.light-mode #slider-menu-btn .black {
+  opacity: 1;
 }
 
 /* --------------------------------------------------------
