@@ -1050,7 +1050,7 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 480px) {
   #menu {
     width: 100%;
     overflow: scroll;
@@ -1072,19 +1072,6 @@ website: www.ryanko.me
   padding-left: 46px;
   padding-top: 56px;
   padding-bottom: 56px;
-}
-
-@media (max-width: 1288px) {
-  #menu .menu-column {
-    padding-right: 46px;
-    padding-left: 16px;
-  }
-}
-
-@media (max-width: 1028px) {
-  #menu .menu-column {
-    width: 100%;
-  }
 }
 
 #menu .menu-column:first-child {
@@ -1123,7 +1110,7 @@ website: www.ryanko.me
   opacity: 0.5;
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 480px) {
   #menu .menu-column:first-child:before {
     display: none;
   }
@@ -1138,6 +1125,30 @@ website: www.ryanko.me
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   opacity: 1;
+}
+
+@media (max-width: 1288px) {
+  #menu .menu-column {
+    padding-right: 46px;
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #menu .menu-column {
+    width: 100%;
+    height: auto;
+    padding: 0 28px 56px 28px !important;
+    max-width: 320px;
+    margin: 0 auto;
+    float: none;
+  }
+  #menu .menu-column:first-child {
+    padding-top: 56px !important;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+    padding-bottom: 28px !important;
+    margin-bottom: 28px !important;
+  }
 }
 
 #menu .menu-column .menu-block {
@@ -1479,7 +1490,7 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 480px) {
   .menuMode #main {
     -webkit-transform: translate3d(100%, 0, 0);
             transform: translate3d(100%, 0, 0);
@@ -1563,7 +1574,7 @@ website: www.ryanko.me
           transform: translate3d(0, -60px, 0) rotate3d(0, 0, 1, 45deg);
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 480px) {
   #slider-menu-btn {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);

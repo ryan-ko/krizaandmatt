@@ -25,7 +25,7 @@ website: www.ryanko.me
 		width: $menuWidth + $menuWidth * 0.1;
 	}
 
-	@media(max-width: $menuBreakpoint2) {
+	@media(max-width: $menuBreakpoint4) {
 		width: 100%;
 		overflow: scroll;
 		-webkit-overflow-scrolling: touch;
@@ -45,15 +45,6 @@ website: www.ryanko.me
 		padding-left: 46px;
 		padding-top: 56px;
 		padding-bottom: 56px;
-
-		@media(max-width: $menuBreakpoint1) {
-			padding-right: 46px;
-			padding-left: 16px;
-		}
-
-		@media(max-width: $menuBreakpoint2) {
-			width: 100%;
-		}
 
 		&:first-child {
 			padding-right: 100px;
@@ -82,7 +73,7 @@ website: www.ryanko.me
 				}
 			}
 
-			@media(max-width: $menuBreakpoint2) {
+			@media(max-width: $menuBreakpoint4) {
 				&:before {
 					display: none;
 				}
@@ -97,6 +88,27 @@ website: www.ryanko.me
 						opacity: 1;
 					}
 				}
+			}
+		}
+
+		@media(max-width: $menuBreakpoint1) {
+			padding-right: 46px;
+			padding-left: 16px;
+		}
+
+		@media(max-width: $menuBreakpoint4) {
+			width: 100%;
+			height: auto;
+			padding: 0 28px 56px 28px !important;
+			max-width: 320px;
+			margin: 0 auto;
+			float: none;
+
+			&:first-child {
+				padding-top: 56px !important;
+				border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+				padding-bottom: 28px !important;
+				margin-bottom: 28px !important;
 			}
 		}
 
