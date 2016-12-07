@@ -155,8 +155,7 @@ website: www.ryanko.me
 				display: none;
 			}
 			input {
-				background: none;
-				border: none;
+				@include resetWebkitAppearance();
 				color: $content;
 				font-size: 13px;
 				padding: 8px 0 6px 0;

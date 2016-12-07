@@ -1216,8 +1216,10 @@ website: www.ryanko.me
 }
 
 #menu .menu-block form input {
+  -webkit-appearance: none;
+  border: 0;
   background: none;
-  border: none;
+  border-radius: 0;
   color: #fff;
   font-size: 13px;
   padding: 8px 0 6px 0;
