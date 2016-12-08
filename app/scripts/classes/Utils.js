@@ -1,32 +1,34 @@
-function Utils() {
-	this.keysmap = {
-		escape: 27
+class Utils {
+	constructor() {
+		this.keysmap = {
+			escape: 27
+		}
 	}
-}
 
-Utils.prototype = {
-	convertToTwoDigits: function(value) {
+	convertToTwoDigits(value) {
 		if (value < 10) {
 			return '0' + value;
 		} else {
 			return value;
 		}
-	},
-	isCharacterKeyPress: function (evt) {
+	}
+
+	isCharacterKeyPress(evt) {
 		if (typeof evt.which === 'undefined') {
 			return true;
 		} else if (typeof evt.which === 'number' && evt.which > 0) {
 			return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
 		}
 		return false;
-	},
-	isTouchDevice: function() {
+	}
+
+	isTouchDevice() {
 		return typeof window.ontouchstart !== 'undefined';
-	},
-	disableDefaultTouch: function() {
+	}
+
+	disableDefaultTouch() {
 		// Mimic native iOS UI interactions
 		// http://stackoverflow.com/questions/10238084/ios-safari-how-to-disable-overscroll-but-allow-scrollable-divs-to-scroll-norma
-		var that = this;
 		$(document).on('touchmove',function(e){
 			e.preventDefault();
 		});
@@ -52,4 +54,4 @@ Utils.prototype = {
 			e.stopPropagation();
 		});
 	}
-};
+}

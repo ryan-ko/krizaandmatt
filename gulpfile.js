@@ -17,6 +17,8 @@ var mainBowerFiles = require('main-bower-files');
 var gulpFilter = require('gulp-filter');
 var imageResize = require('gulp-image-resize');
 var pipes = require('gulp-pipes');
+var gulpLoadPlugins = require('gulp-load-plugins');
+var $ = gulpLoadPlugins();
 
 gulp.task('nodemon', function (cb) {
 	var callbackCalled = false;
@@ -37,6 +39,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 // Scripts
 gulp.task('scripts', function() {
 	return gulp.src([
+			'./app/scripts/classes/Point.js',
 			'./app/scripts/classes/Utils.js',
 			'./app/scripts/classes/ParallaxFactory.js',
 			'./app/scripts/classes/Countdown.js',
@@ -45,6 +48,7 @@ gulp.task('scripts', function() {
 			'./app/scripts/ui/app.js'
 		])
 		.pipe(concat('main.js'))
+		.pipe($.babel())
 		.pipe(gulp.dest('public/scripts'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(uglify())

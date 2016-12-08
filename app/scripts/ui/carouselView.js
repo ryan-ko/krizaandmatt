@@ -1,4 +1,5 @@
 rko.carouselView = (function(window) {
+
 	var view = {
 		swiper: undefined,
 		swiperGallery: undefined,

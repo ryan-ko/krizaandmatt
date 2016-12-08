@@ -1,17 +1,18 @@
-function Countdown(endtime, $target) {
-	this.endtime = endtime;
-	this.utils = new Utils();
-	this.$target = $target;
-	this.timeinterval = undefined;
-}
+class Countdown {
 
-Countdown.prototype = {
-	getTimeRemaining: function(endtime) {
-		var t = Date.parse(endtime) - Date.parse(new Date());
-		var seconds = Math.floor( (t/1000) % 60 );
-		var minutes = Math.floor( (t/1000/60) % 60 );
-		var hours = Math.floor( (t/(1000*60*60)) % 24 );
-		var days = Math.floor( t/(1000*60*60*24) );
+	constructor(endtime, $target) {
+		this.endtime = endtime;
+		this.$target = $target;
+		this.utils = new Utils();
+		this.timeinterval = undefined;
+	}
+
+	getTimeRemaining(endtime) {
+		let t = Date.parse(endtime) - Date.parse(new Date());
+		let seconds = Math.floor( (t/1000) % 60 );
+		let minutes = Math.floor( (t/1000/60) % 60 );
+		let hours = Math.floor( (t/(1000*60*60)) % 24 );
+		let days = Math.floor( t/(1000*60*60*24) );
 
 		return {
 			'total': t,
@@ -19,10 +20,11 @@ Countdown.prototype = {
 			'hours': this.utils.convertToTwoDigits(hours),
 			'minutes': this.utils.convertToTwoDigits(minutes),
 			'seconds': this.utils.convertToTwoDigits(seconds)
-		};
-	},
-	render: function() {
-		var t = this.getTimeRemaining(this.endtime);
+		}
+	}
+
+	render() {
+		let t = this.getTimeRemaining(this.endtime);
 		this.$target.children('.days').html(t.days);
 		this.$target.children('.hours').html(t.hours);
 		this.$target.children('.mins').html(t.minutes);
@@ -31,23 +33,21 @@ Countdown.prototype = {
 			clearInterval(this.timeinterval);
 			this.$target.hide();
 		}
-	},
-	initCountdownClock: function() {
-		var that = this;
-		console.log('that.$target', that.$target.children());
-		that.render();
-		that.timeinterval = setInterval(function() {
-			that.render();
-		}, 1000);
+	}
+
+	initCountdownClock() {
+		this.render();
+		this.timeinterval = setInterval(function() {
+			this.render();
+		}.bind(this), 1000);
 
 		setTimeout(function() {
-			that.$target.removeClass('hidden');
-		}, 500);
-	},
-	destroy: function() {
-		var that = this;
-		clearInterval(that.timeinterval);
+			this.$target.removeClass('hidden');
+		}.bind(this), 500);
+	}
+
+	destroy() {
+		clearInterval(this.timeinterval);
 		this.$target.addClass('hidden');
 	}
-};
-
+}
