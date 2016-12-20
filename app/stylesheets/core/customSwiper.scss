@@ -34,6 +34,7 @@ website: www.ryanko.me
 	button {
 		@include bordered-button();
 		margin-top: 32px;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
 
 		@media (max-width: 515px) {
 			margin-top: 12px;
