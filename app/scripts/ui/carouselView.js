@@ -317,8 +317,11 @@ rko.carouselView = (function(window) {
 		var that = this;
 		this.setupRSVPForm();
 		this.setupCarousel();
-		this.setupParallaxEffects();
-		this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
+
+		if (!utils.isTouchDevice()) {
+			this.setupParallaxEffects();
+			this.weddingCountdown = new Countdown('2017-06-23', $('#invitation .countdown'));
+		}
 
 		$('#backToTop').on('click', function() {
 			view.swiper.slideTo(0, 2000);
