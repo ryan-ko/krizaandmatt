@@ -1121,6 +1121,13 @@ website: www.ryanko.me
           transition-delay: 0.4s;
 }
 
+@media (max-width: 515px) {
+  #menu .menu-column:first-child .menu-block:nth-child(1), #menu .menu-column:first-child .menu-block:nth-child(2) {
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+  }
+}
+
 .menuMode #menu .menu-column:first-child .menu-block:nth-child(1), .menuMode #menu .menu-column:first-child .menu-block:nth-child(2) {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
@@ -1167,6 +1174,13 @@ website: www.ryanko.me
 #menu .menu-column .menu-block:nth-child(1), #menu .menu-column .menu-block:nth-child(2) {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
+}
+
+@media (max-width: 515px) {
+  #menu .menu-column .menu-block:nth-child(1), #menu .menu-column .menu-block:nth-child(2) {
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+  }
 }
 
 .menuMode #menu .menu-column .menu-block:nth-child(1), .menuMode #menu .menu-column .menu-block:nth-child(2) {

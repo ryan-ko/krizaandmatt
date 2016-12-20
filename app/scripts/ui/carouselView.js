@@ -11,7 +11,8 @@ rko.carouselView = (function(window) {
 		krizaPhotoTimeline: undefined,
 		mattPhotoTimeline: undefined,
 		currentSlideId: undefined
-	};
+	},
+	utils = new Utils();
 
 	view.init = function(html, menuHtml) {
 		console.log('view inited');
@@ -30,8 +31,7 @@ rko.carouselView = (function(window) {
 		});
 
 		var that = this,
-			maxHeight,
-			utils = new Utils();
+			maxHeight;
 
 		// $('#landing').imagesLoaded(function() {
 		setTimeout(function() {
@@ -141,9 +141,13 @@ rko.carouselView = (function(window) {
 		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
 
 		if (view.currentSlideId === 'invitation') {
-			view.weddingCountdown.initCountdownClock();
+			if (typeof view.weddingCountdown !== 'undefined') {
+				view.weddingCountdown.initCountdownClock();
+			}
 		} else {
-			view.weddingCountdown.destroy();
+			if (typeof view.weddingCountdown !== 'undefined') {
+				view.weddingCountdown.destroy();
+			}
 		}
 
 		swiper.disableMousewheelControl();
