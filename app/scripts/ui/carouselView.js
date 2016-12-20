@@ -338,7 +338,6 @@ rko.carouselView = (function(window) {
 			if (!$('body').hasClass('menuMode')) {
 				$('#menu-btn').trigger('click');
 			}
-			$('#firstname').focus();
 		});
 
 		$('#matt .gallery-movingUp-area').hover(function () {
