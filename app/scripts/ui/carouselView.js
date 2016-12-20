@@ -193,6 +193,8 @@ rko.carouselView = (function(window) {
 			mousewheelForceToAxis: true
 		});
 
+		view.personalGallery.stopAutoplay();
+
 		view.personalGallery2 = new Swiper('.swiper-container-personalGallery2', {
 			pagination: '.swiper-pagination-gallery',
 			direction: 'horizontal',
@@ -209,6 +211,8 @@ rko.carouselView = (function(window) {
 			loop: true,
 			mousewheelForceToAxis: true
 		});
+
+		view.personalGallery2.stopAutoplay();
 
 		view.swiperGallery = new Swiper('.swiper-container-gallery', {
 			pagination: '.swiper-pagination-gallery',
@@ -228,6 +232,8 @@ rko.carouselView = (function(window) {
 			nextButton: '.swiper-button-next',
 			prevButton: '.swiper-button-prev'
 		});
+
+		view.swiperGallery.stopAutoplay();
 
 		view.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',

@@ -165,6 +165,11 @@ website: www.ryanko.me
 		box-sizing: border-box;
 		position: relative;
 	}
+
+	@media (max-width: 515px) {
+		top: 30px;
+		padding: 0 30px;
+	}
 	// @media (max-width: 500px) {
 	// 	top: auto;
 	// 	bottom: 0;
@@ -181,6 +186,10 @@ website: www.ryanko.me
 			padding-right: 20px;
 			width: 50%;
 			box-sizing: border-box;
+		}
+
+		@media (max-width: 515px) {
+			padding-right: 0;
 		}
 	}
 
