@@ -14,10 +14,8 @@ rko.app = (function(window) {
 	app.init = function() {
 		utils.disableDefaultTouch();
 
-		if ('tontouchstart' in window) {
-			alert('Touch Screen');
-		} else {
-			alert('No Touch Screen');
+		if (utils.isTouchDevice()) {
+			$('.password-hint').html('Tap to type your password.');
 		}
 
 		setTimeout(function() {
