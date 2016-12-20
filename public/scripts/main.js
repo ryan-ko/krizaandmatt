@@ -368,14 +368,13 @@ rko.carouselView = function (window) {
 			direction: 'horizontal',
 			slidesPerView: 1,
 			effect: 'fade',
-			paginationClickable: true,
 			slideActiveClass: 'gallery-slide-active',
 			spaceBetween: 0,
 			speed: 700,
 			autoplay: 3000,
 			autoplayDisableOnInteraction: false,
-			simulateTouch: true,
-			keyboardControl: true,
+			simulateTouch: false,
+			keyboardControl: false,
 			loop: true,
 			mousewheelForceToAxis: true
 		});
@@ -392,8 +391,8 @@ rko.carouselView = function (window) {
 			speed: 700,
 			autoplay: 3000,
 			autoplayDisableOnInteraction: false,
-			simulateTouch: true,
-			keyboardControl: true,
+			simulateTouch: false,
+			keyboardControl: false,
 			loop: true,
 			mousewheelForceToAxis: true
 		});
