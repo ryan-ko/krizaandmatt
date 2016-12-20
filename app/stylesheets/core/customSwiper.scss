@@ -47,12 +47,12 @@ website: www.ryanko.me
 		background-color: $primaryColor;
 
 		// Waiting on official images
-		$gallery-image-list: 1 2 3 4 5 6 7 8 9 10;
+		$gallery-image-list: 1 2 3 4 5 6;
 
 		@each $current-image in $gallery-image-list {
 			$i: index($gallery-image-list, $current-image);
 			&:nth-child(#{$i}) {
-				background: url(../assets/img/gallery/#{$current-image}.jpg) no-repeat center center;
+				background: url(../assets/img/gallery/MKKB_Wedding_#{$current-image}.jpg) no-repeat center center;
 				background-size: cover;
 			}
 		}
@@ -111,10 +111,10 @@ website: www.ryanko.me
 	bottom: 60px;
 	box-sizing: border-box;
 
-	.swiper-pagination-bullet {
-		width: 8px;
-		height: 8px;
-	}
+	// .swiper-pagination-bullet {
+	// 	width: 8px;
+	// 	height: 8px;
+	// }
 
 	@media (max-width: 515px) {
 		bottom: 20px;
@@ -123,9 +123,9 @@ website: www.ryanko.me
 .swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
 	margin: 10px;
 }
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-	margin: 8px;
-}
+// .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+// 	margin: 8px;
+// }
 .swiper-pagination-gallery {
 	transition: opacity 0.5s $parallaxEase;
 }
@@ -141,7 +141,7 @@ website: www.ryanko.me
 		background: $menuContentLight;
 	}
 
-	.light-mode &, .swiper-container-gallery & {
+	.light-mode & {
 		border: 1px solid $contentBg;
 		&:hover {
 			background: $contentBg;
@@ -157,7 +157,7 @@ website: www.ryanko.me
 	opacity: 1;
 	transition: all 0.5s $parallaxEase;
 
-	.light-mode &, .swiper-container-gallery & {
+	.light-mode & {
 		background: $contentBg;
 	}
 }

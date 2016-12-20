@@ -1687,52 +1687,32 @@ website: www.ryanko.me
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(1) {
-  background: url(../assets/img/gallery/1.jpg) no-repeat center center;
+  background: url(../assets/img/gallery/MKKB_Wedding_1.jpg) no-repeat center center;
   background-size: cover;
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(2) {
-  background: url(../assets/img/gallery/2.jpg) no-repeat center center;
+  background: url(../assets/img/gallery/MKKB_Wedding_2.jpg) no-repeat center center;
   background-size: cover;
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(3) {
-  background: url(../assets/img/gallery/3.jpg) no-repeat center center;
+  background: url(../assets/img/gallery/MKKB_Wedding_3.jpg) no-repeat center center;
   background-size: cover;
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(4) {
-  background: url(../assets/img/gallery/4.jpg) no-repeat center center;
+  background: url(../assets/img/gallery/MKKB_Wedding_4.jpg) no-repeat center center;
   background-size: cover;
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(5) {
-  background: url(../assets/img/gallery/5.jpg) no-repeat center center;
+  background: url(../assets/img/gallery/MKKB_Wedding_5.jpg) no-repeat center center;
   background-size: cover;
 }
 
 .swiper-container-gallery .swiper-slide:nth-child(6) {
-  background: url(../assets/img/gallery/6.jpg) no-repeat center center;
-  background-size: cover;
-}
-
-.swiper-container-gallery .swiper-slide:nth-child(7) {
-  background: url(../assets/img/gallery/7.jpg) no-repeat center center;
-  background-size: cover;
-}
-
-.swiper-container-gallery .swiper-slide:nth-child(8) {
-  background: url(../assets/img/gallery/8.jpg) no-repeat center center;
-  background-size: cover;
-}
-
-.swiper-container-gallery .swiper-slide:nth-child(9) {
-  background: url(../assets/img/gallery/9.jpg) no-repeat center center;
-  background-size: cover;
-}
-
-.swiper-container-gallery .swiper-slide:nth-child(10) {
-  background: url(../assets/img/gallery/10.jpg) no-repeat center center;
+  background: url(../assets/img/gallery/MKKB_Wedding_6.jpg) no-repeat center center;
   background-size: cover;
 }
 
@@ -1848,11 +1828,6 @@ website: www.ryanko.me
   box-sizing: border-box;
 }
 
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-}
-
 @media (max-width: 515px) {
   .swiper-container-horizontal > .swiper-pagination-bullets {
     bottom: 20px;
@@ -1861,10 +1836,6 @@ website: www.ryanko.me
 
 .swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 10px;
-}
-
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 8px;
 }
 
 .swiper-pagination-gallery {
@@ -1886,11 +1857,11 @@ website: www.ryanko.me
   background: #444;
 }
 
-.light-mode .swiper-pagination-bullet, .swiper-container-gallery .swiper-pagination-bullet {
+.light-mode .swiper-pagination-bullet {
   border: 1px solid #f4f4f4;
 }
 
-.light-mode .swiper-pagination-bullet:hover, .swiper-container-gallery .swiper-pagination-bullet:hover {
+.light-mode .swiper-pagination-bullet:hover {
   background: #f4f4f4;
 }
 
@@ -1905,7 +1876,7 @@ website: www.ryanko.me
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.light-mode .swiper-pagination-bullet-active, .swiper-container-gallery .swiper-pagination-bullet-active {
+.light-mode .swiper-pagination-bullet-active {
   background: #f4f4f4;
 }
 
@@ -2173,8 +2144,8 @@ website: www.ryanko.me
 
 #invitation .countdown-container .countdown.hidden {
   opacity: 0;
-  -webkit-transform: translate3d(0, -60px, 0);
-          transform: translate3d(0, -60px, 0);
+  -webkit-transform: translate3d(0, -30px, 0);
+          transform: translate3d(0, -30px, 0);
 }
 
 #invitation .countdown-container .countdown .days, #invitation .countdown-container .countdown .hours, #invitation .countdown-container .countdown .mins, #invitation .countdown-container .countdown .secs {
