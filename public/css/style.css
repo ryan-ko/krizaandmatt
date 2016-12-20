@@ -1050,7 +1050,13 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1028px) {
+  #menu {
+    width: 84%;
+  }
+}
+
+@media (max-width: 727px) {
   #menu {
     width: 100%;
     overflow: scroll;
@@ -1110,7 +1116,7 @@ website: www.ryanko.me
   opacity: 0.5;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 727px) {
   #menu .menu-column:first-child:before {
     display: none;
   }
@@ -1141,7 +1147,7 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 727px) {
   #menu .menu-column {
     width: 100%;
     height: auto;
@@ -1510,7 +1516,14 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1028px) {
+  .menuMode #main {
+    -webkit-transform: translate3d(84%, 0, 0);
+            transform: translate3d(84%, 0, 0);
+  }
+}
+
+@media (max-width: 727px) {
   .menuMode #main {
     -webkit-transform: translate3d(100%, 0, 0);
             transform: translate3d(100%, 0, 0);
@@ -1614,7 +1627,7 @@ website: www.ryanko.me
           transform: translate3d(0, -60px, 0) rotate3d(0, 0, 1, 45deg);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 727px) {
   #slider-menu-btn {
     -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);
             transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);

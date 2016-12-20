@@ -6,6 +6,10 @@ author: Ryan Ko
 email: rko@ryanko.me
 website: www.ryanko.me
 ----------------------------------------------------------*/
+$menuWidth: 56%;
+$menuBreakpoint1: 1288px;
+$menuBreakpoint2: 1028px;
+$menuBreakpoint4: 727px;
 
 #menu {
 	width: $menuWidth;
@@ -23,6 +27,10 @@ website: www.ryanko.me
 
 	@media(max-width: $menuBreakpoint1) {
 		width: $menuWidth + $menuWidth * 0.1;
+	}
+
+	@media(max-width: $menuBreakpoint2) {
+		width: $menuWidth + $menuWidth * 0.5;
 	}
 
 	@media(max-width: $menuBreakpoint4) {

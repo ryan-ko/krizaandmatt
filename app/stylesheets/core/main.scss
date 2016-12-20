@@ -77,6 +77,10 @@ website: www.ryanko.me
 			transform: translate3d($menuWidth + $menuWidth * 0.1, 0, 0);
 		}
 
+		@media(max-width: $menuBreakpoint2) {
+			transform: translate3d($menuWidth + $menuWidth * 0.5, 0, 0);
+		}
+
 		@media(max-width: $menuBreakpoint4) {
 			transform: translate3d(100%, 0, 0);
 		}
