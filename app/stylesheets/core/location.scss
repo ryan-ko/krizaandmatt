@@ -56,6 +56,10 @@
 		p {
 			@include content-headline();
 			padding-top: 4px;
+
+			@media (max-width: 515px) {
+				padding-bottom: 50px;
+			}
 		}
 
 		span {

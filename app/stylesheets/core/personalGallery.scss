@@ -167,8 +167,9 @@ website: www.ryanko.me
 	}
 
 	@media (max-width: 515px) {
-		top: 30px;
-		padding: 0 30px;
+		top: 140px;
+		padding: 0 20px;
+		overflow: hidden;
 	}
 	// @media (max-width: 500px) {
 	// 	top: auto;
@@ -189,7 +190,7 @@ website: www.ryanko.me
 		}
 
 		@media (max-width: 515px) {
-			padding-right: 0;
+			padding-right: 14px;
 		}
 	}
 
