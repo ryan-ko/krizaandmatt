@@ -2389,9 +2389,13 @@ website: www.ryanko.me
 
 @media (max-width: 515px) {
   .gallery-intro {
-    top: 140px;
+    top: 40px;
     padding: 0 20px;
     overflow: hidden;
+    left: 0;
+    right: 0;
+    -webkit-transform: none;
+            transform: none;
   }
 }
 
