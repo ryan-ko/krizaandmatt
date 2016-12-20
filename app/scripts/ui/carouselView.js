@@ -88,6 +88,8 @@ rko.carouselView = (function(window) {
 						$('#rsvp-form input').prop('disabled', true);
 						$('#rsvp-form').addClass('disabled');
 						$('.rsvp-button-external').hide();
+					} else if (data.result === 'rsvp_existed') {
+						alert('You have already RSVPed with this email!');
 					}
 				}
 			});
