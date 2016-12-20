@@ -376,6 +376,7 @@ rko.carouselView = function (window) {
 			simulateTouch: false,
 			keyboardControl: false,
 			loop: true,
+			noSwiping: true,
 			mousewheelForceToAxis: true
 		});
 
@@ -393,6 +394,7 @@ rko.carouselView = function (window) {
 			autoplayDisableOnInteraction: false,
 			simulateTouch: false,
 			keyboardControl: false,
+			noSwiping: true,
 			loop: true,
 			mousewheelForceToAxis: true
 		});
