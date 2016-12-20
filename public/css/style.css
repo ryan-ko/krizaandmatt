@@ -1050,7 +1050,7 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 1078px) {
   #menu {
     width: 84%;
   }
@@ -1516,7 +1516,7 @@ website: www.ryanko.me
   }
 }
 
-@media (max-width: 1028px) {
+@media (max-width: 1078px) {
   .menuMode #main {
     -webkit-transform: translate3d(84%, 0, 0);
             transform: translate3d(84%, 0, 0);
