@@ -1510,6 +1510,7 @@ website: www.ryanko.me
   height: 44px;
   cursor: pointer;
   display: block;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #menu-btn:focus,
