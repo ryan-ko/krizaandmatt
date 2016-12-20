@@ -30,19 +30,25 @@ rko.carouselView = (function(window) {
 		});
 
 		var that = this,
-			maxHeight;
+			maxHeight,
+			utils = new Utils();
 
 		// $('#landing').imagesLoaded(function() {
 		setTimeout(function() {
 			$('#main').removeClass('loading');
 		}, 100);
-		$('#landing .km-logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-			console.log('e', e);
-			if (e.type === 'transitionend') {
-				$('#main').removeClass('entranceMode');
-				that.bind();
-			}
-		});
+
+		if (utils.isTouchDevice()) {
+			$('#main').removeClass('entranceMode');
+			that.bind();
+		} else {
+			$('#landing .km-logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+				if (e.type === 'transitionend') {
+					$('#main').removeClass('entranceMode');
+					that.bind();
+				}
+			});
+		}
 		$('#kriza .gallery-scroller').imagesLoaded( function() {
 			maxHeight = -$('#kriza .gallery-scroller').innerHeight() + ($(window).innerHeight());
 			that.krizaPhotoTimeline = new TimelineLite({paused: true});
