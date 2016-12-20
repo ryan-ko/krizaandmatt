@@ -342,6 +342,19 @@ rko.carouselView = function (window) {
 			view.swiperGallery.stopAutoplay();
 		}
 
+		if (view.currentSlideId === 'kriza') {
+			console.log('hit');
+			view.personalGallery.startAutoplay();
+		} else {
+			view.personalGallery.stopAutoplay();
+		}
+
+		if (view.currentSlideId === 'matt') {
+			view.personalGallery2.startAutoplay();
+		} else {
+			view.personalGallery2.stopAutoplay();
+		}
+
 		view.swiperLock = setTimeout(function () {
 			swiper.enableMousewheelControl();
 		}, 600);
@@ -359,7 +372,7 @@ rko.carouselView = function (window) {
 			slideActiveClass: 'gallery-slide-active',
 			spaceBetween: 0,
 			speed: 700,
-			autoplay: 10000,
+			autoplay: 3000,
 			autoplayDisableOnInteraction: false,
 			simulateTouch: true,
 			keyboardControl: true,
@@ -377,7 +390,7 @@ rko.carouselView = function (window) {
 			slideActiveClass: 'gallery-slide-active',
 			spaceBetween: 0,
 			speed: 700,
-			autoplay: 10000,
+			autoplay: 3000,
 			autoplayDisableOnInteraction: false,
 			simulateTouch: true,
 			keyboardControl: true,
