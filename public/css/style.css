@@ -1096,10 +1096,10 @@ website: www.ryanko.me
   opacity: 0;
   -webkit-transition-delay: 0.5s !important;
           transition-delay: 0.5s !important;
-  -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition: opacity 2s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 2s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 1.3s cubic-bezier(0.55, 0, 0.1, 1), opacity 2s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 1.3s cubic-bezier(0.55, 0, 0.1, 1), opacity 2s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.3s cubic-bezier(0.55, 0, 0.1, 1);
   -webkit-transform: translate3d(-144px, 0, 0);
           transform: translate3d(-144px, 0, 0);
 }
@@ -1164,10 +1164,10 @@ website: www.ryanko.me
   max-width: 515px;
   -webkit-transform: translate3d(-144px, 0, 0);
           transform: translate3d(-144px, 0, 0);
-  -webkit-transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition: opacity 2s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 2s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 1.3s cubic-bezier(0.55, 0, 0.1, 1), opacity 2s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 1.3s cubic-bezier(0.55, 0, 0.1, 1), opacity 2s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 1.3s cubic-bezier(0.55, 0, 0.1, 1);
   opacity: 0;
 }
 

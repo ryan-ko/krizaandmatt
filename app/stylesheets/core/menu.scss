@@ -64,7 +64,7 @@ website: www.ryanko.me
 				border-right: 1px dotted $content;
 				opacity: 0;
 				transition-delay: 0.5s !important;
-				transition: transform 1.3s $parallaxEase, opacity 2s $parallaxEase;
+				transition: transform 1.3s $gravityEase, opacity 2s $gravityEase;
 				transform: translate3d(-144px, 0, 0);
 
 				.menuMode & {
@@ -122,7 +122,7 @@ website: www.ryanko.me
 			width: 100%;
 			max-width: 515px;
 			transform: translate3d(-144px, 0, 0);
-			transition: transform 1.3s $parallaxEase, opacity 2s $parallaxEase;
+			transition: transform 1.3s $gravityEase, opacity 2s $gravityEase;
 			opacity: 0;
 
 			&:nth-child(1),
