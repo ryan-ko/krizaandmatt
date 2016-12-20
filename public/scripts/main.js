@@ -238,6 +238,19 @@ rko.carouselView = function (window) {
 		$rsvpForm.submit(function (e) {
 			var url = $(this).attr('action'),
 			    data;
+
+			console.log($('#firstname').val() === '');
+
+			if ($('#firstname').val() === '') {
+				alert('Please enter your name');
+				return false;
+			}
+
+			if ($('#email').val() === '') {
+				alert('Please enter your email');
+				return false;
+			}
+
 			$.ajax({
 				type: 'POST',
 				url: url,
@@ -254,7 +267,7 @@ rko.carouselView = function (window) {
 						$('#rsvp-form').addClass('disabled');
 						$('.rsvp-button-external').hide();
 					} else if (data.result === 'rsvp_existed') {
-						alert('You have already RSVPed with this email!');
+						alert('You have already RSVPed with the email: ' + $('#email').val() + '. Thank you and see you soon! \n - Kriza & Matt');
 					}
 				}
 			});
