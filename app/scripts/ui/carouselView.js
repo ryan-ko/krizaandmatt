@@ -162,32 +162,9 @@ rko.carouselView = (function(window) {
 		}
 
 		if (view.currentSlideId === 'gallery') {
-			if (typeof view.swiperGallery === 'undefined') {
-				view.swiperGallery = new Swiper('.swiper-container-gallery', {
-					pagination: '.swiper-pagination-gallery',
-					direction: 'horizontal',
-					slidesPerView: 1,
-					effect: 'fade',
-					paginationClickable: true,
-					slideActiveClass: 'gallery-slide-active',
-					spaceBetween: 0,
-					speed: 700,
-					autoplay: 3000,
-					autoplayDisableOnInteraction: false,
-					simulateTouch: false,
-					keyboardControl: true,
-					mousewheelControl: true,
-					mousewheelForceToAxis: true,
-					nextButton: '.swiper-button-next',
-					prevButton: '.swiper-button-prev'
-				});
-			} else {
-				view.swiperGallery.startAutoplay();
-			}
+			view.swiperGallery.startAutoplay();
 		} else {
-			if (typeof view.swiperGallery !== 'undefined') {
-				view.swiperGallery.stopAutoplay();
-			}
+			view.swiperGallery.stopAutoplay();
 		}
 
 		view.swiperLock = setTimeout(function() {
@@ -198,6 +175,60 @@ rko.carouselView = (function(window) {
 	view.setupCarousel = function() {
 		var that = this;
 		console.log('created swiper!');
+
+		view.personalGallery = new Swiper('.swiper-container-personalGallery', {
+			pagination: '.swiper-pagination-gallery',
+			direction: 'horizontal',
+			slidesPerView: 1,
+			effect: 'fade',
+			paginationClickable: true,
+			slideActiveClass: 'gallery-slide-active',
+			spaceBetween: 0,
+			speed: 700,
+			autoplay: 10000,
+			autoplayDisableOnInteraction: false,
+			simulateTouch: true,
+			keyboardControl: true,
+			loop: true,
+			mousewheelForceToAxis: true
+		});
+
+		view.personalGallery2 = new Swiper('.swiper-container-personalGallery2', {
+			pagination: '.swiper-pagination-gallery',
+			direction: 'horizontal',
+			slidesPerView: 1,
+			effect: 'fade',
+			paginationClickable: true,
+			slideActiveClass: 'gallery-slide-active',
+			spaceBetween: 0,
+			speed: 700,
+			autoplay: 10000,
+			autoplayDisableOnInteraction: false,
+			simulateTouch: true,
+			keyboardControl: true,
+			loop: true,
+			mousewheelForceToAxis: true
+		});
+
+		view.swiperGallery = new Swiper('.swiper-container-gallery', {
+			pagination: '.swiper-pagination-gallery',
+			direction: 'horizontal',
+			slidesPerView: 1,
+			effect: 'fade',
+			paginationClickable: true,
+			slideActiveClass: 'gallery-slide-active',
+			spaceBetween: 0,
+			speed: 700,
+			autoplay: 3000,
+			autoplayDisableOnInteraction: false,
+			simulateTouch: false,
+			keyboardControl: true,
+			mousewheelControl: true,
+			mousewheelForceToAxis: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev'
+		});
+
 		view.swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
 			direction: 'vertical',
@@ -220,9 +251,24 @@ rko.carouselView = (function(window) {
 				that.handleCarouselSlideChangeStart(swiper);
 			},
 			onSlideChangeEnd: function(swiper) {
+				console.log('??????', view.swiperGallery);
 				that.handleCarouselSlideChangeEnd(swiper);
 			}
 		});
+
+		// view.krizaMobileSwiperGallery = new Swiper('.kriza-mobile-gallery', {
+		// 	pagination: '.swiper-pagination-gallery',
+		// 	direction: 'horizontal',
+		// 	slidesPerView: 3,
+		// 	effect: 'fade',
+		// 	paginationClickable: true,
+		// 	spaceBetween: 30,
+		// 	speed: 700,
+		// 	autoplayDisableOnInteraction: false,
+		// 	simulateTouch: false,
+		// 	keyboardControl: true,
+		// 	mousewheelForceToAxis: true
+		// });
 	};
 
 	view.setupParallaxEffects = function() {

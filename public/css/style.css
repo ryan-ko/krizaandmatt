@@ -2211,6 +2211,34 @@ author: Ryan Ko
 email: rko@ryanko.me
 website: www.ryanko.me
 ----------------------------------------------------------*/
+.swiper-container-personalGallery,
+.swiper-container-personalGallery2 {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: none;
+}
+
+.swiper-container-personalGallery .swiper-slide,
+.swiper-container-personalGallery2 .swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-container-personalGallery .swiper-slide img,
+.swiper-container-personalGallery2 .swiper-slide img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 868px) {
+  .swiper-container-personalGallery,
+  .swiper-container-personalGallery2 {
+    display: block;
+  }
+}
+
 .personal-gallery {
   position: relative;
   padding: 0 100px;
@@ -2220,7 +2248,7 @@ website: www.ryanko.me
 
 @media (max-width: 868px) {
   .personal-gallery {
-    padding: 0 10px;
+    display: none;
   }
 }
 
@@ -2288,15 +2316,6 @@ website: www.ryanko.me
   left: 20px;
 }
 
-@media (max-width: 868px) {
-  .personal-gallery.matt-gallery-container .gallery-movingUp-area .up-icon,
-  .personal-gallery.matt-gallery-container .gallery-movingUp-area .down-icon,
-  .personal-gallery.matt-gallery-container .gallery-movingDown-area .up-icon,
-  .personal-gallery.matt-gallery-container .gallery-movingDown-area .down-icon {
-    right: 28px;
-  }
-}
-
 .personal-gallery .gallery-movingUp-area {
   top: 0;
 }
@@ -2310,12 +2329,6 @@ website: www.ryanko.me
   position: absolute;
   left: 100px;
   right: 20px;
-}
-
-@media (max-width: 868px) {
-  .personal-gallery .gallery-movingUp-area .up-icon {
-    left: 28px;
-  }
 }
 
 .personal-gallery .gallery-movingDown-area {
@@ -2333,21 +2346,9 @@ website: www.ryanko.me
   right: 20px;
 }
 
-@media (max-width: 868px) {
-  .personal-gallery .gallery-movingDown-area .down-icon {
-    left: 28px;
-  }
-}
-
 .personal-gallery ul {
   width: 60%;
   padding: 12px 0;
-}
-
-@media (max-width: 868px) {
-  .personal-gallery ul {
-    width: 50%;
-  }
 }
 
 .personal-gallery ul li {
@@ -2368,31 +2369,27 @@ website: www.ryanko.me
 
 @media (max-width: 868px) {
   .gallery-intro {
-    left: 61%;
-    padding-right: 30px;
-  }
-}
-
-@media (max-width: 500px) {
-  .gallery-intro {
-    top: auto;
-    bottom: 0;
-    -webkit-transform: none;
-            transform: none;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 0 80px;
+    box-sizing: border-box;
+    position: relative;
   }
 }
 
 .gallery-intro .gallery-intro-rows {
   padding-bottom: 28px;
   font-weight: 100;
-  -webkit-transform: translate3d(0, -20px, 0);
-          transform: translate3d(0, -20px, 0);
   opacity: 1;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 868px) {
   .gallery-intro .gallery-intro-rows {
-    padding-bottom: 18px;
+    float: left;
+    padding-right: 20px;
+    width: 50%;
+    box-sizing: border-box;
   }
 }
 
@@ -2425,16 +2422,15 @@ website: www.ryanko.me
   }
 }
 
-.matt-gallery-container + .gallery-intro {
+.matt-mobile-gallery + .gallery-intro {
   left: auto;
   right: 70%;
 }
 
 @media (max-width: 868px) {
-  .matt-gallery-container + .gallery-intro {
-    right: 61%;
-    padding-right: 0;
-    padding-left: 30px;
+  .matt-mobile-gallery + .gallery-intro {
+    left: 0;
+    right: auto;
   }
 }
 
