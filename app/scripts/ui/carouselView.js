@@ -326,9 +326,10 @@ rko.carouselView = (function(window) {
 
 		$('#menu-btn, #slider-menu-btn').on('click', function() {
 			console.log('hit');
-			if($('body').hasClass('menuMode')) {
+			if ($('body').hasClass('menuMode')) {
 				$('body').removeClass('menuMode');
 			} else {
+				$('#menu').scrollTop(0);
 				$('body').addClass('menuMode');
 			}
 		});

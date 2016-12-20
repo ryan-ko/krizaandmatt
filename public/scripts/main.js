@@ -494,6 +494,7 @@ rko.carouselView = function (window) {
 			if ($('body').hasClass('menuMode')) {
 				$('body').removeClass('menuMode');
 			} else {
+				$('#menu').scrollTop(0);
 				$('body').addClass('menuMode');
 			}
 		});
