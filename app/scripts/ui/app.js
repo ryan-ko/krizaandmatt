@@ -14,7 +14,7 @@ rko.app = (function(window) {
 	app.init = function() {
 		utils.disableDefaultTouch();
 
-		if (Modernizr.touch) {
+		if ('tontouchstart' in window) {
 			alert('Touch Screen');
 		} else {
 			alert('No Touch Screen');
