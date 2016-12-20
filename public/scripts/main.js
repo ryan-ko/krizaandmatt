@@ -658,7 +658,12 @@ rko.app = function (window) {
 
 	app.init = function () {
 		utils.disableDefaultTouch();
-		// $('#auth').imagesLoaded(function() {
+		if (Modernizr.touch) {
+			alert('Touch Screen');
+		} else {
+			alert('No Touch Screen');
+		}
+
 		setTimeout(function () {
 			console.log('loaded!');
 			app.$viewContainer.removeClass('loading');

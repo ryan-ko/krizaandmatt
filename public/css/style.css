@@ -1727,6 +1727,13 @@ website: www.ryanko.me
   left: 40px;
 }
 
+@media (max-width: 660px) {
+  .swiper-button-next, .swiper-container-rtl .swiper-button-prev,
+  .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    display: none;
+  }
+}
+
 .swiper-button-prev, .swiper-button-next {
   width: 12px;
   height: 24px;
@@ -2537,9 +2544,7 @@ website: www.ryanko.me
 @media (max-width: 598px) {
   #quote cite {
     position: relative;
-    bottom: auto;
-    top: 100px;
-    padding-left: 30px;
+    bottom: -30px;
     font-size: 15px;
   }
 }

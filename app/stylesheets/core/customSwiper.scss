@@ -66,6 +66,12 @@ website: www.ryanko.me
 	background-image: url(../assets/img/left-arrow-dark.png);
 	left: 40px;
 }
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev,
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+	@media (max-width: 660px) {
+		display: none;
+	}
+}
 .swiper-button-prev, .swiper-button-next {
 	width: 12px;
 	height: 24px;
