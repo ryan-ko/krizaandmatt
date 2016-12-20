@@ -2775,3 +2775,17 @@ website: www.ryanko.me
   letter-spacing: 0.007em;
   color: #d79074;
 }
+
+@media (max-width: 900px) {
+  #rsvp-thankyou p {
+    font-size: 54px;
+    line-height: 70px;
+  }
+}
+
+@media (max-width: 500px) {
+  #rsvp-thankyou p {
+    font-size: 34px;
+    line-height: 46px;
+  }
+}

@@ -37,5 +37,15 @@
 		line-height: 99px;
 		letter-spacing: 0.007em;
 		color: $primaryColor;
+
+		@media (max-width: 900px) {
+			font-size: 54px;
+			line-height: 70px;
+		}
+
+		@media (max-width: 500px) {
+			font-size: 34px;
+			line-height: 46px;
+		}
 	}
 }
