@@ -274,6 +274,7 @@ website: www.ryanko.me
 				&:before {
 					border-right: 1px dotted $menuContentLight !important;
 				}
+				border-bottom: 1px dotted rgba(68, 68, 68, 0.25) !important;
 			}
 		}
 	}

@@ -137,19 +137,44 @@ website: www.ryanko.me
 			opacity: 0;
 		}
 	}
+
+	&.light-mode-mobile {
+		@media (max-width: 868px) {
+			.white {
+				opacity: 1;
+			}
+			.black {
+				opacity: 0;
+			}
+		}
+	}
+
+	&.dark-mode-mobile {
+		@media (max-width: 650px) {
+			.white {
+				opacity: 0;
+			}
+			.black {
+				opacity: 1;
+			}
+		}
+	}
 }
 
 #slider-menu-btn {
 	position: fixed;
 	top: 10px;
-	right: 13px;
+	right: -4px;
 	opacity: 0;
 	transition: all 1.5s $bounceEase;
 	transform: translate3d(0, -60px, 0) rotate3d(0, 0, 1, 45deg);
 
 	@media(max-width: $menuBreakpoint4) {
-		opacity: 1;
 		transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);
+	}
+
+	.menuMode & {
+		opacity: 1;
 	}
 
 	.white {

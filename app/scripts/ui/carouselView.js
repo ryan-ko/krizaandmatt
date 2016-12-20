@@ -137,6 +137,22 @@ rko.carouselView = (function(window) {
 			$menu.removeClass('light-mode');
 		}
 
+		if ($currentSlide.hasClass('light-mode-mobile')) {
+			$menuBtn.addClass('light-mode-mobile');
+			$menu.addClass('light-mode-mobile');
+		} else {
+			$menuBtn.removeClass('light-mode-mobile');
+			$menu.removeClass('light-mode-mobile');
+		}
+
+		if ($currentSlide.hasClass('dark-mode-mobile')) {
+			$menuBtn.addClass('dark-mode-mobile');
+			$menu.addClass('dark-mode-mobile');
+		} else {
+			$menuBtn.removeClass('dark-mode-mobile');
+			$menu.removeClass('dark-mode-mobile');
+		}
+
 		$currentSlide.hasClass('light-mode') ? $carouselPagination.addClass('light-mode') : $carouselPagination.removeClass('light-mode');
 		$currentSlide.hasClass('no-pagination') ? $carouselPagination.addClass('transparent-mode') : $carouselPagination.removeClass('transparent-mode');
 

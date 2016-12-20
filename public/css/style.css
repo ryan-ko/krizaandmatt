@@ -86,7 +86,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #444;
   box-sizing: border-box;
-  background: #d79074;
+  background: #fff;
   font-weight: normal;
 }
 
@@ -1404,6 +1404,10 @@ website: www.ryanko.me
   color: #f2f2f2 !important;
 }
 
+#menu.light-mode .menu-column:first-child {
+  border-bottom: 1px dotted rgba(68, 68, 68, 0.25) !important;
+}
+
 #menu.light-mode .menu-column:first-child:before {
   border-right: 1px dotted #444 !important;
 }
@@ -1581,10 +1585,28 @@ website: www.ryanko.me
   opacity: 0;
 }
 
+@media (max-width: 868px) {
+  #menu-btn.light-mode-mobile .white {
+    opacity: 1;
+  }
+  #menu-btn.light-mode-mobile .black {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  #menu-btn.dark-mode-mobile .white {
+    opacity: 0;
+  }
+  #menu-btn.dark-mode-mobile .black {
+    opacity: 1;
+  }
+}
+
 #slider-menu-btn {
   position: fixed;
   top: 10px;
-  right: 13px;
+  right: -4px;
   opacity: 0;
   -webkit-transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -1594,10 +1616,13 @@ website: www.ryanko.me
 
 @media (max-width: 480px) {
   #slider-menu-btn {
-    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);
             transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 45deg);
   }
+}
+
+.menuMode #slider-menu-btn {
+  opacity: 1;
 }
 
 #slider-menu-btn .white {
