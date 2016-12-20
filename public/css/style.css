@@ -861,7 +861,7 @@ website: www.ryanko.me
 #lock .lock-panel {
   position: absolute;
   width: 210px;
-  top: 48%;
+  top: 46%;
   left: 50%;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);

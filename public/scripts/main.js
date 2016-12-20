@@ -348,7 +348,6 @@ rko.carouselView = function (window) {
 		console.log('created swiper!');
 
 		view.personalGallery = new Swiper('.swiper-container-personalGallery', {
-			pagination: '.swiper-pagination-gallery',
 			direction: 'horizontal',
 			slidesPerView: 1,
 			effect: 'fade',
@@ -367,7 +366,6 @@ rko.carouselView = function (window) {
 		view.personalGallery.stopAutoplay();
 
 		view.personalGallery2 = new Swiper('.swiper-container-personalGallery2', {
-			pagination: '.swiper-pagination-gallery',
 			direction: 'horizontal',
 			slidesPerView: 1,
 			effect: 'fade',
