@@ -92,6 +92,10 @@ rko.carouselView = (function(window) {
 				return false;
 			}
 
+			if (!utils.isValidateEmail($('#email').val())) {
+				alert('Please enter a valid email');
+			}
+
 			$.ajax({
 				type: 'POST',
 				url: url,

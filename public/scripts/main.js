@@ -38,6 +38,12 @@ var Utils = function () {
 			return typeof window.ontouchstart !== 'undefined';
 		}
 	}, {
+		key: 'isValidateEmail',
+		value: function isValidateEmail(email) {
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		}
+	}, {
 		key: 'disableDefaultTouch',
 		value: function disableDefaultTouch() {
 			// Mimic native iOS UI interactions
@@ -255,6 +261,10 @@ rko.carouselView = function (window) {
 			if ($('#email').val() === '') {
 				alert('Please enter your email');
 				return false;
+			}
+
+			if (!utils.isValidateEmail($('#email').val())) {
+				alert('Please enter a valid email');
 			}
 
 			$.ajax({
