@@ -31,6 +31,15 @@ class Utils {
 		return re.test(email);
 	}
 
+	isValidateFirstAndLastName(name) {
+		var spaceCount = name.split(' ').length;
+		if (spaceCount === 1) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	disableDefaultTouch() {
 		// Mimic native iOS UI interactions
 		// http://stackoverflow.com/questions/10238084/ios-safari-how-to-disable-overscroll-but-allow-scrollable-divs-to-scroll-norma

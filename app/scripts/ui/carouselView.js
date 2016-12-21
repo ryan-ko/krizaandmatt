@@ -87,6 +87,11 @@ rko.carouselView = (function(window) {
 				return false;
 			}
 
+			if (!utils.isValidateFirstAndLastName($('#firstname').val())) {
+				alert('Please enter both first and last name (Separating with a space)');
+				return false;
+			}
+
 			if ($('#email').val() === '') {
 				alert('Please enter your email');
 				return false;
@@ -94,6 +99,13 @@ rko.carouselView = (function(window) {
 
 			if (!utils.isValidateEmail($('#email').val())) {
 				alert('Please enter a valid email');
+			}
+
+			if ($('#plusone-name').val() !== '') {
+				if (!utils.isValidateFirstAndLastName($('#plusone-name').val())) {
+					alert('Please enter both first and last name for your partner (Separating with a space)');
+					return false;
+				}
 			}
 
 			$.ajax({

@@ -44,6 +44,16 @@ var Utils = function () {
 			return re.test(email);
 		}
 	}, {
+		key: 'isValidateFirstAndLastName',
+		value: function isValidateFirstAndLastName(name) {
+			var spaceCount = name.split(' ').length;
+			if (spaceCount === 1) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	}, {
 		key: 'disableDefaultTouch',
 		value: function disableDefaultTouch() {
 			// Mimic native iOS UI interactions
@@ -258,6 +268,11 @@ rko.carouselView = function (window) {
 				return false;
 			}
 
+			if (!utils.isValidateFirstAndLastName($('#firstname').val())) {
+				alert('Please enter both first and last name (Separating with a space)');
+				return false;
+			}
+
 			if ($('#email').val() === '') {
 				alert('Please enter your email');
 				return false;
@@ -265,6 +280,13 @@ rko.carouselView = function (window) {
 
 			if (!utils.isValidateEmail($('#email').val())) {
 				alert('Please enter a valid email');
+			}
+
+			if ($('#plusone-name').val() !== '') {
+				if (!utils.isValidateFirstAndLastName($('#plusone-name').val())) {
+					alert('Please enter both first and last name for your partner (Separating with a space)');
+					return false;
+				}
 			}
 
 			$.ajax({
