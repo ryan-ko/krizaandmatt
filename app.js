@@ -11,14 +11,14 @@ var request = require('superagent');
 // var basicAuth = require('basic-auth-connect');
 var fs = require('fs');
 
-var basic = auth.basic({
-	realm: " ",
-	file: "./htpasswd",
-	authType: "basic"
-});
+// var basic = auth.basic({
+// 	realm: " ",
+// 	file: "./htpasswd",
+// 	authType: "basic"
+// });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(auth.connect(basic));
+// app.use(auth.connect(basic));
 app.use(express.static('public'));
 
 // Synchronous
@@ -60,7 +60,7 @@ app.post('/rsvped', function (req, res) {
 
 app.post('/login', function (req, res) {
 	var password = req.body.password;
-	if (password.toString() === '12345') {
+	if (password.toString() === 'Kr1za&Matt20i7') {
 		var markup = fs.readFileSync(__dirname + '/private/views/core.html', 'utf8');
 		var menuMarkup = fs.readFileSync(__dirname + '/private/views/menu.html', 'utf8');
 		res.send(JSON.stringify({ result: 'success', html: markup, menuHtml: menuMarkup }));

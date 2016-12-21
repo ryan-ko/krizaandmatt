@@ -1177,6 +1177,17 @@ website: www.ryanko.me
   opacity: 0;
 }
 
+#menu .menu-column .menu-block a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: color 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: color 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#menu .menu-column .menu-block a:hover {
+  text-decoration: underline;
+}
+
 #menu .menu-column .menu-block:nth-child(1), #menu .menu-column .menu-block:nth-child(2) {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
@@ -1378,6 +1389,11 @@ website: www.ryanko.me
 
 #menu.light-mode #plusone-checkbox:checked {
   background-image: url(../assets/img/checkbox-checked-light.jpg) !important;
+}
+
+#menu.light-mode a {
+  color: #444 !important;
+  text-decoration: none;
 }
 
 #menu.light-mode input, #menu.light-mode #rsvp-submit-btn {

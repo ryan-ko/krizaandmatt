@@ -133,6 +133,16 @@ $menuBreakpoint4: 727px;
 			transition: transform 1.3s $gravityEase, opacity 2s $gravityEase;
 			opacity: 0;
 
+			a {
+				color: $content;
+				text-decoration: none;
+				transition: color 1s $parallaxEase;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
 			&:nth-child(1),
 			&:nth-child(2) {
 				transition-delay: 0.6s;
@@ -259,6 +269,11 @@ $menuBreakpoint4: 727px;
 			&:checked {
 				background-image: url(../assets/img/checkbox-checked-light.jpg) !important;
 			}
+		}
+
+		a {
+			color: $menuContentLight !important;
+			text-decoration: none;
 		}
 
 		input, #rsvp-submit-btn {
