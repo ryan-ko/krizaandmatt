@@ -19,7 +19,6 @@ rko.app = (function(window) {
 		}
 
 		setTimeout(function() {
-			console.log('loaded!');
 			app.$viewContainer.removeClass('loading');
 		}, 100);
 
@@ -27,7 +26,6 @@ rko.app = (function(window) {
 
 		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
 			that.$viewContainer.removeClass('entranceMode');
-			console.log(e);
 			if (e.type === 'transitionend') {
 				that.setupParallaxEffects();
 				passwordView.init(that.modeLabel);

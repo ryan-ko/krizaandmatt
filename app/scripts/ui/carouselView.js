@@ -15,7 +15,6 @@ rko.carouselView = (function(window) {
 	utils = new Utils();
 
 	view.init = function(html, menuHtml) {
-		console.log('view inited');
 		$('#main').html(html);
 		$('#menu').html(menuHtml);
 
@@ -80,8 +79,6 @@ rko.carouselView = (function(window) {
 		$rsvpForm.submit(function(e) {
 			var url = $(this).attr('action'), data;
 
-			console.log($('#firstname').val() === '');
-
 			if ($('#firstname').val() === '') {
 				alert('Please enter your name');
 				return false;
@@ -99,6 +96,12 @@ rko.carouselView = (function(window) {
 
 			if (!utils.isValidateEmail($('#email').val())) {
 				alert('Please enter a valid email');
+				return false;
+			}
+
+			if ($plusOneCheckboxInput.is(':checked') && $('#plusone-name').val() === '') {
+				alert('Please enter your partner\'s name');
+				return false;
 			}
 
 			if ($('#plusone-name').val() !== '') {
@@ -194,9 +197,6 @@ rko.carouselView = (function(window) {
 	};
 
 	view.handleCarouselSlideChangeEnd = function(swiper) {
-		console.log('swiper', swiper.activeIndex);
-		console.log('(swiper.slides.length -1)', (swiper.slides.length -1));
-
 		if (swiper.activeIndex == (swiper.slides.length -1)) {
 			$('#backToTop').addClass('show');
 		} else {
@@ -210,7 +210,6 @@ rko.carouselView = (function(window) {
 		}
 
 		if (view.currentSlideId === 'kriza') {
-			console.log('hit');
 			view.personalGallery.startAutoplay();
 		} else {
 			view.personalGallery.stopAutoplay();
@@ -229,7 +228,6 @@ rko.carouselView = (function(window) {
 
 	view.setupCarousel = function() {
 		var that = this;
-		console.log('created swiper!');
 
 		view.personalGallery = new Swiper('.swiper-container-personalGallery', {
 			direction: 'horizontal',
@@ -311,7 +309,6 @@ rko.carouselView = (function(window) {
 				that.handleCarouselSlideChangeStart(swiper);
 			},
 			onSlideChangeEnd: function(swiper) {
-				console.log('??????', view.swiperGallery);
 				that.handleCarouselSlideChangeEnd(swiper);
 			}
 		});
@@ -363,7 +360,6 @@ rko.carouselView = (function(window) {
 	};
 
 	view.bind = function() {
-		console.log('bind called!');
 		var that = this;
 		this.setupRSVPForm();
 		this.setupCarousel();
@@ -378,7 +374,6 @@ rko.carouselView = (function(window) {
 		});
 
 		$('#menu-btn, #slider-menu-btn').on('click', function() {
-			console.log('hit');
 			if ($('body').hasClass('menuMode')) {
 				$('body').removeClass('menuMode');
 			} else {
