@@ -29,8 +29,8 @@ app.get('/', function(req, res) {
 });
 
 var mailchimpInstance   = 'us14',
-		listUniqueId        = '461eb8bf85',
-		mailchimpApiKey     = '7fd368e90def0dbaa9bdcf6614082cea-us14';
+		listUniqueId        = '9d4a63f4de',
+		mailchimpApiKey     = '005ace6e1eb4e31b4d9cb863dec2d4e5-us14';
 
 app.post('/rsvped', function (req, res) {
 	request
