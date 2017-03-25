@@ -737,7 +737,7 @@ rko.app = function (window) {
 		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function (e) {
 			that.$viewContainer.removeClass('entranceMode');
 			if (e.type === 'transitionend') {
-				that.setupParallaxEffects();
+				// that.setupParallaxEffects();
 				passwordView.init(that.modeLabel);
 			}
 		});
