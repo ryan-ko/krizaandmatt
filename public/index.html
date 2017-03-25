@@ -32,20 +32,267 @@
 				<!-- Lock Panel containing logo and lock icon -->
 				<div class="lock-panel">
 					<img class="lock-icon" src="./assets/img/login/lock-icon.png" />
-					<img class="unlock-icon hidden" src="./assets/img/login/unlock_icon.png" />
 					<img class="logo" src="./assets/img/login/logo.svg" />
-					<span class="password-hint">Type your password.</span>
+					<span class="password-hint">Preparing...</span>
 				</div>
 
 				<!-- Parallax-able BG -->
 				<img id="parallax-auth" class="full-bleed bg" src="./assets/img/login/bg.jpg" />
 			</section>
-			<section id="menu" class="scrollable"></section>
+			<section id="menu" class="scrollable">
+				<section class="menu-column">
+					<section class="menu-block">
+						<span class="menu-subheadine">ABOUT WEDDING</span>
+						<h1>You Are Invited</h1>
+						<p>The event will commence with the ceremonious joining of Kriza and Matthew in holy matrimony, in front of their friends and family. A reception will follow shortly that includes dinner and some celebratory partying.</p>
+						<p>The marriage ceremony will start at 4:30pm. Please arrive and be seated before 4:15pm.</p>
+					</section>
+
+					<section class="menu-block" id="timeAndLocation">
+						<span class="menu-subheadine">TIME &amp; LOCATION</span>
+						<h1>Marriage Ceremony</h1>
+						<p>Friday, June 23, 2017<br>Doors open 4:00pm<br>Ceremony 4:30pm<br>Reception 6:00pm</p>
+						<p>Hycroft Manor<br>1489 McRae Ave<br>Vancouver, BC</p>
+					</section>
+				</section>
+
+				<section class="menu-column">
+					<section class="menu-block">
+						<span class="menu-subheadine">RSVP</span>
+						<h1>Save the Date</h1>
+						<p>I am delighted to accept the invitation to Kriza and Matthew's marriage ceremony on June 23, 2017.</p>
+						<form id="rsvp-form" action="/rsvped" method="POST">
+							<div class="form-group">
+								<label class="form-label" for="firstname">Name</label>
+								<input class="form-input" type="text" placeholder="Name" name="firstname" id="firstname" autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="email">E-mail</label>
+								<input class="form-input" type="text" placeholder="E-mail" name="email" id="email" autocomplete="off" />
+							</div>
+							<div class="form-group" id="plusOne">
+								<input id="plusone-checkbox" type="checkbox" />
+								<label class="form-label" for="plusone">I will bring a partner to this event.</label>
+								<input id="plusone-checkbox-result" type="hidden" name="plusone" value="No"/>
+							</div>
+							<div id="plusone-input" class="form-group hidden">
+								<label class="form-label" for="plusonename">Partner name</label>
+								<input id="plusone-name" placeholder="Partner Name" class="form-input" type="text" name="plusonename" autocomplete="off" />
+							</div>
+							<input type="submit" id="rsvp-submit-btn" value="SEND"/>
+						</form>
+					</section>
+
+					<section class="menu-block" id="qanda">
+						<span class="menu-subheadine">Contact Us</span>
+						<h1>Questions?</h1>
+						<p>If you have any questions, <a href="mailto:krizaandmatt2017@gmail.com?Subject=KrizaAndMatt — Questions">e-mail us.</a></p>
+					</section>
+				</section>
+
+				<button id="slider-menu-btn">
+					<img class="black" src="./assets/img/plus-icon.png" />
+					<img class="white" src="./assets/img/plus-icon-white.png" />
+				</button>
+			</section>
 			<section id="rsvp-thankyou">
 				<span>Thanks for your RSVP</span>
 				<p>Thank you.<br>You will hear from us shortly.</p>
 			</section>
-			<section id="main" class="loading entranceMode"></section>
+			<section id="main" class="loading entranceMode">
+				<button id="menu-btn">
+					<img class="black" src="./assets/img/plus-icon.png" />
+					<img class="white" src="./assets/img/plus-icon-white.png" />
+				</button>
+				<!-- <button id="backToTop">back to top</button> -->
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" id="landing">
+							<div class="content-container">
+								<ul>
+									<li>
+										<img class="km-logo" src="./assets/img/km-logo.svg" />
+										<img class="logo" src="./assets/img/landing-logo.svg" />
+									</li>
+									<li>
+										<span class="landing-labels">Marriage<br>Ceremony</span>
+									</li>
+									<li>
+										<span class="landing-labels">Hycroft<br>Manor</span>
+									</li>
+									<li>
+										<span class="landing-labels">4:30 PM Friday<br>June 23, 2017</span>
+									</li>
+								</ul>
+								<!-- Parallax-able BG -->
+								<img id="parallax-landing" class="full-bleed bg" src="./assets/img/bg.jpg" />
+							</div>
+						</div>
+						<div class="swiper-slide light-mode" id="invitation">
+							<section class="content-container">
+								<h2>Introduction</h2>
+								<h2 class="mobile">6.23.2017</h2>
+								<h1>You are<br>Cordially Invited.</h1>
+								<p>Together with their families, Kriza Borromeo and Matthew Kim would like to request the pleasure of your company at their marriage ceremony.</p>
+								<p>On a seemingly normal grey day in Vancouver, the pair serendipitously met while attending post-secondary school. After almost 10 years together, the couple is excited to take their next step.</p>
+								<p>Please celebrate with Kriza and Matthew as they join their lives forever in holy matrimony.</p>
+								<button class="rsvp-button-external">RSVP</button>
+							</section>
+							<section class="countdown-container">
+								<div class="countdown-container-wrapper">
+									<span class="thedate">
+										<span class="month">06.</span>
+										<span class="day">23.</span>
+										<span class="year">2017</span>
+									</span>
+									<div class="countdown hidden">
+										<span class="days">888</span>
+										<span class="hours">87</span>
+										<span class="mins">88</span>
+										<span class="secs">88</span>
+										<span class="countdown-label">Time Remaining</span>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="swiper-slide no-pagination" id="gallery">
+							<div class="swiper-container-gallery">
+								<div class="swiper-wrapper">
+										<div class="swiper-slide"></div>
+										<div class="swiper-slide"></div>
+										<div class="swiper-slide"></div>
+										<div class="swiper-slide"></div>
+										<div class="swiper-slide"></div>
+										<div class="swiper-slide"></div>
+								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination-gallery"></div>
+								<div class="swiper-button-next"></div>
+								<div class="swiper-button-prev"></div>
+							</div>
+						</div>
+						<div class="swiper-slide light-mode" id="quote">
+							<blockquote>
+								<p>“What greater thing is there for two human souls, than to feel that they are joined for life-to strengthen each other in all labour, to rest on each other in all sorrow, to minister to each other in all pain, to be one with each other in silent unspeakable memories at the moment of the last parting?”</p>
+								<cite>— George Eliot</cite>
+							</blockquote>
+							<!-- Parallax-able BG -->
+							<img id="quote-landing" class="full-bleed bg" src="./assets/img/login/bg.jpg" />
+						</div>
+						<div class="swiper-slide light-mode-mobile" id="kriza">
+							<section class="kriza-gallery-container personal-gallery">
+								<div class="gallery-movingUp-area">
+									<img class="up-icon" src="./assets/img/up-arrow.png" />
+								</div>
+								<div class="gallery-movingDown-area">
+									<img class="down-icon" src="./assets/img/down-arrow.png" />
+								</div>
+								<ul class="gallery-scroller">
+									<li><img src="./assets/img/kriza/kriza_vertical_1.jpg" /></li>
+									<li><img src="./assets/img/kriza/kriza_vertical_2.jpg" /></li>
+									<li><img src="./assets/img/kriza/kriza_vertical_3.jpg" /></li>
+									<li><img src="./assets/img/kriza/kriza_vertical_4.jpg" /></li>
+									<li><img src="./assets/img/kriza/kriza_vertical_5.jpg" /></li>
+								</ul>
+							</section>
+							<section class="swiper-container-personalGallery swiper-no-swiping kriza-mobile-gallery">
+								<div class="swiper-wrapper">
+										<div class="swiper-slide"><img src="./assets/img/kriza/kriza_vertical_1.jpg" /></div>
+										<div class="swiper-slide"><img src="./assets/img/kriza/kriza_vertical_2.jpg" /></div>
+										<div class="swiper-slide"><img src="./assets/img/kriza/kriza_vertical_3.jpg" /></div>
+										<div class="swiper-slide"><img src="./assets/img/kriza/kriza_vertical_4.jpg" /></div>
+										<div class="swiper-slide"><img src="./assets/img/kriza/kriza_vertical_5.jpg" /></div>
+								</div>
+							</section>
+							<section class="gallery-intro">
+								<div class="gallery-intro-rows">
+									<span>BRIDE</span>
+									<p>Kriza Gretl F. Borromeo</p>
+								</div>
+								<div class="gallery-intro-rows">
+									<span>PARENTS OF THE BRIDE</span>
+									<p>Carlos B. Borromeo</p>
+									<p>Luzviminda F. Borromeo</p>
+								</div>
+								<div class="gallery-intro-rows">
+									<span>MAID OF HONOUR</span>
+									<p>Jamille Borromeo</p>
+								</div>
+								<div class="gallery-intro-rows">
+									<span>BRIDESQUAD</span>
+									<p>Carmen Bright</p>
+									<p>Jacob Kownacki</p>
+								</div>
+							</section>
+						</div>
+						<div class="swiper-slide light-mode-mobile" id="matt">
+							<section class="matt-gallery-container personal-gallery">
+								<div class="gallery-movingUp-area">
+									<img class="up-icon" src="./assets/img/up-arrow.png" />
+								</div>
+								<div class="gallery-movingDown-area">
+									<img class="down-icon" src="./assets/img/down-arrow.png" />
+								</div>
+								<ul class="gallery-scroller">
+									<li><img src="./assets/img/kim/matt_vertical_1.jpg" /></li>
+									<li><img src="./assets/img/kim/matt_vertical_2.jpg" /></li>
+									<li><img src="./assets/img/kim/matt_vertical_3.jpg" /></li>
+									<li><img src="./assets/img/kim/matt_vertical_4.jpg" /></li>
+									<li><img src="./assets/img/kim/matt_vertical_5.jpg" /></li>
+								</ul>
+							</section>
+							<section class="swiper-container-personalGallery2 swiper-no-swiping matt-mobile-gallery">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="./assets/img/kim/matt_vertical_1.jpg" /></div>
+									<div class="swiper-slide"><img src="./assets/img/kim/matt_vertical_2.jpg" /></div>
+									<div class="swiper-slide"><img src="./assets/img/kim/matt_vertical_3.jpg" /></div>
+									<div class="swiper-slide"><img src="./assets/img/kim/matt_vertical_4.jpg" /></div>
+									<div class="swiper-slide"><img src="./assets/img/kim/matt_vertical_5.jpg" /></div>
+								</div>
+							</section>
+							<section class="gallery-intro">
+								<div class="gallery-intro-rows">
+									<span>BRIDEGROOM</span>
+									<p>Matthew T. Kim</p>
+								</div>
+								<div class="gallery-intro-rows">
+									<span>PARENTS OF BRIDEGROOM</span>
+									<p>JeeMan Kim</p>
+									<p>SooYoung Koh</p>
+								</div>
+								<div class="gallery-intro-rows">
+									<span>BEST MAN</span>
+									<p>David D. Suh</p>
+								</div>
+								<div class="gallery-intro-rows">
+									<span>GROOMSMEN</span>
+									<p>Jace J. Kim</p>
+									<p>HanSol Kim</p>
+								</div>
+							</section>
+						</div>
+						<div class="swiper-slide light-mode dark-mode-mobile" id="location">
+							<section class="where-content">
+								<div class="where-content-wrapper">
+									<span class="label">Where to go</span>
+									<p>Hycroft Manor<br>(University Women's Club of Vancouver)</p>
+									<span>1489 McRae Ave Vancouver, BC V6H 1V1</span>
+									<span>uwcvancouver.co<br>+1 604 731 4661</span>
+									<a href="https://www.google.com.tw/maps/place/University+Women's+Club+of+Vancouver/@49.2570745,-123.1390051,17z/data=!3m1!4b1!4m5!3m4!1s0x548673be5a9d6315:0x148d106cc5a7b5f1!8m2!3d49.257071!4d-123.1368164?hl=en" target="_blank">View Map</a>
+								</div>
+							</section>
+							<img class="location-shot" src="./assets/img/where/hycroftManor.png" />
+							<img id="location-landing" class="full-bleed bg" src="./assets/img/login/bg.jpg" />
+						</div>
+						<div class="swiper-slide" id="seeyou">
+							<span>See you soon.</span>
+							<img id="seeyou-landing" class="full-bleed bg" src="./assets/img/bg.jpg" />
+						</div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</section>
 		</main>
 		<script src="scripts/vendors.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>

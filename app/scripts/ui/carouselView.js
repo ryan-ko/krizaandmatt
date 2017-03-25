@@ -14,9 +14,7 @@ rko.carouselView = (function(window) {
 	},
 	utils = new Utils();
 
-	view.init = function(html, menuHtml) {
-		$('#main').html(html);
-		$('#menu').html(menuHtml);
+	view.init = function() {
 
 		$('body').removeClass().addClass('carouselMode');
 

@@ -96,12 +96,6 @@ website: www.ryanko.me
 			outline: none;
 		}
 	}
-	.bg {
-		@include parallax-bg-setup(1000px, -20px, 0.8s);
-		.passwordMode & {
-			transform: perspective(1000px) scale3d(1.1, 1.1, 1.1) translate3d(0,0, -240px) !important;
-		}
-	}
 	.lock-panel {
 		position: absolute;
 		width: 210px;

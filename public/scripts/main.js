@@ -194,9 +194,7 @@ rko.carouselView = function (window) {
 	},
 	    utils = new Utils();
 
-	view.init = function (html, menuHtml) {
-		$('#main').html(html);
-		$('#menu').html(menuHtml);
+	view.init = function () {
 
 		$('body').removeClass().addClass('carouselMode');
 
@@ -604,110 +602,6 @@ rko.carouselView = function (window) {
 
 	return view;
 }(window);
-rko.passwordView = function (window) {
-
-	var view = {
-		previousModeLabel: undefined,
-		modeLabel: 'passwordMode',
-		bindables: {
-			$passwordInput: $('#password-input'),
-			$passwordForm: $('#password-form'),
-			$doc: $(document)
-		},
-		$body: $('body'),
-		$passwordErrorMsg: $('#login-error-msg'),
-		helloMessages: ['Hello!', '안녕하세요!'],
-		submitInProgress: false
-	},
-	    utils = new Utils(),
-	    carouselView = rko.carouselView;
-
-	view.bind = function () {
-		var that = this,
-		    pressedKey;
-
-		that.bindables.$passwordInput.keydown(function (e) {
-			that.hidePasswordErrorMessage();
-		});
-
-		that.bindables.$doc.keydown(function (e) {
-			pressedKey = e.keyCode;
-			if (that.$body.hasClass(that.previousModeLabel) && utils.isCharacterKeyPress(e) && pressedKey !== utils.keysmap.escape) {
-				that.$body.removeClass().addClass(that.modeLabel);
-				that.bindables.$passwordInput.focus();
-			}
-
-			if (that.$body.hasClass(that.modeLabel)) {
-				if (pressedKey === utils.keysmap.escape) {
-					that.$body.removeClass().addClass(that.previousModeLabel);
-					that.bindables.$passwordInput.val('');
-				}
-			}
-		});
-
-		if (utils.isTouchDevice()) {
-			that.bindables.$doc.on('click', function () {
-				if (that.$body.hasClass(that.previousModeLabel)) {
-					that.$body.removeClass().addClass(that.modeLabel);
-					that.bindables.$passwordInput.focus();
-				}
-			});
-		}
-
-		that.bindables.$passwordForm.submit(function (e) {
-			var url = $(this).attr('action'),
-			    data;
-
-			if (!view.submitInProgress) {
-				view.submitInProgress = true;
-
-				$.ajax({
-					type: 'POST',
-					url: url,
-					data: $(this).serialize(),
-					success: function success(data) {
-						data = $.parseJSON(data);
-						if (data.result === 'success') {
-							$('.password-hint').html(view.helloMessages[Math.floor(Math.random() * view.helloMessages.length)]);
-							$('.unlock-icon').removeClass('hidden');
-							$('.lock-icon').addClass('hidden');
-							carouselView.init(data.html, data.menuHtml);
-							document.activeElement.blur();
-						} else {
-							that.showPasswordErrorMessage();
-							view.submitInProgress = false;
-						}
-					}
-				});
-			}
-
-			e.preventDefault();
-		});
-	};
-
-	view.unbind = function () {
-		var bindables = this.bindables;
-		for (var key in bindables) {
-			if (bindables.hasOwnProperty(key)) {
-				bindables[key].off();
-			}
-		}
-	};
-
-	view.showPasswordErrorMessage = function () {
-		this.$passwordErrorMsg.addClass('show');
-	};
-	view.hidePasswordErrorMessage = function () {
-		this.$passwordErrorMsg.removeClass('show');
-	};
-	view.init = function (previousModeLabel) {
-		this.previousModeLabel = previousModeLabel;
-		this.bind();
-	};
-
-	return view;
-}(window);
-
 rko.app = function (window) {
 
 	var app = {
@@ -716,46 +610,25 @@ rko.app = function (window) {
 		$lockIcon: $('.lock-icon'),
 		$logo: $('.logo'),
 		$background: $('#parallax-auth'),
-		$viewContainer: $('#lock')
+		$viewContainer: $('#lock'),
+		helloMessages: ['Hello!', '안녕하세요!']
 	},
-	    passwordView = rko.passwordView,
+	    carouselView = rko.carouselView,
 	    utils = new Utils();
 
 	app.init = function () {
 		utils.disableDefaultTouch();
 
-		if (utils.isTouchDevice()) {
-			$('.password-hint').html('Tap to type your password.');
-		}
-
 		setTimeout(function () {
 			app.$viewContainer.removeClass('loading');
 		}, 100);
 
+		setTimeout(function () {
+			$('.password-hint').html(app.helloMessages[Math.floor(Math.random() * app.helloMessages.length)]);
+			carouselView.init();
+		}, 4000);
+
 		var that = this;
-
-		$('.logo').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function (e) {
-			that.$viewContainer.removeClass('entranceMode');
-			if (e.type === 'transitionend') {
-				// that.setupParallaxEffects();
-				passwordView.init(that.modeLabel);
-			}
-		});
-	};
-
-	app.setupParallaxEffects = function () {
-		var parallaxFactory = new ParallaxFactory(5),
-		    movementMatrix,
-		    that = this;
-
-		this.$viewContainer.mousemove(function (e) {
-			movementMatrix = parallaxFactory.getMatrix(this, e);
-			that.$lockIcon.css('transform', 'perspective(40px) translate3d(' + -movementMatrix.X / 4 + 'px, ' + -movementMatrix.Y / 4 + 'px, 0) rotateX(' + movementMatrix.degX + ') rotateY(' + movementMatrix.degY + ')');
-			that.$logo.css('transform', 'perspective(500px) translate3d(' + -movementMatrix.X / 8 + 'px, ' + -movementMatrix.Y / 8 + 'px, 0) rotateX(' + movementMatrix.degX + ') rotateY(' + movementMatrix.degY + ')');
-			that.$background.css('transform', 'perspective(1000px) translate3d(' + movementMatrix.X / 2 + 'px, ' + movementMatrix.Y / 2 + 'px, -20px)');
-		});
-
-		// http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source
 	};
 
 	return app;
