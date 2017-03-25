@@ -1158,7 +1158,7 @@ website: www.ryanko.me
 }
 
 #menu .menu-column .menu-block.disabled span, #menu .menu-column .menu-block.disabled h1, #menu .menu-column .menu-block.disabled p {
-  opacity: 0.10;
+  opacity: 0.2;
 }
 
 #menu .menu-column .menu-block .rsvpMask {
@@ -1239,7 +1239,7 @@ website: www.ryanko.me
 }
 
 #menu .menu-block form.disabled {
-  opacity: 0.10;
+  opacity: 0.2;
 }
 
 #menu .menu-block form label {
