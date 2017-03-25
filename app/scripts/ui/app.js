@@ -22,6 +22,7 @@ rko.app = (function(window) {
 		setTimeout(function() {
 			$('.password-hint').html(app.helloMessages[Math.floor(Math.random() * app.helloMessages.length)]);
 			carouselView.init();
+			document.activeElement.blur();
 		}, 4000);
 
 		var that = this;
