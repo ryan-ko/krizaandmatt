@@ -1218,7 +1218,7 @@ website: www.ryanko.me
 }
 
 #menu .menu-block form.disabled {
-  opacity: 0.6;
+  opacity: 0.35;
 }
 
 #menu .menu-block form label {
@@ -1336,11 +1336,17 @@ website: www.ryanko.me
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   box-sizing: border-box;
   margin-top: 29px;
+  cursor: not-allowed;
 }
 
 #menu .menu-block form #rsvp-submit-btn:hover {
   background: #fff;
   color: #d79074;
+}
+
+#menu .menu-block form #rsvp-submit-btn:hover {
+  background: transparent;
+  color: #fff;
 }
 
 #menu .menu-block#timeAndLocation {
@@ -1398,11 +1404,6 @@ website: www.ryanko.me
 
 #menu.light-mode #rsvp-submit-btn {
   border: 1px solid #444 !important;
-}
-
-#menu.light-mode #rsvp-submit-btn:hover {
-  background: #444 !important;
-  color: #f2f2f2 !important;
 }
 
 #menu.light-mode .menu-column:first-child {

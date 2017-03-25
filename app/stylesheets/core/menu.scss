@@ -176,7 +176,7 @@ $menuBreakpoint4: 727px;
 			padding-top: 4px;
 
 			&.disabled {
-				opacity: 0.6;
+				opacity: 0.35;
 			}
 
 			label {
@@ -245,6 +245,12 @@ $menuBreakpoint4: 727px;
 			#rsvp-submit-btn {
 				@include bordered-button();
 				margin-top: 29px;
+				cursor: not-allowed;
+
+				&:hover {
+					background: transparent;
+					color: $content;
+				}
 			}
 		}
 		&#timeAndLocation {
@@ -287,10 +293,6 @@ $menuBreakpoint4: 727px;
 		}
 		#rsvp-submit-btn {
 			border: 1px solid $menuContentLight !important;
-			&:hover {
-				background: $menuContentLight !important;
-				color: $menuBgLight !important;
-			}
 		}
 		.menu-column {
 			&:first-child {

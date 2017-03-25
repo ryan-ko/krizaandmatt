@@ -14,21 +14,6 @@
 	<body class="introMode">
 		<main>
 			<section id="lock" class="loading entranceMode">
-				<!-- -->
-				<div class="password-panel">
-					<form id="password-form" action="/login" method="POST">
-						<div class="form-group">
-							<label class="form-label" for="password">enter password</label>
-							<input class="form-input" type="text" autocomplete="off" name="password" id="password-input"/>
-						</div>
-						<!-- <input type="submit" class="hidden" value="Submit"/> -->
-					</form>
-					<div id="login-error-msg">
-						<span>incorrect</span>
-						<p>Please enter the correct password provided in your e-mail.</p>
-					</div>
-				</div>
-
 				<!-- Lock Panel containing logo and lock icon -->
 				<div class="lock-panel">
 					<img class="lock-icon" src="./assets/img/login/lock-icon.png" />
@@ -61,25 +46,25 @@
 						<span class="menu-subheadine">RSVP</span>
 						<h1>Save the Date</h1>
 						<p>I am delighted to accept the invitation to Kriza and Matthew's marriage ceremony on June 23, 2017.</p>
-						<form id="rsvp-form" action="/rsvped" method="POST">
+						<form id="rsvp-form" class="disabled" action="/rsvped" method="POST">
 							<div class="form-group">
 								<label class="form-label" for="firstname">Name</label>
-								<input class="form-input" type="text" placeholder="Name" name="firstname" id="firstname" autocomplete="off" />
+								<input class="form-input" type="text" disabled="true" placeholder="Name" name="firstname" id="firstname" autocomplete="off" />
 							</div>
 							<div class="form-group">
 								<label class="form-label" for="email">E-mail</label>
-								<input class="form-input" type="text" placeholder="E-mail" name="email" id="email" autocomplete="off" />
+								<input class="form-input" type="text" disabled="true" placeholder="E-mail" name="email" id="email" autocomplete="off" />
 							</div>
 							<div class="form-group" id="plusOne">
-								<input id="plusone-checkbox" type="checkbox" />
+								<input id="plusone-checkbox" disabled="true" type="checkbox" />
 								<label class="form-label" for="plusone">I will bring a partner to this event.</label>
-								<input id="plusone-checkbox-result" type="hidden" name="plusone" value="No"/>
+								<input id="plusone-checkbox-result" disabled="true" type="hidden" name="plusone" value="No"/>
 							</div>
 							<div id="plusone-input" class="form-group hidden">
-								<label class="form-label" for="plusonename">Partner name</label>
+								<label class="form-label" disabled="true" for="plusonename">Partner name</label>
 								<input id="plusone-name" placeholder="Partner Name" class="form-input" type="text" name="plusonename" autocomplete="off" />
 							</div>
-							<input type="submit" id="rsvp-submit-btn" value="SEND"/>
+							<input type="submit" disabled="true" id="rsvp-submit-btn" value="SEND"/>
 						</form>
 					</section>
 
