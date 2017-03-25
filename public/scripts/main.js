@@ -238,82 +238,6 @@ rko.carouselView = function (window) {
 		});
 	};
 
-	view.setupRSVPForm = function () {
-		var $plusOneCheckbox = $('#plusone-checkbox-result'),
-		    $plusOneInput = $('#plusone-input'),
-		    $rsvpForm = $('#rsvp-form'),
-		    $plusOneCheckboxInput = $('#plusone-checkbox');
-
-		$plusOneCheckboxInput.on('click', function (e) {
-			if ($(e.target).is(':checked')) {
-				$plusOneCheckbox.val('Yes');
-				$plusOneInput.removeClass('hidden');
-			} else {
-				$plusOneCheckbox.val('No');
-				$plusOneInput.addClass('hidden');
-			}
-		});
-
-		$rsvpForm.submit(function (e) {
-			var url = $(this).attr('action'),
-			    data;
-
-			if ($('#firstname').val() === '') {
-				alert('Please enter your name');
-				return false;
-			}
-
-			if (!utils.isValidateFirstAndLastName($('#firstname').val())) {
-				alert('Please enter both first and last name (Separating with a space)');
-				return false;
-			}
-
-			if ($('#email').val() === '') {
-				alert('Please enter your email');
-				return false;
-			}
-
-			if (!utils.isValidateEmail($('#email').val())) {
-				alert('Please enter a valid email');
-				return false;
-			}
-
-			if ($plusOneCheckboxInput.is(':checked') && $('#plusone-name').val() === '') {
-				alert('Please enter your partner\'s name');
-				return false;
-			}
-
-			if ($('#plusone-name').val() !== '') {
-				if (!utils.isValidateFirstAndLastName($('#plusone-name').val())) {
-					alert('Please enter both first and last name for your partner (Separating with a space)');
-					return false;
-				}
-			}
-
-			$.ajax({
-				type: 'POST',
-				url: url,
-				data: $(this).serialize(),
-				success: function success(data) {
-					data = $.parseJSON(data);
-					if (data.result === 'success') {
-						$('#rsvp-thankyou').addClass('show');
-						setTimeout(function () {
-							$('#rsvp-thankyou').removeClass('show');
-						}, 5000);
-						$('#rsvp-submit-btn').hide();
-						$('#rsvp-form input').prop('disabled', true);
-						$('#rsvp-form').addClass('disabled');
-						$('.rsvp-button-external').hide();
-					} else if (data.result === 'rsvp_existed') {
-						alert('You have already RSVPed with the email: ' + $('#email').val() + '. Thank you and see you soon! \n - Kriza & Matt');
-					}
-				}
-			});
-			e.preventDefault();
-		});
-	};
-
 	view.unbindRSVPForm = function () {
 		this.bindables.$plusOneCheckbox.off();
 		this.bindables.$rsvpForm.off();
@@ -540,7 +464,6 @@ rko.carouselView = function (window) {
 
 	view.bind = function () {
 		var that = this;
-		// this.setupRSVPForm();
 		this.setupCarousel();
 
 		if (!utils.isTouchDevice()) {
