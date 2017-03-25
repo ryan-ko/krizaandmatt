@@ -132,6 +132,27 @@ $menuBreakpoint4: 727px;
 			transform: translate3d(-144px, 0, 0);
 			transition: transform 1.3s $gravityEase, opacity 2s $gravityEase;
 			opacity: 0;
+			position: relative;
+
+			&.disabled {
+				span, h1, p {
+					opacity: 0.10;
+				}
+			}
+
+			.rsvpMask {
+				opacity: 1;
+				background: transparent;
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				transform: translate3d(0, -50%, 0);
+				left: 0;
+				height: auto;
+				span, h1, p {
+					opacity: 1;
+				}
+			}
 
 			a {
 				color: $content;
@@ -176,7 +197,7 @@ $menuBreakpoint4: 727px;
 			padding-top: 4px;
 
 			&.disabled {
-				opacity: 0.35;
+				opacity: 0.10;
 			}
 
 			label {
