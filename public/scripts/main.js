@@ -540,7 +540,7 @@ rko.carouselView = function (window) {
 
 	view.bind = function () {
 		var that = this;
-		this.setupRSVPForm();
+		// this.setupRSVPForm();
 		this.setupCarousel();
 
 		if (!utils.isTouchDevice()) {
