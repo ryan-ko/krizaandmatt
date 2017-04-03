@@ -1,4 +1,4 @@
-http://krizaandmatt.com/
+http://www.krizaandmatt.com/
 
 ## Installation
 
